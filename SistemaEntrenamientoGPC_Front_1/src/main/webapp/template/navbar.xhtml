@@ -1,0 +1,114 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<nav class="navbar navbar-expand bg-body-tertiary temuheader">
+		<div style="padding-left: 10%; padding-right: 10%;"
+			class="container-fluid">
+
+			<h:link outcome="principal.xhtml" styleClass="navbar-brand">
+				<h:graphicImage
+					value="https://biblioteca-artemisa.netlify.app/assets/images/logos/propuestas%20logo%201%20artemisa-02.png"
+					width="200" height="75" style="border-radius: 20%;" alt="Logo" />
+			</h:link>
+
+			
+			<ul class="navbar-nav">
+				<h:panelGroup class="navbar-el">
+					<li><a href="temario.xhtml" class="btn btn-primary"
+						role="button"><h:link outcome="temario.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/list.svg" width="40"
+									height="40" style="border-radius:20%;" />
+							</h:link>
+							Temario
+					</a></li>
+				</h:panelGroup>
+				<h:panelGroup class="navbar-el">
+					<li><a href="problemas.xhtml" class="btn btn-primary"
+						role="button"><h:link outcome="problemas.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/bomb.svg" width="40"
+									height="40" style="border-radius:20%; " />
+							</h:link>
+							Problemas
+					</a></li>
+				</h:panelGroup>
+				<h:panelGroup class="navbar-el">
+					<li><a href="libros.xhtml" class="btn btn-primary"
+						role="button"><h:link outcome="libros.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/book.svg" width="40"
+									height="40" style="border-radius:20%;" />
+							</h:link>
+							Libros
+					</a></li>
+				</h:panelGroup>
+				<h:panelGroup class="navbar-el">
+					<li><a href="links.xhtml" class="btn btn-primary"
+						role="button"><h:link outcome="links.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/arrow-up-right-from-square.svg" width="40"
+									height="40" style="border-radius:20%;" />
+							</h:link>
+							Links valiosos
+					</a></li>
+				</h:panelGroup>
+				<h:panelGroup class="navbar-el">
+					<li><a href="eventos.xhtml" class="btn btn-primary"
+						role="button"><h:link outcome="eventos.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/calendar-days.svg" width="40"
+									height="40" style="border-radius:20%;" />
+							</h:link>
+							Eventos
+					</a></li>
+				</h:panelGroup>
+				<h:panelGroup class="navbar-el">
+					<li><a href="temario.xhtml"><h:link outcome="temario.xhtml"
+								styleClass="navbar-brand">
+								<h:graphicImage value="css/fa6p/svgs/solid/ellipsis.svg" width="40"
+									height="40" style="border-radius:20%;" />
+							</h:link>
+					</a></li>
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
+					<li><h:link outcome="principal.xhtml"
+							styleClass="navbar-brand">
+							<h:graphicImage value="css/fa6p/svgs/solid/circle-user.svg"
+								width="40" height="40" style="border-radius:20%;" />
+						</h:link></li>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
+					<li><h:link outcome="principal.xhtml"
+							styleClass="navbar-brand">
+							<h:graphicImage
+								value="css/fa6p/svgs/solid/arrow-left-from-line.svg" width="40"
+								height="40" style="border-radius:20%;" />
+						</h:link></li>
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
+					<li><a href="admin.xhtml" class="btn btn-primary"
+						role="button">Administrar Productos</a></li>
+				</h:panelGroup>
+
+
+				<h:panelGroup rendered="#{!templatebean.sesionIniciada}">
+					<li class="nav-item"><h:link outcome="registrar.xhtml"
+							value="Registrarse" styleClass="nav-link" style="color: white;" />
+					</li>
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{!templatebean.sesionIniciada}">
+					<li class="nav-item"><h:link outcome="index.xhtml"
+							value="Iniciar Sesión" styleClass="nav-link"
+							style="color: white;" /></li>
+				</h:panelGroup>
+			</ul>
+		</div>
+	</nav>
+</ui:composition>
