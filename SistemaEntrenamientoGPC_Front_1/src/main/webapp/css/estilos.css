@@ -71,6 +71,8 @@
 	--bs-btn-disabled-border-color: var(--main-gray-color);
 }
 
+
+
 .ui-button.btn-primary {
 	background-color: var(--main-gray-color);
 	border-color: var(--main-gray-color);
@@ -118,4 +120,9 @@ body .ui-button.ui-state-hover {
 
 .navbar-el{
 	margin: 10px;
+}
+
+.btnCompeLinks{
+	border-radius:0%;
+	width: 200px;
 }
