@@ -3,24 +3,22 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 import java.util.Objects;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Usuario;
-import jakarta.persistence.Entity;
 
-@Entity
 
-public class ProfesorDTO extends Usuario{
+public class ProfesorDTO  extends Usuario{
 	
-	/** 
-	 * Atributo cargo de la clase Profesor
+	/**
+	 * Atributo cargo de la clase ProfesorDTO
 	 */
 	private String cargo;
 	/**
-	 * Atributo que indica si el ProfesorDTOes Entrenador o no
+	 * Atributo que indica si el profesor es Entrenador o no
 	 */
 	private boolean esEntrenador;
 	
 	
 	/**
-	 * Constructor vacio de la clase Profesor
+	 * Constructor vacio de la clase ProfesorDTO
 	 */
 	public ProfesorDTO() {
 		// TODO Auto-generated constructor stub
@@ -28,7 +26,7 @@ public class ProfesorDTO extends Usuario{
 
 
 	/**
-	 * Constructor con parametros (atributos) de la clase Profesor, excepto el id
+	 * Constructor con parametros (atributos) de la clase ProfesorDTO, excepto el id
 	 * @param cargo
 	 * @param esEntrenador
 	 */
@@ -40,7 +38,7 @@ public class ProfesorDTO extends Usuario{
 
 
 	/**
-	 * Constructor con parametros (atributos) de la clase Profesor, incluyendo los atributos heredados de Usuario
+	 * Constructor con parametros (atributos) de la clase ProfesorDTO, incluyendo los atributos heredados de Usuario
 	 * @param nombre
 	 * @param correo
 	 * @param edad
@@ -69,6 +67,10 @@ public class ProfesorDTO extends Usuario{
 	}
 
 
+	/**
+	 * Metodo hashCode de la clase ProfesorDTO
+	 * @return int con el codigo hash del usuario
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,11 +83,9 @@ public class ProfesorDTO extends Usuario{
 
 
 	/**
-	 * Metodo equals de la clase Profesor
+	 * Metodo equals de la clase ProfesorDTO
 	 */
-	
 	@Override
-	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -96,7 +96,6 @@ public class ProfesorDTO extends Usuario{
 		ProfesorDTO other = (ProfesorDTO) obj;
 		return Objects.equals(cargo, other.cargo) && esEntrenador == other.esEntrenador;
 	}
-	
 
 
 	/**
@@ -106,9 +105,6 @@ public class ProfesorDTO extends Usuario{
 	public String getCargo() {
 		return cargo;
 	}
-
-
-	
 
 
 	/**
@@ -138,17 +134,15 @@ public class ProfesorDTO extends Usuario{
 	}
 
 
-	
-
-
 	/**
 	 * Metodo toString de la clase Profesor
 	 * @return String con la informacion del profesor
 	 */
 	@Override
 	public String toString() {
-		return "ProfesorDTO [cargo=" + cargo + ", esEntrenador=" + esEntrenador + "]";
+		return "Profesor [cargo=" + cargo + ", esEntrenador=" + esEntrenador + "]";
 	}
+	
 	
 	
 
