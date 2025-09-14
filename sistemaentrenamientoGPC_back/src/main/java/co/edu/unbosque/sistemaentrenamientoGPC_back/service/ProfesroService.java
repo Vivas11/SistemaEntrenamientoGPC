@@ -2,12 +2,15 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.service;
 
 import java.util.List;
 
-import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
 
 public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 	
-	
+	@Autowired
+	private ModelMapper modelMapper;
 	public ProfesroService() {
 		// TODO Auto-generated constructor stub
 	}

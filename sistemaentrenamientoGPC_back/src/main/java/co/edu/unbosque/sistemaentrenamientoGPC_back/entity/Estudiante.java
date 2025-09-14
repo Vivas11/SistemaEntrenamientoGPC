@@ -46,11 +46,12 @@ public class Estudiante extends Usuario {
 	 * @param nivelCompe
 	 * @param semestre
 	 */
-	public Estudiante(String nombre, String correo, int edad, String nivelCompe, int semestre) {
-		super(nombre, correo, edad);
+	public Estudiante(String nombre, String correo, int edad, String contrasena, String nivelCompe, int semestre) {
+		super(nombre, correo, edad, contrasena);
 		this.nivelCompe = nivelCompe;
 		this.semestre = semestre;
 	}
+	
 
 	/**
 	 * Constructor con parametros (atributos) heredados de Usuario
@@ -58,10 +59,11 @@ public class Estudiante extends Usuario {
 	 * @param correo
 	 * @param edad
 	 */
-	public Estudiante(String nombre, String correo, int edad) {
-		super(nombre, correo, edad);
+	public Estudiante(String nombre, String correo, int edad, String contrasena) {
+		super(nombre, correo, edad, contrasena);
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	/**
 	 * Metodo hashCode de la clase Estudiante 
@@ -74,6 +76,7 @@ public class Estudiante extends Usuario {
 		result = prime * result + Objects.hash(nivelCompe, semestre);
 		return result;
 	}
+
 
 	/**
 	 * Metodo equals de la clase Estudiante
