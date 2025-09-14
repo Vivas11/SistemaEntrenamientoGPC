@@ -3,7 +3,6 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.entity;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
 @Entity
 
