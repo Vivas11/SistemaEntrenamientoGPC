@@ -10,11 +10,14 @@ public class Admin extends Usuario{
 	
 	public Admin() {
 	}
-	
-	
-	public Admin(String nombre, String correo, int edad) {
-		super(nombre, correo, edad);
+
+	public Admin(String nombre, String correo, int edad, String contrasena) {
+		super(nombre, correo, edad, contrasena);
+		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 
 	
 

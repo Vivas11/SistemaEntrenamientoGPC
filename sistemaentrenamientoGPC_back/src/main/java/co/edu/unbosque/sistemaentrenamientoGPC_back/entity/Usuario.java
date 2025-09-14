@@ -35,6 +35,11 @@ public abstract class Usuario {
 	 */
 	private int edad;
 	
+	/**
+	 * Atributo contrasena de la clase  Usuario
+	 */
+	private String contrasena;
+	
 	/*
 	 * Constructor vacio de la clase Usuario
 	 */
@@ -44,13 +49,14 @@ public abstract class Usuario {
 	/*
 	 * Constructor con parametros (atributos) de la clase Usuario, excepto el id
 	 */
-	public Usuario(String nombre, String correo, int edad) {
+	
+	public Usuario(String nombre, String correo, int edad, String contrasena) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
 		this.edad = edad;
+		this.contrasena = contrasena;
 	}
-	 
 	
 	/**
 	 * Getter del atributo id
@@ -59,6 +65,10 @@ public abstract class Usuario {
 	public Long getId() {
 		return id;
 	}
+
+	
+
+
 
 	/**
 	 * Setter del atributo id
@@ -115,6 +125,19 @@ public abstract class Usuario {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
+	
+	
+
+
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
 
 	/**
 	 * Metodo toString de la clase Usuario
@@ -125,19 +148,25 @@ public abstract class Usuario {
 		return "Usuario [nombre=" + nombre + ", correo=" + correo + ", edad=" + edad + "]";
 	}
 
+	
+	
+
 	/**
 	 * Metodo hashCode de la clase Usuario
 	 * @return int con el codigo hash del usuario
 	 */
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(correo, edad, id, nombre);
+		return Objects.hash(contrasena, correo, edad, id, nombre);
 	}
-
+	
+	
 	/**
 	 * Metodo equals de la clase Usuario
 	 * @param obj
 	 */
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -147,8 +176,10 @@ public abstract class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return Objects.equals(correo, other.correo) && edad == other.edad && Objects.equals(id, other.id)
-				&& Objects.equals(nombre, other.nombre);
+		return Objects.equals(contrasena, other.contrasena) && Objects.equals(correo, other.correo)
+				&& edad == other.edad && Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
-
+	
+	
+	
 }

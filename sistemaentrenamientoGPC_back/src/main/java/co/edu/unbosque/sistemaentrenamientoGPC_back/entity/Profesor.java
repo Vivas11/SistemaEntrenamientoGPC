@@ -46,11 +46,13 @@ public class Profesor  extends Usuario{
 	 * @param cargo
 	 * @param esEntrenador
 	 */
-	public Profesor(String nombre, String correo, int edad, String cargo, boolean esEntrenador) {
-		super(nombre, correo, edad);
+	
+	public Profesor(String nombre, String correo, int edad, String contrasena, String cargo, boolean esEntrenador) {
+		super(nombre, correo, edad, contrasena);
 		this.cargo = cargo;
 		this.esEntrenador = esEntrenador;
 	}
+	
 
 
 	/**
@@ -59,8 +61,9 @@ public class Profesor  extends Usuario{
 	 * @param correo
 	 * @param edad
 	 */
-	public Profesor(String nombre, String correo, int edad) {
-		super(nombre, correo, edad);
+	
+	public Profesor(String nombre, String correo, int edad, String contrasena) {
+		super(nombre, correo, edad, contrasena);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -76,6 +79,8 @@ public class Profesor  extends Usuario{
 		result = prime * result + Objects.hash(cargo, esEntrenador);
 		return result;
 	}
+
+
 
 
 	/**
