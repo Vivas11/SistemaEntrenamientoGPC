@@ -45,6 +45,7 @@ public class ProfesorDTO  extends Usuario{
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 * @param cargo
 	 * @param esEntrenador
 	 */
@@ -62,6 +63,7 @@ public class ProfesorDTO  extends Usuario{
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 */
 	
 	public ProfesorDTO(String nombre, String correo, int edad, String contrasena) {

@@ -45,6 +45,7 @@ public class Profesor  extends Usuario{
 	 * Constructor con parametros (atributos) de la clase Profesor, incluyendo los atributos heredados de Usuario
 	 * @param nombre
 	 * @param correo
+	 * @param contrasena
 	 * @param edad
 	 * @param cargo
 	 * @param esEntrenador
@@ -63,6 +64,7 @@ public class Profesor  extends Usuario{
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 */
 	
 	public Profesor(String nombre, String correo, int edad, String contrasena) {

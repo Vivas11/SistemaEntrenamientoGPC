@@ -45,6 +45,7 @@ public class EstudianteDTO extends Usuario {
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 * @param nivelCompe
 	 * @param semestre
 	 */
@@ -60,6 +61,7 @@ public class EstudianteDTO extends Usuario {
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 */
 	public EstudianteDTO(String nombre, String correo, int edad, String contrasena) {
 		super(nombre, correo, edad, contrasena);

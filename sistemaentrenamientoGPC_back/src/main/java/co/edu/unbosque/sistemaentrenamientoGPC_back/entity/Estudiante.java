@@ -5,8 +5,8 @@ import java.util.Objects;
 import jakarta.persistence.Entity;
 
 /**
- * Clase Estudiante que representa a un estudiante perteneciente al GPC(grupo de programación competitiva)
- * Hereda de la clase Usuario
+ * Clase Estudiante que representa a un estudiante perteneciente al GPC(grupo de
+ * programación competitiva) Hereda de la clase Usuario
  */
 @Entity
 public class Estudiante extends Usuario {
@@ -46,6 +46,7 @@ public class Estudiante extends Usuario {
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 * @param nivelCompe
 	 * @param semestre
 	 */
@@ -54,22 +55,23 @@ public class Estudiante extends Usuario {
 		this.nivelCompe = nivelCompe;
 		this.semestre = semestre;
 	}
-	
 
 	/**
 	 * Constructor con parametros (atributos) heredados de Usuario
+	 * 
 	 * @param nombre
 	 * @param correo
 	 * @param edad
+	 * @param contrasena
 	 */
 	public Estudiante(String nombre, String correo, int edad, String contrasena) {
 		super(nombre, correo, edad, contrasena);
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	/**
-	 * Metodo hashCode de la clase Estudiante 
+	 * Metodo hashCode de la clase Estudiante
+	 * 
 	 * @return int con el hashCode del estudiante
 	 */
 	@Override
@@ -80,9 +82,9 @@ public class Estudiante extends Usuario {
 		return result;
 	}
 
-
 	/**
 	 * Metodo equals de la clase Estudiante
+	 * 
 	 * @param obj
 	 */
 	@Override
@@ -99,6 +101,7 @@ public class Estudiante extends Usuario {
 
 	/**
 	 * Metodo toString de la clase Estudiante
+	 * 
 	 * @return String con la informacion del estudiante
 	 */
 	@Override
@@ -108,6 +111,7 @@ public class Estudiante extends Usuario {
 
 	/**
 	 * Metodo getter del atributo nivelCompe
+	 * 
 	 * @return nivelCompe
 	 */
 	public String getNivelCompe() {
@@ -116,6 +120,7 @@ public class Estudiante extends Usuario {
 
 	/**
 	 * Metodo setter del atributo nivelCompe
+	 * 
 	 * @param nivelCompe
 	 */
 	public void setNivelCompe(String nivelCompe) {
@@ -124,6 +129,7 @@ public class Estudiante extends Usuario {
 
 	/**
 	 * Getter del atributo semestre
+	 * 
 	 * @return semestre
 	 */
 	public int getSemestre() {
@@ -132,6 +138,7 @@ public class Estudiante extends Usuario {
 
 	/**
 	 * Setter del atributo semestre
+	 * 
 	 * @param semestre
 	 */
 	public void setSemestre(int semestre) {

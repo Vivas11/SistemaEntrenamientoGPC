@@ -46,10 +46,15 @@ public abstract class Usuario {
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
-	/*
-	 * Constructor con parametros (atributos) de la clase Usuario, excepto el id
-	 */
 
+	/**
+	 * Constructor con parametros (atributos) de la clase Usuario, excepto el id
+	 * 
+	 * @param nombre
+	 * @param correo
+	 * @param edad
+	 * @param contrasena
+	 */
 	public Usuario(String nombre, String correo, int edad, String contrasena) {
 		super();
 		this.nombre = nombre;
@@ -130,10 +135,20 @@ public abstract class Usuario {
 		this.edad = edad;
 	}
 
+	/**
+	 * Getter del atributo contrasena
+	 * 
+	 * @return contrasena
+	 */
 	public String getContrasena() {
 		return contrasena;
 	}
 
+	/**
+	 * Setter del atributo contrasena
+	 * 
+	 * @param contrasena
+	 */
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
