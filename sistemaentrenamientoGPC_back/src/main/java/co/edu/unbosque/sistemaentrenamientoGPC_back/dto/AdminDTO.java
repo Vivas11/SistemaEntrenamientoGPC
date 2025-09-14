@@ -3,6 +3,10 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Usuario;
 
+/**
+ * Clase AdminDTO que extiende de Usuario 
+ * Es un Data Transfer Object para la entidad Admin
+ */
 public class AdminDTO extends Usuario {
 	
 	/**

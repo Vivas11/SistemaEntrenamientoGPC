@@ -4,7 +4,10 @@ import java.util.Objects;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Usuario;
 
-
+/**
+ * Clase ProfesorDTO que extiende de Usuario 
+ * Es un Data Transfer Object para la entidad Profesor
+ */
 public class ProfesorDTO  extends Usuario{
 	
 	/**

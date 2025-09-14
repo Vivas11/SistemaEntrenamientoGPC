@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
- * 
+ * Clase Usuario que representa a un usuario del sistema de entrenamiento
  */
 @Entity
 @Table(name = "Usuario")
@@ -34,12 +34,12 @@ public abstract class Usuario {
 	 * Atributo edad de la clase Usuario
 	 */
 	private int edad;
-	
+
 	/**
-	 * Atributo contrasena de la clase  Usuario
+	 * Atributo contrasena de la clase Usuario
 	 */
 	private String contrasena;
-	
+
 	/*
 	 * Constructor vacio de la clase Usuario
 	 */
@@ -49,7 +49,7 @@ public abstract class Usuario {
 	/*
 	 * Constructor con parametros (atributos) de la clase Usuario, excepto el id
 	 */
-	
+
 	public Usuario(String nombre, String correo, int edad, String contrasena) {
 		super();
 		this.nombre = nombre;
@@ -57,21 +57,19 @@ public abstract class Usuario {
 		this.edad = edad;
 		this.contrasena = contrasena;
 	}
-	
+
 	/**
 	 * Getter del atributo id
+	 * 
 	 * @return id
 	 */
 	public Long getId() {
 		return id;
 	}
 
-	
-
-
-
 	/**
 	 * Setter del atributo id
+	 * 
 	 * @param id
 	 */
 	public void setId(Long id) {
@@ -80,6 +78,7 @@ public abstract class Usuario {
 
 	/**
 	 * Getter del atributo nombre
+	 * 
 	 * @return nombre
 	 */
 	public String getNombre() {
@@ -88,6 +87,7 @@ public abstract class Usuario {
 
 	/**
 	 * Setter del atributo nombre
+	 * 
 	 * @param nombre
 	 */
 	public void setNombre(String nombre) {
@@ -96,6 +96,7 @@ public abstract class Usuario {
 
 	/**
 	 * Getter del atributo correo
+	 * 
 	 * @return correo
 	 */
 	public String getCorreo() {
@@ -104,6 +105,7 @@ public abstract class Usuario {
 
 	/**
 	 * Setter del atributo correo
+	 * 
 	 * @param correo
 	 */
 	public void setCorreo(String correo) {
@@ -112,6 +114,7 @@ public abstract class Usuario {
 
 	/**
 	 * Getter del atributo edad
+	 * 
 	 * @return edad
 	 */
 	public int getEdad() {
@@ -120,16 +123,12 @@ public abstract class Usuario {
 
 	/**
 	 * Setter del atributo edad
+	 * 
 	 * @param edad
 	 */
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	
-	
-	
-
-
 
 	public String getContrasena() {
 		return contrasena;
@@ -141,6 +140,7 @@ public abstract class Usuario {
 
 	/**
 	 * Metodo toString de la clase Usuario
+	 * 
 	 * @return String con la informacion del usuario
 	 */
 	@Override
@@ -148,25 +148,23 @@ public abstract class Usuario {
 		return "Usuario [nombre=" + nombre + ", correo=" + correo + ", edad=" + edad + "]";
 	}
 
-	
-	
-
 	/**
 	 * Metodo hashCode de la clase Usuario
+	 * 
 	 * @return int con el codigo hash del usuario
 	 */
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(contrasena, correo, edad, id, nombre);
 	}
-	
-	
+
 	/**
 	 * Metodo equals de la clase Usuario
+	 * 
 	 * @param obj
 	 */
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -179,7 +177,5 @@ public abstract class Usuario {
 		return Objects.equals(contrasena, other.contrasena) && Objects.equals(correo, other.correo)
 				&& edad == other.edad && Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
-	
-	
-	
+
 }

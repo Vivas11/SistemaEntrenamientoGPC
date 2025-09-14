@@ -4,8 +4,11 @@ import java.util.Objects;
 
 import jakarta.persistence.Entity;
 
+/**
+ * Clase Estudiante que representa a un estudiante perteneciente al GPC(grupo de programación competitiva)
+ * Hereda de la clase Usuario
+ */
 @Entity
-
 public class Estudiante extends Usuario {
 
 	/**
