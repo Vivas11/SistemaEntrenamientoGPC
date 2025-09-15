@@ -6,12 +6,14 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Profesor;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.ProfesorRepository;
 
-public class ProfesroService implements CRUDOperation<ProfesorDTO>{
+@Service
+public class ProfesorService implements CRUDOperation<ProfesorDTO>{
 	
 	
 	
@@ -19,7 +21,7 @@ public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 	private ProfesorRepository profesroRepo;
 	@Autowired
 	private ModelMapper modelMapper;
-	public ProfesroService() {
+	public ProfesorService() {
 		// TODO Auto-generated constructor stub
 	}
 

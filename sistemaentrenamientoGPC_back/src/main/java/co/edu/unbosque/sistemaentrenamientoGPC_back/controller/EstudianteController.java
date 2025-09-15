@@ -2,6 +2,7 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,8 +21,9 @@ import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EstudianteService;
 
 @RestController
 @CrossOrigin(origins = { "*" })
-@RequestMapping(path = { "/admin" })
+@RequestMapping(path = { "/estudiante" })
 public class EstudianteController {
+	@Autowired
 	private EstudianteService estudianteService;
 	
 	
@@ -31,7 +33,7 @@ public class EstudianteController {
 		EstudianteDTO nuevo = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
 		int status = estudianteService.create(nuevo);
 		if (status == 0) {
-			return new ResponseEntity<>("Profesor creado", HttpStatus.CREATED);
+			return new ResponseEntity<>("Estudiante creado", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Error al crear", HttpStatus.NOT_ACCEPTABLE);
 		}
@@ -43,7 +45,7 @@ public class EstudianteController {
 		if (status == 0) {
 			return new ResponseEntity<>("Eliminado con exito", HttpStatus.NO_CONTENT);
 		} else {
-			return new ResponseEntity<>("Profesor no encontrado", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("Estudiante no encontrado", HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -52,7 +54,7 @@ public class EstudianteController {
 		EstudianteDTO data = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
 		int status = estudianteService.updateById(id, data);
 		if (status == 0) {
-			return new ResponseEntity<>("Profesor actualizado", HttpStatus.OK);
+			return new ResponseEntity<>("Estudiante actualizado", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Error al actualizar", HttpStatus.NOT_ACCEPTABLE);
 		}

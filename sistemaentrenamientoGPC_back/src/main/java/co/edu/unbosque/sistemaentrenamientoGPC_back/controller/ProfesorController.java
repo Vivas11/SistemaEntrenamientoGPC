@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.service.ProfesroService;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.service.ProfesorService;
 
 @RestController
 @CrossOrigin(origins = { "*" })
@@ -23,10 +23,10 @@ import co.edu.unbosque.sistemaentrenamientoGPC_back.service.ProfesroService;
 public class ProfesorController {
 
 	@Autowired
-	private ProfesroService profesorService;
+	private ProfesorService profesorService;
 
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam Long id, String nombre,String correo,int edad,String contrasena,String cargo,boolean esEntrenador ) {
+	public ResponseEntity<String> crear(@RequestParam String nombre,String correo,int edad,String contrasena,String cargo,boolean esEntrenador ) {
 		ProfesorDTO nuevo = new ProfesorDTO(nombre, correo, edad, contrasena, cargo, esEntrenador);
 		int status = profesorService.create(nuevo);
 		if (status == 0) {

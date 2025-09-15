@@ -1,7 +1,6 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,7 @@ public class AdminConttroller {
 	
 	
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam Long id,String nombre, String correo,int edad,String contrasena ) {
+	public ResponseEntity<String> crear(@RequestParam String nombre, String correo,int edad,String contrasena ) {
 		AdminDTO nuevo = new AdminDTO(nombre, correo, edad, contrasena);
 		int status = adminService.create(nuevo);
 		if (status == 0) {
@@ -72,11 +71,7 @@ public class AdminConttroller {
 		}
 	}
 
-	@GetMapping(path = "/contar")
-	public ResponseEntity<String> contar() {
-		Long total = adminService.count();
-		return new ResponseEntity<>("Total de profesores: " + total, HttpStatus.OK);
-	}
+
 	
 	
 	

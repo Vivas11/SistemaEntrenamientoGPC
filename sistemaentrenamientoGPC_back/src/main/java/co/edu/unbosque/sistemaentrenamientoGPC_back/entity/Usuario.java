@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
  * Clase Usuario que representa a un usuario del sistema de entrenamiento
  */
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public abstract class Usuario {
 
 	/**
