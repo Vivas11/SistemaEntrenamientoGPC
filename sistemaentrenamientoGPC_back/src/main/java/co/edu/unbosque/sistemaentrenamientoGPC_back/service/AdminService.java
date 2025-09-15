@@ -16,7 +16,7 @@ import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
 public class AdminService  implements CRUDOperation<AdminDTO>{
 	
 
-	@Autowired //el AUTOINICIALIZA LA ESTRUCTURA DEL PROYECTO como los atributops  
+	@Autowired   
 	private AdminRepository adminRepo;
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class AdminService  implements CRUDOperation<AdminDTO>{
 	public int create(AdminDTO newData) {
 		Admin entity = modelMapper.map(newData, Admin.class);
 		adminRepo.save(entity);
-	//verficacion de excepcion
+	
 		return 0;
 	}
 

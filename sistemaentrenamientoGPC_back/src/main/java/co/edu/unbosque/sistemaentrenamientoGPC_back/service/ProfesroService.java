@@ -1,11 +1,14 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Profesor;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.ProfesorRepository;
 
 public class ProfesroService implements CRUDOperation<ProfesorDTO>{
@@ -22,32 +25,51 @@ public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 
 	@Override
 	public int create(ProfesorDTO newData) {
-		// TODO Auto-generated method stub
+		Profesor entity = modelMapper.map(newData, Profesor.class);
+		profesroRepo.save(entity);
+	
 		return 0;
 	}
 
 	@Override
 	public List<ProfesorDTO> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Profesor> entityList = profesroRepo.findAll();
+	    List<ProfesorDTO> dtoList = new ArrayList<>();
+	    entityList.forEach((entity)->{
+	        ProfesorDTO dto = modelMapper.map(entity, ProfesorDTO.class);
+	        dtoList.add(dto);
+	    });
+	    return dtoList;
 	}
 
 	@Override
 	public int deleteById(Long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(profesroRepo.existsById(id)) {
+			profesroRepo.deleteById(id);
+			return 0;
+		}
+		return 1;
 	}
 
 	@Override
 	public int updateById(Long id, ProfesorDTO newData) {
-		// TODO Auto-generated method stub
-		return 0;
+		Optional<Profesor> opt = profesroRepo.findById(id);
+		if (opt.isPresent()) {
+			Profesor entity = opt.get();
+			entity.setNombre(newData.getNombre());
+			entity.setEdad(newData.getEdad());
+			profesroRepo.save(entity);
+			return 0;
+		}
+		return 1;
+
+		
 	}
 
 	@Override
 	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+		Long tamano =  (long) getAll().size();
+		return tamano;
 	}
 
 	@Override
