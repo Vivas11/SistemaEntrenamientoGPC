@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-	--bs-primary: #ff6c04;
+	--bs-primary: #6c757d;
 	--bs-secondary: #6c757d;
 	--bs-success: #198754;
 	--bs-info: #0dcaf0;
@@ -90,7 +90,7 @@
 }
 
 .temuheader {
-	background-color: var(--bg-color);
+	background-color: var(--bg-color) !important;
 	margin: 0px;
 	width: 100vw;
 }
@@ -125,4 +125,195 @@ body .ui-button.ui-state-hover {
 .btnCompeLinks{
 	border-radius:0%;
 	width: 200px;
+}
+
+/* From Uiverse.io by codebykay101  */
+.container-lenguajes {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-lenguajes .glass-lenguajes {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.container-lenguajes:hover .glass-lenguajes {
+  transform: rotate(0deg);
+  margin: 0 10px;
+}
+
+.container-lenguajes .glass-lenguajes::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-lenguajes .glass-lenguajes svg {
+  font-size: 2.5em;
+  fill: #fff;
+}
+
+.card-benefit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  border-radius: 24px;
+  line-height: 1.6;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 22px;
+  color: #ffffff;
+  overflow: hidden;
+  background: var(--main-gray-color);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content-benefit::before {
+  position: absolute;
+  content: "";
+  top: -4%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%);
+  background: var(--main-gray-color-hover);
+  z-index: -1;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content-benefit::after {
+  position: absolute;
+  content: "";
+  top: -8%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%);
+  background: var(--bg-color);
+  z-index: -2;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content-benefit img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.content-benefit .para {
+  font-size: 16px;
+}
+
+.card-benefit:hover {
+  transform: translate(0px, -12px);
+}
+
+.card-benefit:hover .content-benefit::before {
+  rotate: -6deg;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-benefit:hover .content-benefit::after {
+  rotate: 6deg;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0; /* espacio arriba y abajo */
+}
+
+.hero-image {
+  max-width: 80%;   /* ocupa hasta 80% del ancho */
+  height: auto;
+  border-radius: 20px; /* bordes redondeados opcional */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* sombra bonita */
+}
+
+.btn-navbar {
+  width: 160px;
+  height: 50px;
+  background: linear-gradient(to top, #2c2c2c, #3e3e3e, #5a5a5a); /* degradado gris */
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none; /* para que <a> no tenga subrayado */
+  margin: 10px;
+}
+
+.btn-navbar span {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.5s;
+  display: block;
+  color: #dcdcdc;
+}
+
+.btn-text-one {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-text-two {
+  position: absolute;
+  width: 100%;
+  top: 150%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-navbar:hover .btn-text-one {
+  top: -100%;
+}
+
+.btn-navbar:hover .btn-text-two {
+  top: 50%;
 }

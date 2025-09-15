@@ -8,130 +8,88 @@
 		<div style="padding-left: 10%; padding-right: 10%;"
 			class="container-fluid">
 
-			<h:link outcome="principal.xhtml" styleClass="navbar-brand">
-				<h:graphicImage
-					value="https://biblioteca-artemisa.netlify.app/assets/images/logos/propuestas%20logo%201%20artemisa-02.png"
-					width="200" height="75" style="border-radius: 20%;" alt="Logo" />
-			</h:link>
-
+			<!-- Logo -->
+			<a href="index.xhtml" class="navbar-brand"> <img
+				src="https://biblioteca-artemisa.netlify.app/assets/images/logos/propuestas%20logo%201%20artemisa-02.png"
+				width="200" height="75" style="border-radius: 20%;" alt="Logo" />
+			</a>
 
 			<ul class="navbar-nav">
-				<h:panelGroup class="navbar-el">
-					<li><a href="temario.xhtml" class="btn btn-primary"
-						role="button"><h:link outcome="temario.xhtml"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/list.svg" width="40"
-									height="40" style="border-radius:20%;" />
-							</h:link> Temario </a></li>
-				</h:panelGroup>
-				<h:panelGroup class="navbar-el">
-					<li><a href="problemas.xhtml" class="btn btn-primary"
-						role="button"><h:link outcome="problemas.xhtml"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/bomb.svg" width="40"
-									height="40" style="border-radius:20%; " />
-							</h:link> Problemas </a></li>
-				</h:panelGroup>
-				<h:panelGroup class="navbar-el">
-					<li><a href="libros.xhtml" class="btn btn-primary"
-						role="button"><h:link outcome="libros.xhtml"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/book.svg" width="40"
-									height="40" style="border-radius:20%;" />
-							</h:link> Libros </a></li>
-				</h:panelGroup>
-				<h:panelGroup class="navbar-el">
-					<li><a href="links.xhtml" class="btn btn-primary"
-						role="button"><h:link outcome="links.xhtml"
-								styleClass="navbar-brand">
-								<h:graphicImage
-									value="css/fa6p/svgs/solid/arrow-up-right-from-square.svg"
-									width="40" height="40" style="border-radius:20%;" />
-							</h:link> Links valiosos </a></li>
-				</h:panelGroup>
-				<h:panelGroup class="navbar-el">
-					<li><a href="eventos.xhtml" class="btn btn-primary"
-						role="button"><h:link outcome="eventos.xhtml"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/calendar-days.svg"
-									width="40" height="40" style="border-radius:20%;" />
-							</h:link> Eventos </a></li>
-				</h:panelGroup>
-				<h:panelGroup class="navbar-el">
-					<li class="nav-item dropdown"><a href="temario.xhtml"
-						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <h:link
-								outcome="temario.xhtml" styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/ellipsis.svg"
-									width="40" height="40" style="border-radius:20%;" />
-							</h:link>
-					</a>
 
-						<ul class="dropdown-menu">
-							<li><a href="https://domjudgeacademicueb.com/public" class="btn btn-primary btnCompeLinks"
-								role="button"><h:link outcome="https://domjudgeacademicueb.com/public"
-										styleClass="navbar-brand">
-										<h:graphicImage value="css/fa6p/svgs/solid/code.svg"
-											width="40" height="40"  />
-									</h:link>DomJudge</a></li>
-									
-									<li><a href="https://www.codechef.com" class="btn btn-primary btnCompeLinks"
-						role="button"><h:link outcome="https://www.codechef.com"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/mug-hot.svg"
-									width="40" height="40" style="border-radius:0%;" />
-							</h:link>CodeChef</a></li>
-							
-							<li><a href="https://vjudge.net/group/cuevadelprofdiego" class="btn btn-primary btnCompeLinks"
-						role="button"><h:link outcome="https://vjudge.net/group/cuevadelprofdiego"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/face-smile.svg"
-									width="40" height="40" style="border-radius:0%;" />
-							</h:link>VJudge</a></li>
-							
-							<li><a href="https://onlinejudge.org" class="btn btn-primary btnCompeLinks"
-						role="button"><h:link outcome="https://onlinejudge.org"
-								styleClass="navbar-brand">
-								<h:graphicImage value="css/fa6p/svgs/solid/keyboard.svg"
-									width="40" height="40" style="border-radius:0%;" />
-							</h:link>Online Judge</a></li>
-							
-						</ul></li>
-				</h:panelGroup>
+				<li><a href="temario.xhtml" class="btn-navbar" role="button">
+						<span class="btn-text-one"> <img
+							src="css/fa6p/svgs/solid/list.svg" width="24" height="24"
+							style="border-radius: 20%; filter: invert(100%);" />
+					</span> <span class="btn-text-two">Temario</span>
+				</a></li>
 
-				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
-					<li><h:link outcome="principal.xhtml"
-							styleClass="navbar-brand">
-							<h:graphicImage value="css/fa6p/svgs/solid/circle-user.svg"
-								width="40" height="40" style="border-radius:20%;" />
-						</h:link></li>
-				</h:panelGroup>
-				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
-					<li><h:link outcome="principal.xhtml"
-							styleClass="navbar-brand">
-							<h:graphicImage
-								value="css/fa6p/svgs/solid/arrow-left-from-line.svg" width="40"
-								height="40" style="border-radius:20%;" />
-						</h:link></li>
-				</h:panelGroup>
+				<li><a href="problemas.xhtml" class="btn-navbar" role="button">
+						<span class="btn-text-one"> <img
+							src="css/fa6p/svgs/solid/bomb.svg" width="24" height="24"
+							style="border-radius: 20%; filter: invert(100%);" />
+					</span> <span class="btn-text-two">Problemas</span>
+				</a></li>
 
-				<h:panelGroup rendered="#{templatebean.sesionIniciada}">
-					<li><a href="admin.xhtml" class="btn btn-primary"
-						role="button">Administrar Productos</a></li>
-				</h:panelGroup>
+				<li><a href="libros.xhtml" class="btn-navbar" role="button">
+						<span class="btn-text-one"> <img
+							src="css/fa6p/svgs/solid/book.svg" width="24" height="24"
+							style="border-radius: 20%; filter: invert(100%);" />
+					</span> <span class="btn-text-two">Libros</span>
+				</a></li>
 
+				<li><a href="links.xhtml" class="btn-navbar" role="button">
+						<span class="btn-text-one"> <img
+							src="css/fa6p/svgs/solid/arrow-up-right-from-square.svg"
+							width="24" height="24" style="border-radius: 20%; filter: invert(100%);" />
+					</span> <span class="btn-text-two">Links valiosos</span>
+				</a></li>
 
-				<h:panelGroup rendered="#{!templatebean.sesionIniciada}">
-					<li class="nav-item"><h:link outcome="registrar.xhtml"
-							value="Registrarse" styleClass="nav-link" style="color: white;" />
-					</li>
-				</h:panelGroup>
+				<li><a href="eventos.xhtml" class="btn-navbar" role="button">
+						<span class="btn-text-one"> <img
+							src="css/fa6p/svgs/solid/calendar-days.svg" width="24"
+							height="24" style="border-radius: 20%; filter: invert(100%);" />
+					</span> <span class="btn-text-two">Eventos</span>
+				</a></li>
 
-				<h:panelGroup rendered="#{!templatebean.sesionIniciada}">
-					<li class="nav-item"><h:link outcome="index.xhtml"
-							value="Iniciar Sesión" styleClass="nav-link"
-							style="color: white;" /></li>
-				</h:panelGroup>
+				<!-- Dropdown -->
+				<li class="nav-item dropdown"><a href="#"
+					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <img
+						src="css/fa6p/svgs/solid/ellipsis.svg" width="40" height="40"
+						style="border-radius: 20%;" />
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="https://domjudgeacademicueb.com/public"
+							class="btn btn-primary btnCompeLinks" role="button"> <img
+								src="css/fa6p/svgs/solid/code.svg" width="40" height="40" />
+								DomJudge
+						</a></li>
+						<li><a href="https://www.codechef.com"
+							class="btn btn-primary btnCompeLinks" role="button"> <img
+								src="css/fa6p/svgs/solid/mug-hot.svg" width="40" height="40" />
+								CodeChef
+						</a></li>
+						<li><a href="https://vjudge.net/group/cuevadelprofdiego"
+							class="btn btn-primary btnCompeLinks" role="button"> <img
+								src="css/fa6p/svgs/solid/face-smile.svg" width="40" height="40" />
+								VJudge
+						</a></li>
+						<li><a href="https://onlinejudge.org"
+							class="btn btn-primary btnCompeLinks" role="button"> <img
+								src="css/fa6p/svgs/solid/keyboard.svg" width="40" height="40" />
+								Online Judge
+						</a></li>
+					</ul></li>
+
 			</ul>
+
+			<!-- Botón cambio tema -->
+			<h:form
+				style="position: fixed; bottom: 20px; right: 20px; z-index: 2000;">
+				<p:commandButton value="#{themeBean.toggleLabel}"
+					action="#{themeBean.toggle}" update="@form"
+					styleClass="btn btn-primary" />
+			</h:form>
+
 		</div>
 	</nav>
 </ui:composition>
