@@ -7,10 +7,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import co.edu.unbosque.miprimerspring.dto.UserDTO;
-import co.edu.unbosque.miprimerspring.entity.User;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EstudianteDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Admin;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Estudiante;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.EstudianteRepository;
 
