@@ -53,17 +53,22 @@ public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 
 	@Override
 	public int updateById(Long id, ProfesorDTO newData) {
-		Optional<Profesor> opt = profesroRepo.findById(id);
-		if (opt.isPresent()) {
-			Profesor entity = opt.get();
-			entity.setNombre(newData.getNombre());
-			entity.setEdad(newData.getEdad());
-			profesroRepo.save(entity);
-			return 0;
-		}
-		return 1;
+	    Optional<Profesor> opt = profesroRepo.findById(id);
+	    if (opt.isPresent()) {
+	        Profesor entity = opt.get();
 
-		
+	        // Actualizas todos los campos que quieras permitir modificar
+	        entity.setNombre(newData.getNombre());
+	        entity.setCorreo(newData.getCorreo());
+	        entity.setEdad(newData.getEdad());
+	        entity.setContrasena(newData.getContrasena());
+	        entity.setCargo(newData.getCargo());
+	        entity.setEsEntrenador(newData.isEsEntrenador());
+
+	        profesroRepo.save(entity);
+	        return 0;
+	    }
+	    return 1;
 	}
 
 	@Override

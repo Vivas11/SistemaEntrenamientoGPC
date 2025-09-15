@@ -60,7 +60,12 @@ public class AdminService  implements CRUDOperation<AdminDTO>{
 		if (opt.isPresent()) {
 			Admin entity = opt.get();
 			entity.setNombre(newData.getNombre());
-			entity.setEdad(newData.getEdad());
+	        entity.setCorreo(newData.getCorreo());
+	        entity.setEdad(newData.getEdad());
+	        entity.setContrasena(newData.getContrasena());
+			
+			
+			
 			adminRepo.save(entity);
 			return 0;
 		}

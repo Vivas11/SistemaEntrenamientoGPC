@@ -7,10 +7,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import co.edu.unbosque.miprimerspring.dto.UserDTO;
-import co.edu.unbosque.miprimerspring.entity.User;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EstudianteDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Admin;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Estudiante;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.EstudianteRepository;
 
@@ -55,8 +52,14 @@ public class EstudianteService implements CRUDOperation<EstudianteDTO>{
 		Optional<Estudiante> opt = estudianteRepo.findById(id);
 		if (opt.isPresent()) {
 			Estudiante entity = opt.get();
-			entity.setNombre(newData.getNombre());
-			entity.setEdad(newData.getEdad());
+			 entity.setNombre(newData.getNombre());
+		        entity.setCorreo(newData.getCorreo());
+		        entity.setEdad(newData.getEdad());
+		        entity.setContrasena(newData.getContrasena());
+		        entity.setNivelCompe(newData.getNivelCompe());
+		        entity.setSemestre(newData.getSemestre());
+
+		        estudianteRepo.save(entity);
 			estudianteRepo.save(entity);
 			return 0;
 		}
