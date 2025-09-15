@@ -6,18 +6,16 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Profesor;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.ProfesorRepository;
 
-@Service
 public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 	
 	
 	
-	@Autowired 
+	@Autowired //el AUTOINICIALIZA LA ESTRUCTURA DEL PROYECTO como los atributops  
 	private ProfesorRepository profesroRepo;
 	@Autowired
 	private ModelMapper modelMapper;
@@ -59,7 +57,6 @@ public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 	    if (opt.isPresent()) {
 	        Profesor entity = opt.get();
 
-	        // Actualizas todos los campos que quieras permitir modificar
 	        entity.setNombre(newData.getNombre());
 	        entity.setCorreo(newData.getCorreo());
 	        entity.setEdad(newData.getEdad());

@@ -29,7 +29,7 @@ public class AdminConttroller {
 	
 	
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam Long id,@RequestParam String nombre,@RequestParam String correo,@RequestParam int edad,@RequestParam String contrasena ) {
+	public ResponseEntity<String> crear(@RequestParam Long id,String nombre, String correo,int edad,String contrasena ) {
 		AdminDTO nuevo = new AdminDTO(nombre, correo, edad, contrasena);
 		int status = adminService.create(nuevo);
 		if (status == 0) {
@@ -50,7 +50,7 @@ public class AdminConttroller {
 	}
 
 	@PutMapping(path = "/actualizar")
-	public ResponseEntity<String> actualizar(@RequestParam Long id,@RequestParam String nombre,@RequestParam String correo,@RequestParam int edad,@RequestParam String contrasena) {
+	public ResponseEntity<String> actualizar(@RequestParam Long id,String nombre, String correo,int edad,String contrasena) {
 		AdminDTO data = new AdminDTO(nombre, correo, edad, contrasena);
 		int status = adminService.updateById(id, data);
 		if (status == 0) {
@@ -72,7 +72,13 @@ public class AdminConttroller {
 		}
 	}
 
-
+	@GetMapping(path = "/contar")
+	public ResponseEntity<String> contar() {
+		Long total = adminService.count();
+		return new ResponseEntity<>("Total de profesores: " + total, HttpStatus.OK);
+	}
+	
+	
 	
 	
 

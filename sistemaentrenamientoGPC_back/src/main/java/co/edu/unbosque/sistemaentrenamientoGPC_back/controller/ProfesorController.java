@@ -26,7 +26,7 @@ public class ProfesorController {
 	private ProfesroService profesorService;
 
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam Long id, @RequestParam String nombre,@RequestParam String correo, @RequestParam int edad,@RequestParam String contrasena,@RequestParam String cargo,@RequestParam boolean esEntrenador ) {
+	public ResponseEntity<String> crear(@RequestParam Long id, String nombre,String correo,int edad,String contrasena,String cargo,boolean esEntrenador ) {
 		ProfesorDTO nuevo = new ProfesorDTO(nombre, correo, edad, contrasena, cargo, esEntrenador);
 		int status = profesorService.create(nuevo);
 		if (status == 0) {
@@ -47,7 +47,7 @@ public class ProfesorController {
 	}
 
 	@PutMapping(path = "/actualizar")
-	public ResponseEntity<String> actualizar(@RequestParam Long id, @RequestParam String nombre,@RequestParam String correo, @RequestParam int edad,@RequestParam String contrasena,@RequestParam String cargo,@RequestParam boolean esEntrenador) {
+	public ResponseEntity<String> actualizar(@RequestParam Long id, String nombre,String correo,int edad,String contrasena,String cargo,boolean esEntrenador) {
 		ProfesorDTO data = new ProfesorDTO(nombre, correo, edad, contrasena, cargo, esEntrenador);
 		int status = profesorService.updateById(id, data);
 		if (status == 0) {
