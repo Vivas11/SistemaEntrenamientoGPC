@@ -6,13 +6,14 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Admin;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
 
 
-
+@Service
 public class AdminService  implements CRUDOperation<AdminDTO>{
 	
 

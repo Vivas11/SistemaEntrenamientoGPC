@@ -27,7 +27,7 @@ public class EstudianteController {
 	
 	
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam Long id,@RequestParam String nombre,@RequestParam String correo,@RequestParam int edad,@RequestParam String contrasena,@RequestParam String nivelCompe,@RequestParam int semestre ) {
+	public ResponseEntity<String> crear(@RequestParam String nombre, String correo, int edad, String contrasena, String nivelCompe, int semestre) {
 		EstudianteDTO nuevo = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
 		int status = estudianteService.create(nuevo);
 		if (status == 0) {
@@ -48,7 +48,7 @@ public class EstudianteController {
 	}
 
 	@PutMapping(path = "/actualizar")
-	public ResponseEntity<String> actualizar(@RequestParam Long id,@RequestParam String nombre,@RequestParam String correo,@RequestParam int edad,@RequestParam String contrasena,@RequestParam String nivelCompe,@RequestParam int semestre) {
+	public ResponseEntity<String> actualizar(@RequestParam Long id, String nombre, String correo, int edad, String contrasena, String nivelCompe, int semestre) {
 		EstudianteDTO data = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
 		int status = estudianteService.updateById(id, data);
 		if (status == 0) {
@@ -70,11 +70,6 @@ public class EstudianteController {
 		}
 	}
 
-	@GetMapping(path = "/contar")
-	public ResponseEntity<String> contar() {
-		Long total = estudianteService.count();
-		return new ResponseEntity<>("Total de profesores: " + total, HttpStatus.OK);
-	}
 	
 	
 	

@@ -69,10 +69,6 @@ public class ProfesorController {
 		}
 	}
 
-	@GetMapping(path = "/contar")
-	public ResponseEntity<String> contar() {
-		Long total = profesorService.count();
-		return new ResponseEntity<>("Total de profesores: " + total, HttpStatus.OK);
-	}
+
 }
 

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.AdminService;
 
 @RestController
@@ -73,13 +72,7 @@ public class AdminConttroller {
 		}
 	}
 
-	@GetMapping(path = "/contar")
-	public ResponseEntity<String> contar() {
-		Long total = adminService.count();
-		return new ResponseEntity<>("Total de profesores: " + total, HttpStatus.OK);
-	}
-	
-	
+
 	
 	
 
