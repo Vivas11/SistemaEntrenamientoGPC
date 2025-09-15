@@ -6,18 +6,21 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
 
 
 
 public class AdminService  implements CRUDOperation<AdminDTO>{
 	
-	
+
+	@Autowired //el AUTOINICIALIZA LA ESTRUCTURA DEL PROYECTO como los atributops  
+	private AdminRepository adminRepo;
 	
 	@Autowired
 	private ModelMapper modelMapper;
 	
 	public AdminService() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	@Override

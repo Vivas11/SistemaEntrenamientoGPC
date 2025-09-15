@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EstudianteDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.EstudianteRepository;
 
 public class EstudianteService implements CRUDOperation<EstudianteDTO>{
-	
+	@Autowired //el AUTOINICIALIZA LA ESTRUCTURA DEL PROYECTO como los atributops  
+	private EstudianteRepository estudianteRepo;
 	@Autowired
 	private ModelMapper modelMapper;
 	public EstudianteService() {

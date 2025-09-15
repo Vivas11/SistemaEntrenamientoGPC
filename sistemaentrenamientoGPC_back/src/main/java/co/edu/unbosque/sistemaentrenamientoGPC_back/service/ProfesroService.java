@@ -6,9 +6,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProfesorDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.ProfesorRepository;
 
 public class ProfesroService implements CRUDOperation<ProfesorDTO>{
 	
+	
+	
+	@Autowired //el AUTOINICIALIZA LA ESTRUCTURA DEL PROYECTO como los atributops  
+	private ProfesorRepository profesroRepo;
 	@Autowired
 	private ModelMapper modelMapper;
 	public ProfesroService() {
