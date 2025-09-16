@@ -3,12 +3,14 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,7 @@ import co.edu.unbosque.sistemaentrenamientoGPC_back.service.AdminService;
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/admin" })
-public class AdminConttroller {
+public class AdminController {
 	
 	
 	@Autowired
@@ -35,6 +37,18 @@ public class AdminConttroller {
 			return new ResponseEntity<>("Profesor creado", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Error al crear", HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<String> createNewWithJSON(@RequestBody AdminDTO newUser) {
+		int status = adminService.create(newUser);
+
+		if (status == 0) {
+			return new ResponseEntity<>("{User create successfully}", HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<>("{Error on created user, maybe username already in use}",
+					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 

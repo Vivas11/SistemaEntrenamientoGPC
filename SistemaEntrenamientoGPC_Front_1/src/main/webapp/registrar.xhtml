@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template/template.xhtml">
+	<ui:define name="content">
+		<div class="main">
+			<div class="signin-box">
+			  <div class="signin-title">SignUp</div>
+			  <form class="signin-form" action="">
+			    <div class="signin-input">
+					<div class="signin-input">
+					    <p:inputText id="username" 
+					                 value="#{registerbean.fullName}" 
+					                 required="true" 
+					                 autocomplete="off" />
+					    <label for="username">Full Name</label>
+					</div>
+
+					<div class="signin-input">
+					    <p:inputText id="email" 
+					                 value="#{registerbean.email}" 
+					                 required="true" 
+					                 autocomplete="off">
+					    </p:inputText>
+					    <label for="email">Email</label>
+					</div>
+					
+					<div class="signin-input">
+					  <p:inputNumber id="age"
+					                 value="#{registerbean.age}"
+					                 required="true"
+					                 minValue="1"
+					                 maxValue="120"
+					                 decimalPlaces="0"
+					                 autocomplete="off"
+					                 inputStyleClass="signin-inputfield"
+					                 placeholder="Edad" />
+					  <label for="age"></label>
+					</div>
+									
+					<div class="signin-input">
+					    <p:password id="password" 
+					                value="#{registerbean.password}" 
+					                feedback="true" 
+					                required="true" 
+					                autocomplete="off" />
+					    <label for="password">Password</label>
+					</div>
+
+					<div class="signin-input">
+					    <p:password id="confirmPassword" 
+					                value="#{registerbean.confirmPassword}" 
+					                required="true" 
+					                autocomplete="off" />
+					    <label for="confirmPassword">Confirm Password</label>
+					</div>
+				</div>
+				
+				<p:selectOneRadio id="page" value="#{registerbean.type}" layout="pageDirection">
+				            <f:selectItem itemLabel="Estudiante" itemValue="Estudiante"/>
+				            <f:selectItem itemLabel="Profesor" itemValue="Profesor"/>
+				            <f:selectItem itemLabel="Administrador" itemValue="Administrador"/>
+				        </p:selectOneRadio>
+				
+			    <div class="signin-actions">
+			      <button class="signin-btn">Submit</button>
+			    </div>
+			  </form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
