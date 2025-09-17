@@ -11,8 +11,8 @@ public class ProfesorService {
 	private static final HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
 			.connectTimeout(Duration.ofSeconds(5)).build();
 	
-	public static String doPost(String json) {
-		String url = "localhost:8081/profesor/crear";
+	public static String doPostJson(String json) {
+		String url = "http://localhost:8081/profesor/createjson";
 		HttpRequest request = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json))
 				.uri(URI.create(url)).setHeader("User-Agent", "Java 11 HttpClient Bot")
 				.header("Content-Type", "application/json").build();

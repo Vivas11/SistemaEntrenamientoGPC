@@ -15,9 +15,6 @@ import jakarta.inject.Named;
 public class RegisterBean {
 	private static final long serialVersionUID = 1L;
 	
-	EstudianteService estService;
-	ProfesorService proService;
-	AdministradorService adminService;
 	
     private String fullName;
     private String email;
@@ -28,44 +25,45 @@ public class RegisterBean {
 
 	public void crearUsuario() {
 		
-		
-		
 		fullName = AESUtil.encrypt(fullName);
 		password = AESUtil.encrypt(password);
 		String json = "{";
-		json += "\"nombre\" : \"" + fullName + "\",";
-		json += "\"correo\" : \"" + email + "\"";
-		json += "\"edad\" : \"" + age + "\"";
-		json += "\"contrasena\" : \"" + password + "\"";
+		json += "\"nombre\":\"" + fullName + "\",";
+		json += "\"correo\":\"" + email + "\",";
+		json += "\"edad\":" + age + ",";
+		json += "\"contrasena\":\"" + password + "\"";
 		json += "}";
+
 
 		String respuesta = "";
 		switch (type) {
 		case "Estudiante": {
 
-			 respuesta = estService.doPost(json);
+			respuesta = EstudianteService.doPostJson(json);
 			break;
 		}
 		case "Administrador": {
 
-			 respuesta = adminService.doPost(json);
+			 respuesta = AdministradorService.doPostJson(json);
 			break;
 		}
 		case "Profesor": {
 
-			 respuesta = proService.doPost(json);
+			 respuesta = ProfesorService.doPostJson(json);
 			break;
 		}
 		default:
 			break;
 		}
 		
-		String[] data = respuesta.split("\n");
-		showStickyLogin(data[0], data[1]);
-		fullName = "";
-		email = "";
-		age = 0;
-		password = "";
+		System.out.println("Respuesta del servidor: " + respuesta);
+		
+//		String[] data = respuesta.split("\n");
+//		showStickyLogin(data[0], data[1]);
+//		fullName = "";
+//		email = "";
+//		age = 0;
+//		password = "";
 	}
 	
 	public void showSticky() {
