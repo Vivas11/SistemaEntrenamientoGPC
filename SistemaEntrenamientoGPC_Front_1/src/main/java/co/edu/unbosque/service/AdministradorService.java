@@ -12,7 +12,7 @@ public class AdministradorService {
 			.connectTimeout(Duration.ofSeconds(5)).build();
 	
 	public static String doPostJson(String json) {
-		String url = "http://localhost:8081/administrador/createjson";
+		String url = "http://localhost:8081/admin/createjson";
 		HttpRequest request = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json))
 				.uri(URI.create(url)).setHeader("User-Agent", "Java 11 HttpClient Bot")
 				.header("Content-Type", "application/json").build();
