@@ -34,9 +34,9 @@ public class AdminController {
 		AdminDTO nuevo = new AdminDTO(nombre, correo, edad, contrasena);
 		int status = adminService.create(nuevo);
 		if (status == 0) {
-			return new ResponseEntity<>("Profesor creado", HttpStatus.CREATED);
+			return new ResponseEntity<>("Usuario creado con exito", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("Error al crear", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<>("Error creando su cuenta, nombre o correo ya en uso.", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 	
@@ -45,9 +45,9 @@ public class AdminController {
 		int status = adminService.create(newUser);
 
 		if (status == 0) {
-			return new ResponseEntity<>("{User create successfully}", HttpStatus.CREATED);
+			return new ResponseEntity<>("Usuario creado con exito", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("{Error on created user, maybe username already in use}",
+			return new ResponseEntity<>("Error creando su cuenta, nombre o correo ya en uso.",
 					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}

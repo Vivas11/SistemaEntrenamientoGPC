@@ -25,7 +25,6 @@ public class EstudianteService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("post status code -> " + response.statusCode());
 
 		return response.statusCode() + "\n" + response.body();
 	}
