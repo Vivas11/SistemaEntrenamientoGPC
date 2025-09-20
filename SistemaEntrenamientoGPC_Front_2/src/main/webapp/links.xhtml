@@ -2,15 +2,84 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"> 
+    
 <ui:composition template="template/template.xhtml">
-	<ui:define name="content">
-		<div class="main">
-		</div>
-	</ui:define>
-</ui:composition>
+    <ui:define name="content">
+
+<div class="container d-flex justify-content-center gap-3 mt-4">
+
+    <!-- Columna 1 -->
+    <div class="d-flex flex-column align-items-center">
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5f8a3b29547179.55f85828a185d.png" 
+                 class="card-img-top card-img-fixed" alt="50"/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Cursosdev</h5>
+                <p class="card-text">1. cursos</p>
+                <a href="https://www.cursosdev.com/coupons" class="btn btn-primary">visitar</a>
+            </div>
+        </div>
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="https://yt3.ggpht.com/ytc/AKedOLScL167OWdgvOynxS4azdX6eKaHGdHDmHSh6nno=s900-c-k-c0x00ffffff-no-rj" 
+                 class="card-img-top card-img-fixed" alt="..."/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Programación Competitiva</h5>
+                <p class="card-text">1. aprendizaje  <br/>  2.video</p>
+                <a href="https://www.youtube.com/channel/UCZalVP2C0nwe0JjmItyKS1w" class="btn btn-primary">visitar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="d-flex flex-column align-items-center">
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="https://onlinejudge.org/templates/hm_yaml_2_5/img/ojlogo2.svg.png" 
+                 class="card-img-top card-img-fixed" alt="..."/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Onlinejudge</h5>
+                <p class="card-text">1. entrenamiento</p>
+                <a href="https://onlinejudge.org/index.php" class="btn btn-primary"> visitar</a>
+            </div>
+        </div>
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg" 
+                 class="card-img-top card-img-fixed" alt="..."/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Codechef</h5>
+                <p class="card-text">1. entrenamiento</p>
+                <a href="https://www.codechef.com/" class="btn btn-primary">visitar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="d-flex flex-column align-items-center">
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="assets/vjudgo.png" 
+                 class="card-img-top card-img-fixed" alt="..."/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Vjudge</h5>
+                <p class="card-text">1. entrenamiento</p>
+                <a href="https://vjudge.net/" class="btn btn-primary">visitar</a>
+            </div>
+        </div>
+        <div class="card mb-4" style="width: 18rem;">
+            <img src="https://cdn-1.webcatalog.io/catalog/codeforces/codeforces-icon-filled-256.png?v=1714773964567" 
+                 class="card-img-top card-img-fixed" alt="..."/>
+            <div class="card-body text-center">
+                <h5 class="card-title">Codeforces</h5>
+                <p class="card-text">1. entrenamiento</p>
+                <a href="https://codeforces.com/" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    </ui:define>
+</ui:composition> 
 </html>

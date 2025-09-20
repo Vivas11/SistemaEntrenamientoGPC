@@ -9,151 +9,143 @@
 
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
+
         <div class="main">
 
-<!-- Botones redondos con texto debajo -->
-<div class="botones-contenedor">
-<div class="boton-item">
-    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky ">
-        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
-    </h:link>
-    <p class="btn-text">📖 Aprendamos Juntos</p>
-</div>
+            <div class="botones-contenedor">
 
-<div class="boton-item">
-    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
-        <img src="assets/problemas.gif" width="75" height="75" alt="Problemas" />
-    </h:link>
-    <p class="btn-text">🧩 Retos divertidos</p>
-</div>
+                <div class="boton-item">
+                    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
+                        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
+                    </h:link>
+                    <p class="btn-text">📖 Aprendamos Juntos</p>
+                </div>
 
-<div class="boton-item">
-    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
-        <img src="assets/book.gif" width="75" height="75" alt="Libros" />
-    </h:link>
-    <p class="btn-text">📚 Cuentos y Libros</p>
-</div>
+                <div class="boton-item">
+                    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
+                        <img src="assets/problemas.gif" width="75" height="75" alt="Problemas" />
+                    </h:link>
+                    <p class="btn-text">🧩 Retos divertidos</p>
+                </div>
 
-<div class="boton-item">
-    <h:link outcome="links.xhtml" styleClass=" btn-img btn-chase" >
-        <img src="assets/link.gif" width="75" height="75" alt="Links" />
-    </h:link>
-    <p class="btn-text">🌍 Aventuras en la web</p>
-</div>
+                <div class="boton-item">
+                    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
+                        <img src="assets/book.gif" width="75" height="75" alt="Libros" />
+                    </h:link>
+                    <p class="btn-text">📚 Cuentos y Libros</p>
+                </div>
 
-<div class="boton-item">
-    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
-        <img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
-    </h:link>
-    <p class="btn-text">🎉 Actividades y Juegos</p>
-</div>
+                <div class="boton-item">
+                    <h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
+                        <img src="assets/link.gif" width="75" height="75" alt="Links" />
+                    </h:link>
+                    <p class="btn-text">🌍 Aventuras en la web</p>
+                </div>
 
+                <div class="boton-item">
+                    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
+                        <img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
+                    </h:link>
+                    <p class="btn-text">🎉 Actividades y Juegos</p>
+                </div>
 
-  
-</div>
+            </div>
 
-            <!-- Contenedor general con dos columnas -->
             <div class="content-flex">
 
-<div class="d-inline-block">
-  <a class="btn btn-primary mt-5 btn-text" 
-     data-bs-toggle="collapse" 
-     href="#collapseExample" 
-     role="button" 
-     aria-expanded="false" 
-     aria-controls="collapseExample">
-    🚀 ¡Vamos a jugar! 🎮
-    
-  </a>
+                <div class="d-inline-block">
+                    <a class="btn btn-primary mt-5 btn-text" 
+                       data-bs-toggle="collapse" 
+                       href="#collapseExample" 
+                       role="button" 
+                       aria-expanded="false" 
+                       aria-controls="collapseExample">
+                        🚀 ¡Vamos a jugar! 🎮
+                    </a>
 
-  <div class="collapse mt-2" id="collapseExample">
-    <div class="card card-body border-0 shadow-none p-4 card-benefit same-height">
-      <form class="login-box">
-        <h2 class="login-title btn-text">✨ Inicia tu aventura ✨</h2>
+                    <div class="collapse mt-2" id="collapseExample">
+                        <div class="card card-body border-0 shadow-none p-4 card-benefit same-height">
 
-        <span class="input-span">
-          <label for="email" class="label btn-text">📧 Correo divertido</label>
-          <input type="email" name="email" id="email" placeholder="ejemplo@correo.com"/>
-        </span>
+                            <form class="login-box">
+                                <h2 class="login-title btn-text">✨ Inicia tu aventura ✨</h2>
 
-        <span class="input-span">
-          <label for="password" class="label btn-text">🔒 Contraseña secreta</label>
-          <input type="password" name="password" id="password" placeholder="********"/>
-        </span>
+                                <span class="input-span">
+                                    <label for="email" class="span btn-text">📧 Correo divertido</label>
+                                    <input type="email" name="email" id="email" placeholder="ejemplo@correo.com" />
+                                </span>
 
-        <span class="span btn-text">
-          ❓ ¿Aún no tienes tu pase mágico? <a href="registrar.xhtml">✨ Créalo aquí ✨</a>
-        </span>
-      </form>
-    </div>
-  </div>
-</div>
+                                <span class="input-span">
+                                    <label for="password" class="span btn-text">🔒 Contraseña secreta</label>
+                                    <input type="password" name="password" id="password" placeholder="********" />
+                                </span>
 
+                                <span class="span btn-text">
+                                    ❓ ¿Aún no tienes tu pase mágico? 
+                                    <a href="registrar.xhtml">✨ Créalo aquí ✨</a>
+                                </span>
+                            </form>
 
-
-
-
-                <!-- Columna derecha -->
+                        </div>
+                    </div>
+                </div>
                 <div class="right-column">
-
-                    <!-- Lenguajes -->
                     <div class="container-lenguajes">
-                        <div data-text="C" style="--r:-15;" class="glass-lenguajes">
+                        <div data-text="C" class="glass-lenguajes">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
                                  alt="C" height="90" />
                         </div>
 
-                        <div data-text="Python" style="--r:5;" class="glass-lenguajes">
+                        <div data-text="Python" class="glass-lenguajes">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
                                  alt="Python" height="90" />
                         </div>
 
-                        <div data-text="Java" style="--r:25;" class="glass-lenguajes">
+                        <div data-text="Java" class="glass-lenguajes">
                             <img src="https://www.manualweb.net/img/logos/java.png"
                                  alt="Java" height="90" />
                         </div>
-                    </div>
-
-                    <!-- Cards -->
-                    <div class="cards-container">
-
-                        <div class="card-benefit">
-                            <div class="content-benefit">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3447/3447957.png"
-                                     alt="Habilidades" />
-                                <p class="para">
-                                    <strong>🚀 Habilidades que vas a potenciar</strong><br /><br />
-                                    • Resolución de problemas<br />
-                                    • Lógica matemática<br />
-                                    • Escritura y sintaxis de código<br />
-                                    • Trabajo en equipo<br />
-                                    • Pensamiento algorítmico
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="card-benefit">
-                            <div class="content-benefit">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png"
-                                     alt="Oportunidades" />
-                                <p class="para">
-                                    <strong>🌟 Oportunidades que se abrirán</strong><br /><br />
-                                    • Preparación para entrevistas técnicas<br />
-                                    • Confianza al programar<br />
-                                    • Resiliencia ante el fracaso<br />
-                                    • Crecimiento de tu portafolio<br />
-                                    • Acceso a mejores oportunidades laborales<br />
-                                    • Impacto positivo en tu vida a largo plazo
-                                </p>
-                            </div>
-                        </div>
 
                     </div>
+                <div class="cards-container">
+
+  <div class="card-benefit opportunities">
+    <div class="content-benefit">
+      <img src="ICONO_SENCILLO_O_DIBUJO_LINEAL.svg" alt="Oportunidades" />
+      <h3>🌟 Oportunidades que se abrirán</h3>
+      <ul>
+        <li>Preparación para entrevistas técnicas</li>
+        <li>Confianza al programar</li>
+        <li>Resiliencia ante el fracaso</li>
+        <li>Crecimiento de tu portafolio</li>
+        <li>Acceso a mejores oportunidades laborales</li>
+        <li>Impacto positivo en tu vida a largo plazo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-benefit skills">
+    <div class="content-benefit">
+      <img src="ICONO_LINEAL_SIMPLE.svg" alt="Habilidades" />
+      <h3>🚀 Habilidades que vas a potenciar</h3>
+      <ul>
+        <li>Resolución de problemas</li>
+        <li>Lógica matemática</li>
+        <li>Escritura y sintaxis de código</li>
+        <li>Trabajo en equipo</li>
+        <li>Pensamiento algorítmico</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
                 </div>
-                <!-- fin columna derecha -->
 
             </div>
+
         </div>
+
     </ui:define>
 </ui:composition>
 </html>

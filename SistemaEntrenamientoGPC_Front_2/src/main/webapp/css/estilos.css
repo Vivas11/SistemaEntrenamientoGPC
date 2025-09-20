@@ -46,7 +46,7 @@
 .navbar {
 	--bs-bg-opacity: 1;
 	border-bottom: 1px solid gray;
-	background-color: #6FA8DC !important; /* 🔵 azul medio */
+	background-color: #6FA8DC !important;
 	padding: 15px;
 	border-radius: 10px;
 }
@@ -84,9 +84,9 @@
 }
 
 .temufooter {
-    background-color: #4682B4 !important; /* Azul acero */
-    margin: 0px;
-    width: 100vw;
+	background-color: #4682B4 !important;
+	margin: 0px;
+	width: 100vw;
 }
 
 .temuheader {
@@ -127,7 +127,44 @@ body .ui-button.ui-state-hover {
 	width: 200px;
 }
 
-/* From Uiverse.io by codebykay101  */
+.container-links {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 20px;
+	flex-wrap: wrap;
+	padding: 20px 0;
+}
+
+.container-links .card {
+	width: 18rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	transition: transform 0.2s;
+}
+
+.container-links .card:hover {
+	transform: translateY(-5px);
+}
+
+.container-links .card-img-top {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	object-fit: cover;
+	height: 180px; /* altura uniforme para todas las imágenes */
+}
+
+/* Cuerpo de la card */
+.container-links .card-body {
+	text-align: center;fdvcr 
+}
+
+.container-links .card-img-fixed {
+	height: 100px; /* altura fija */
+	width: 70%; /* ocupa todo el ancho del card */
+	object-fit: contain; /* mantiene proporción sin recortar */
+}
+
 .container-lenguajes {
 	position: relative;
 	display: flex;
@@ -273,7 +310,6 @@ body .ui-button.ui-state-hover {
 	width: 160px;
 	height: 50px;
 	background: linear-gradient(to top, #2c2c2c, #3e3e3e, #5a5a5a);
-	/* degradado gris */
 	color: #fff;
 	border-radius: 50px;
 	border: none;
@@ -454,10 +490,13 @@ body .ui-button.ui-state-hover {
 }
 
 .signin-box {
-	border: solid 1px #8d8d8d;
-	padding: 20px;
+	background: #fff;
 	border-radius: 20px;
-	background-color: #fff;
+	padding: 40px;
+	max-width: 800px;
+	width: 100%;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+	text-align: center;
 }
 
 .signin-box .signin-title {
@@ -631,7 +670,6 @@ body .ui-button.ui-state-hover {
 	font-weight: bold;
 }
 
-/* Contenedor general */
 .botones-contenedor {
 	display: flex;
 	justify-content: center;
@@ -639,12 +677,12 @@ body .ui-button.ui-state-hover {
 	margin: 20px auto;
 }
 
-/* Cada botón con su texto */
 .boton-item {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-} /* 🎨 Base de todos los botones */
+}
+
 .btn-img {
 	width: 120px;
 	height: 120px;
@@ -705,16 +743,51 @@ body .ui-button.ui-state-hover {
 .btn-img img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* mantiene proporción */
-	border-radius: 50%; /* círculo */
+	object-fit: cover;
+	border-radius: 50%;
 }
 
-/* Texto debajo */
 .btn-text {
 	margin-top: 8px;
 	font-size: 18px;
 	font-weight: bold;
 	font-family: 'Comic Neue', 'Nunito', cursive;
-	color: #444;
+	color: #ffffff;
 	text-align: center;
+}
+
+.kids-box {
+	background: #fffbe6;
+	border-radius: 20px;
+	padding: 30px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.kids-card {
+	background: #f0f9ff;
+	border: 2px solid #cce7ff;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.signin-title {
+	font-family: 'Baloo 2', sans-serif;
+	font-size: 1.8rem;
+	text-align: center;
+	color: #ff6f61;
+	margin-bottom: 20px;
+}
+
+.signin-input label {
+	font-weight: bold;
+	color: #444;
+}
+
+.kids-btn {
+	background: linear-gradient(135deg, #ffcc70, #ff6ec7);
+	border-radius: 25px;
+	font-size: 1.2rem;
+	padding: 12px 25px;
+	border: none;
+	cursor: pointer;
 }
