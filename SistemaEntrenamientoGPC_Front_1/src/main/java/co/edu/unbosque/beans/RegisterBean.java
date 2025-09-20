@@ -70,12 +70,17 @@ public class RegisterBean {
 
 		System.out.println("Respuesta del servidor: " + respuesta);
 
-//		String[] data = respuesta.split("\n");
-//		showStickyLogin(data[0], data[1]);
+		String[] data = respuesta.split("\n");
+		System.out.println(data[0] + "" + data[1]);
+		showStickyLogin(data[0], data[1]);
 		fullName = "";
 		email = "";
 		age = 0;
 		password = "";
+		nivelCompetitiva = "";
+		semestre = 1;
+		cargo = "";
+		esEntrenador = false;
 	}
 
 	public void showSticky() {
@@ -86,7 +91,7 @@ public class RegisterBean {
 	public void showStickyLogin(String code, String content) {
 		if (code.equals("201")) {
 			FacesContext.getCurrentInstance().addMessage("sticky-key",
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Hecho", content));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Hecho", ", se ha creado su usuario"));
 		} else if (code.equals("406")) {
 			FacesContext.getCurrentInstance().addMessage("sticky-key",
 					new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", content));

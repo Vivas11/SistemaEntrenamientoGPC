@@ -2,114 +2,120 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="template/template.xhtml">
-    <ui:define name="content">
-        <div class="main">
-            <div class="signin-box">
-                <div class="signin-title">Registrarse</div>
+	<ui:define name="content">
+		<div class="main">
+			<div class="signin-box">
+				<div class="signin-title">Registrarse</div>
 
-                <h:form class="signin-form">
+				<h:form class="signin-form">
 
-                    <!-- Contenedor en tres columnas -->
-                    <div class="signin-container" style="display:flex; gap:30px;">
+					<!-- Contenedor en tres columnas -->
+					<div class="signin-container" style="display: flex; gap: 30px;">
 
-                        <!-- Columna 1: Datos Generales -->
-                        <div class="signin-main" style="flex:1; min-width:300px;">
-                            <h3>Datos Generales</h3>
+						<!-- Columna 1: Datos Generales -->
+						<div class="signin-main" style="flex: 1; min-width: 300px;">
+							<h3>Datos Generales</h3>
 
-                            <div class="signin-input">
-                                <p:inputText id="username" value="#{registerbean.fullName}"
-                                    required="true" autocomplete="off" />
-                                <label for="username">Usuario</label>
-                            </div>
+							<div class="signin-input">
+								<p:inputText id="username" value="#{registerbean.fullName}"
+									required="true" autocomplete="off" />
+								<label for="username">Usuario</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:inputText id="email" value="#{registerbean.email}"
-                                    required="true" autocomplete="off" />
-                                <label for="email">Email</label>
-                            </div>
+							<div class="signin-input">
+								<p:inputText id="email" value="#{registerbean.email}"
+									required="true" autocomplete="off" />
+								<label for="email">Email</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:inputNumber id="age" value="#{registerbean.age}"
-                                    required="true" minValue="1" maxValue="120" decimalPlaces="0"
-                                    autocomplete="off" inputStyleClass="signin-inputfield"
-                                    placeholder="Edad" />
-                                <label for="age">Edad</label>
-                            </div>
+							<div class="signin-input">
+								<p:inputNumber id="age" value="#{registerbean.age}"
+									required="true" minValue="1" maxValue="120" decimalPlaces="0"
+									autocomplete="off" inputStyleClass="signin-inputfield"
+									placeholder="Edad" />
+								<label for="age">Edad</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:password id="password" value="#{registerbean.password}"
-                                    feedback="true" required="true" autocomplete="off" />
-                                <label for="password">Password</label>
-                            </div>
+							<div class="signin-input">
+								<p:password id="password" value="#{registerbean.password}"
+									feedback="true" required="true" autocomplete="off" />
+								<label for="password">Password</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:password id="confirmPassword"
-                                    value="#{registerbean.confirmPassword}" required="true"
-                                    autocomplete="off" />
-                                <label for="confirmPassword">Confirm Password</label>
-                            </div>
+							<div class="signin-input">
+								<p:password id="confirmPassword"
+									value="#{registerbean.confirmPassword}" required="true"
+									autocomplete="off" />
+								<label for="confirmPassword">Confirm Password</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:selectOneRadio id="page" value="#{registerbean.type}"
-                                    layout="pageDirection">
-                                    <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
-                                    <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
-                                    <f:selectItem itemLabel="Administrador" itemValue="Administrador" />
-                                </p:selectOneRadio>
-                            </div>
-                        </div>
+							<div class="signin-input">
+								<p:selectOneRadio id="page" value="#{registerbean.type}"
+									layout="pageDirection">
+									<f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
+									<f:selectItem itemLabel="Profesor" itemValue="Profesor" />
+									<f:selectItem itemLabel="Administrador"
+										itemValue="Administrador" />
+								</p:selectOneRadio>
+							</div>
+						</div>
 
-                        <!-- Columna 2: Datos Estudiante -->
-                        <div class="signin-extra" style="flex:1; min-width:300px;">
-                            <h3>Datos Estudiante</h3>
+						<!-- Columna 2: Datos Estudiante -->
+						<div class="signin-extra" style="flex: 1; min-width: 300px;">
+							<h3>Datos Estudiante</h3>
 
-                            <div class="signin-input">
-                                <p:inputText id="nivelCompetitiva"
-                                    value="#{registerbean.nivelCompetitiva}" autocomplete="off" />
-                                <label for="nivelCompetitiva">Nivel de competitiva</label>
-                            </div>
+							<div class="signin-input">
+								<p:inputText id="nivelCompetitiva"
+									value="#{registerbean.nivelCompetitiva}" autocomplete="off" />
+								<label for="nivelCompetitiva">Nivel de competitiva</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:inputNumber id="semestre" value="#{registerbean.semestre}"
-                                    minValue="1" maxValue="12" decimalPlaces="0"
-                                    autocomplete="off" inputStyleClass="signin-inputfield"
-                                    placeholder="Semestre" />
-                                <label for="semestre">Semestre</label>
-                            </div>
-                        </div>
+							<div class="signin-input">
+								<p:inputNumber id="semestre" value="#{registerbean.semestre}"
+									minValue="1" maxValue="12" decimalPlaces="0" autocomplete="off"
+									inputStyleClass="signin-inputfield" placeholder="Semestre" />
+								<label for="semestre">Semestre</label>
+							</div>
+						</div>
 
-                        <!-- Columna 3: Datos Profesor -->
-                        <div class="signin-extra" style="flex:1; min-width:300px;">
-                            <h3>Datos Profesor</h3>
+						<!-- Columna 3: Datos Profesor -->
+						<div class="signin-extra" style="flex: 1; min-width: 300px;">
+							<h3>Datos Profesor</h3>
 
-                            <div class="signin-input">
-                                <p:inputText id="cargo" value="#{registerbean.cargo}"
-                                    autocomplete="off" />
-                                <label for="cargo">Cargo</label>
-                            </div>
+							<div class="signin-input">
+								<p:inputText id="cargo" value="#{registerbean.cargo}"
+									autocomplete="off" />
+								<label for="cargo">Cargo</label>
+							</div>
 
-                            <div class="signin-input">
-                                <p:selectBooleanCheckbox id="entrenador"
-                                    value="#{registerbean.esEntrenador}" />
-                                <h:outputLabel for="entrenador" value="¿Es entrenador?" />
-                            </div>
-                        </div>
-                    </div>
+							<div class="signin-input">
+								<p:selectBooleanCheckbox id="entrenador"
+									value="#{registerbean.esEntrenador}" />
+								<h:outputLabel for="entrenador" value="¿Es entrenador?" />
+							</div>
+						</div>
+					</div>
 
-                    <div class="signin-actions" style="margin-top:20px;">
-                        <p:commandButton value="Registrar"
-                            action="#{registerbean.crearUsuario}" process="@form"
-                            update="@form" styleClass="signin-btn" />
-                    </div>
-                </h:form>
-            </div>
-        </div>
-    </ui:define>
+					<div class="signin-actions" style="margin-top: 20px;">
+						<p:commandButton value="Registrar"
+							action="#{registerbean.crearUsuario}" process="@form"
+							update="@form" styleClass="signin-btn" />
+					</div>
+					<p:messages id="messages" showDetail="true" showIcon="false">
+						<p:autoUpdate />
+					</p:messages>
+				</h:form>
+			</div>
+		</div>
+		<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+			sticky="true" />
+
+	</ui:define>
 </ui:composition>
 </html>
