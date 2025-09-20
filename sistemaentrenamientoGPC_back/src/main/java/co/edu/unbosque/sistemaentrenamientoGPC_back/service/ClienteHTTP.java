@@ -22,28 +22,28 @@ public class ClienteHTTP {
 			.connectTimeout(Duration.ofSeconds(10)).build();
 	
 	
-	public static String doGetEjercicio(String url) {
+//	public static String doGetEjercicio(String url) {
 		
-		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url))
-				.header("Content_Type", "aplication-json").build();
-		HttpResponse<String> respuesta = null;
-		try {
-			respuesta = CLIENTE.send(solicitud, HttpResponse.BodyHandlers.ofString());
-		} catch (IOException e) {
-			System.out.println("Error al solicitar");
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			System.out.println("Error de interrupción de ka comunicación");
-			e.printStackTrace();
-		}
-		System.out.println("Codigo de repuesta de la solicitud " + respuesta.statusCode());
-		String json = respuesta.body();
-		EjercicioDTO chisteDTO = new GsonBuilder().create().fromJson(json, EjercicioDTO.class);
-		chisteDTO.setEstado(respuesta.statusCode());
-		return chisteDTO;
+//		HttpRequest solicitud = HttpRequest.newBuilder().GET().uri(URI.create(url))
+//				.header("Content_Type", "aplication-json").build();
+//		HttpResponse<String> respuesta = null;
+//		try {
+//			respuesta = CLIENTE.send(solicitud, HttpResponse.BodyHandlers.ofString());
+//		} catch (IOException e) {
+//			System.out.println("Error al solicitar");
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			System.out.println("Error de interrupción de ka comunicación");
+//			e.printStackTrace();
+//		}
+//		System.out.println("Codigo de repuesta de la solicitud " + respuesta.statusCode());
+//		String json = respuesta.body();
+//		EjercicioDTO chisteDTO = new GsonBuilder().create().fromJson(json, EjercicioDTO.class);
+//		chisteDTO.setEstado(respuesta.statusCode());
+//		return chisteDTO;
+//		
 		
-		
-	}
+//	}
 
 
 }
