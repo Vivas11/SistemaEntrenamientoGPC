@@ -1,0 +1,94 @@
+package co.edu.unbosque.sistemaentrenamientoGPC_back.entity;
+
+import java.sql.Date;
+import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+@Entity
+public class Tema {
+	
+	
+	
+	@Column(unique = false, name = "tema")
+	private String tema;
+	
+	@Column(unique = false, name = "tipo")
+	private String tipo; 
+
+	@Column(unique = false, name = "contenido")
+	private String contenido ;
+	
+	
+     public Tema() {
+	// TODO Auto-generated constructor stub
+   }
+
+
+	 public Tema(String tema, String tipo, String contenido) {
+		super();
+		this.tema = tema;
+		this.tipo = tipo;
+		this.contenido = contenido;
+	 }
+
+
+	 @Override
+	 public int hashCode() {
+		return Objects.hash(contenido, tema, tipo);
+	 }
+
+
+	 @Override
+	 public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tema other = (Tema) obj;
+		return Objects.equals(contenido, other.contenido) && Objects.equals(tema, other.tema)
+				&& Objects.equals(tipo, other.tipo);
+	 }
+
+
+	 public String getTema() {
+		 return tema;
+	 }
+
+
+	 public void setTema(String tema) {
+		 this.tema = tema;
+	 }
+
+
+	 public String getTipo() {
+		 return tipo;
+	 }
+
+
+	 public void setTipo(String tipo) {
+		 this.tipo = tipo;
+	 }
+
+
+	 public String getContenido() {
+		 return contenido;
+	 }
+
+
+	 public void setContenido(String contenido) {
+		 this.contenido = contenido;
+	 }
+
+
+	 @Override
+	 public String toString() {
+		return "Tema [tema=" + tema + ", tipo=" + tipo + ", contenido=" + contenido + "]";
+	 }
+     
+
+ 
+
+}
