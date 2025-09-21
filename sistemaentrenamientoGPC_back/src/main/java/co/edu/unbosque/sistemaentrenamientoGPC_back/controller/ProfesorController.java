@@ -83,6 +83,16 @@ public class ProfesorController {
 		}
 	}
 
+	@GetMapping("/getall")
+	ResponseEntity<List<ProfesorDTO>> getAll() {
+		List<ProfesorDTO> users = profesorService.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
+	}
 
+	
 }
 

@@ -20,16 +20,20 @@
 			<div class="content-flex">
 
 				<!-- Formulario de login -->
-				<form class="login-box" style="margin-right:120px; margin-top: 80px;">
+				<p:form class="login-box"
+					style="margin-right: 120px; margin-top: 80px;">
 					<h2 class="login-title">Login</h2>
-					<span class="input-span"> <label for="email" class="label">Email</label>
-						<input type="email" name="email" id="email" />
+					<span class="input-span"> <label for="email" class="label">Usuario</label>
+						<p:inputText id="email" value="#{loginbean.user}" required="true"
+							autocomplete="off" />
 					</span> <span class="input-span"> <label for="password"
-						class="label">Password</label> <input type="password"
-						name="password" id="password" />
-					</span><span class="span">No tienes cuenta? <a href="registrar.xhtml">Crea una</a>
+						class="label">Password</label> <p:inputText id="password"
+							value="#{loginbean.password}" required="true" autocomplete="off" />
+					</span><span class="span">No tienes cuenta? <a
+						href="registrar.xhtml">Crea una</a>
 					</span>
-				</form>
+				</p:form>
+
 
 				<!-- Columna derecha -->
 				<div class="right-column">
@@ -52,7 +56,7 @@
 					</div>
 
 					<!-- Cards -->
-					<div class="cards-container" >
+					<div class="cards-container">
 						<div class="card-benefit">
 							<div class="content-benefit">
 								<img

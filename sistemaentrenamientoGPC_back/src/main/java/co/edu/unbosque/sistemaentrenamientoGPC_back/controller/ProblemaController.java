@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProblemaDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.ProblemaService;
 
@@ -86,6 +85,14 @@ public class ProblemaController {
 	}
 	
 	
-	
+	@GetMapping("/getall")
+	ResponseEntity<List<ProblemaDTO>> getAll() {
+		List<ProblemaDTO> users = problemaService.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
+	}
 
 }

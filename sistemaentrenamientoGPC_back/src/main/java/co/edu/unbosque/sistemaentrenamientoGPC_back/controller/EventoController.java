@@ -91,7 +91,15 @@ public class EventoController {
 		}
 	}
 	
-	
+	@GetMapping("/getall")
+	ResponseEntity<List<EventoDTO>> getAll() {
+		List<EventoDTO> users = eventoService.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
+	}
 	
 
 }

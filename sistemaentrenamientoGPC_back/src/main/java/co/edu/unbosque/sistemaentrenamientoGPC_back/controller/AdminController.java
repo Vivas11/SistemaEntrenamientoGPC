@@ -86,7 +86,15 @@ public class AdminController {
 	}
 
 
-	
+	@GetMapping("/getall")
+	ResponseEntity<List<AdminDTO>> getAll() {
+		List<AdminDTO> users = adminService.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
+	}
 	
 	
 	

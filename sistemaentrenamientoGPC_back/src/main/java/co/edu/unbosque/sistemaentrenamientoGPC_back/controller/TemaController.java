@@ -87,7 +87,15 @@ public class TemaController {
 		}
 	}
 	
-	
+	@GetMapping("/getall")
+	ResponseEntity<List<TemaDTO>> getAll() {
+		List<TemaDTO> users = temaService.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
+	}
 	
 
 }

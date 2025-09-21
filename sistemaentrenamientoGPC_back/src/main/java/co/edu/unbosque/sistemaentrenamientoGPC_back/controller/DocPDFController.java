@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.util.List;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.DocPDFDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.DocPDFService;
 
 @RestController
@@ -47,5 +49,15 @@ public class DocPDFController {
 		byte[] pdfContent = docPDFSer.getPdfContentById(id);
 		return ResponseEntity.ok().header("Content-Disposition", "attachment; filename=\"libro_" + id + ".pdf\"")
 				.body(pdfContent);
+	}
+	
+	@GetMapping("/getall")
+	ResponseEntity<List<DocPDFDTO>> getAll() {
+		List<DocPDFDTO> users = docPDFSer.getAll();
+		if (users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		}
 	}
 }
