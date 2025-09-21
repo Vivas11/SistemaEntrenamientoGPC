@@ -62,7 +62,12 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.16.0</version> <!-- puedes usar la última -->
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>co.edu.unbosque</groupId>
+			<artifactId>miprimerspring</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  </dependencies>
 	<description>Virtual library for the Competitive Programming Group (GPC) is
 		a digital plataform designed to provide members with easy access to
 		resources that enhance their performance in competitive programming.</description>
