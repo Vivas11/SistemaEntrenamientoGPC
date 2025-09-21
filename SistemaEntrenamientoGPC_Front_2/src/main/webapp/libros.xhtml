@@ -11,55 +11,1354 @@
 	<ui:define name="content">
 		<div class="main">
 		
-		<div class="container mt-4">
-  <div class="row justify-content-center">
 
-<!-- Columna 1 -->
-<div class="col-md-6 d-flex flex-column align-items-center">
-  <!-- Card 1 -->
+<div class="container d-flex justify-content-center gap-3 mt-4">
+
+  <!-- Columna 1 -->
+<div class="d-flex flex-column align-items-center">
+
   <div class="card mb-4" style="width: 18rem;">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5f8a3b29547179.55f85828a185d.png"
-         class="card-img-top card-img-fixed" alt="50"/>
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/9.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
     <div class="card-body text-center">
-      <h5 class="card-title">Cursosdev</h5>
-      <p class="card-text">1. cursos</p>
-
+      <h5 class="card-title">Algorithms (Inglés)</h5>
+      <p class="card-text">
+        Libro introductorio (nivel básico) de algoritmia para iniciados
+      </p>
       <h:form>
-        <p:commandButton value="Descargar libro" ajax="false" icon="pi pi-download">
-        <p:fileDownload value="#{filebean.estructuras}" />
-    </p:commandButton>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.algorithms}" />
+        </p:commandButton>
       </h:form>
-
-      <a href="https://biblioteca-artemisa.netlify.app/assets/pdfs/AlgorithmsNotesForProfessionals.pdf"
-         target="_blank"
-         class="btn btn-primary">
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/AlgorithmsNotesForProfessionals.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
         Ver online
       </a>
     </div>
   </div>
-</div>
 
-
-    <!-- Columna 2 -->
-    <div class="col-md-6 d-flex flex-column align-items-center">
-      <!-- Card 1 -->
-      <div class="card mb-4" style="width: 18rem;">
-        <img src="assets/onlinej.png"
-             class="card-img-top card-img-fixed" alt="..."/>
-        <div class="card-body text-center">
-          <h5 class="card-title">Onlinejudge</h5>
-          <p class="card-text">1. entrenamiento</p>
-          <a href="https://onlinejudge.org/index.php" class="btn btn-primary"> 🚀 Iniciar aventura</a>
-        </div>
-      </div>
-
-
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/18.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Dynamic Programming (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en la metodología de resolución de problemas con programación dinámica y los algoritmos basados en DP (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.dynamicProgramming}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Dynamic-Programming.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
     </div>
-
   </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/25.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Heaps (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en heaps (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.heaps}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Heaps.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/29.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Introducción a la Algoritmia IV - Coste de ordenar</h5>
+      <p class="card-text">
+        Demuestra ejemplos de costes al momento de ejecutar algoritmos.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.introducciónAlgoritmiaIV}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Introducci%C3%B3n%20a%20la%20Algoritmia%20IV%20Coste%20de%20ordenar.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/39.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Recursividad</h5>
+      <p class="card-text">
+        Pequeño libro introductorio a los algoritmos recursivos, adecuado para principiantes
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.recursividad}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Recursividad.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/14.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Bit Magic (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en magia binaria BitWise (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.bitMagic}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Bit-Magic.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/19.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Pilas, Colas, Listas, Árboles y Grafos</h5>
+      <p class="card-text">
+        Este libro tiene por objetivo que el programador identifique las herramientas teóricas fundamentales para la representación y manipulación de información en la computadora, haciendo énfasis en el tipo de datos dinámicos con base en éste. (Básico)
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.pilasColasListasÁrbolesGrafos}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/estructuras%20de%20datos.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/21.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Geometric Algorithms (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos de geometría computacional (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.geometricAlgorithms}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Geometric-Algorithms.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/4.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Guia de programación en Python</h5>
+      <p class="card-text">
+        Guía de nivel básico para el aprendizaje de la sintaxis básica de Python, con toques de enfoque en programación competitiva
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.guiaProgramaciónPython}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/intro%20py.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/40.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Ruby (Ingles)</h5>
+      <p class="card-text">
+        Libro teórico del lenguaje Ruby desde nivel básico hasta avanzado.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.ruby}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/RubyNotesForProfessionals.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/15.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Combinatorial (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en combinatorias y estadística (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.combinatorial}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Combinatorial.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
 </div>
-		
-		
+
+<!-- Columna 2 -->
+<div class="d-flex flex-column align-items-center">
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/10.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Algoritmos voraces</h5>
+      <p class="card-text">
+        Pequeño libro teorico acerca de las ideas base de los algoritmos voraces (Básico).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.algoritmosVoraces}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Algoritmos%20Voraces.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/20.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Game Theory (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en teorías de juegos (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.gameTheory}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Game-Theory.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/26.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Introducción a la Algoritmia I - Eficiencia</h5>
+      <p class="card-text">
+        Explica aquellas propiedades de los algoritmos que están relacionadas con la cantidad de recursos utilizados por el algoritmo
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.introducciónAlgoritmiaI}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Introducci%C3%B3n%20a%20la%20Algoritmia%20I%20Eficiencia.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/35.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Programación Dinámica I - Fundamentos</h5>
+      <p class="card-text">
+        Pequeño libro introductorio a la programación dinámica, adecuado para principiantes
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.programaciónDinámica}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Programaci%C3%B3n%20Din%C3%A1mica%20I%20Fundamentos.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/41.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Searching (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos de búsquedas de todo tipo (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.searching}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Searching.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/8.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Advanced Data Structure (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos para estructuras de datos avanzadas o especializadas.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.advancedDataStructure}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Advanced-Data-Structure.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/31.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Linked List (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en listas enlazadas y listas doblemente enlazadas (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.linkedList}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Linked-List.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/22.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Graphs (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos de teoría de grafos, arboles, flujos y redes (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.graphs}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Graphs.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/16.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">C++ (Ingles)</h5>
+      <p class="card-text">
+        Libro teórico del lenguaje C++ desde nivel básico hasta avanzado.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.c}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/CPlusPlusNotesForProfessionals.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/5.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Discrete Structures (ingles)</h5>
+      <p class="card-text">
+        Documento explicativo en ingles sobre los las distintas operaciones matematicas pertenecientes a la matematica discreta, nivel intermedio - avanzado
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.discreteStructures}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Matematica%20discreta.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/32.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Discrete Structures (Ingles)</h5>
+      <p class="card-text">
+        Libro de dificultad intermedia acerca de matemática discreta
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.discreteStructuresIngles}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Matematica%20discreta.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+</div>
+
+ <!-- Columna 3 -->
+<div class="d-flex flex-column align-items-center">
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/12.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Backtracking (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en Backtracking y programación dinámica (Básico a experto).
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.backtracking}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Arrays.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/23.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Greedy (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos voraces (Básico a experto).
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.greedy}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Greedy.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/27.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Introducción a la Algoritmia II - Costes</h5>
+      <p class="card-text">
+        Demuestra ejemplos de costes al momento de ejecutar algoritmos.
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.introducciónAlgoritmiaII}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Introducci%C3%B3n%20a%20la%20Algoritmia%20II%20Costes.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/36.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Programación Dinámica II - Ejemplos más avanzados</h5>
+      <p class="card-text">
+        Pequeño libro introductorio a la programación dinámica, adecuado para principiantes
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.programaciónDinámicaII}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Programaci%C3%B3n%20Din%C3%A1mica%20II%20Ejemplos%20m%C3%A1s%20avanzados.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/42.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Sorting (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos de ordenamiento de todo tipo de datos (Básico a experto).
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.sorting}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Sorting.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/11.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Arrays (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en Arrays (Básico a experto).
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.arrays}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Arrays.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/34.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Principles of Algorithmic Problem Solving (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en matrices de diferentes dimensiones (Básico a experto).
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.principlesAlgorithmicProblemSolving}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Matrix.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/2.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Guía de programación en Java</h5>
+      <p class="card-text">
+        Guía de nivel básico para el aprendizaje de la sintaxis básica de java, con toques de enfoque en programación competitiva
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.guiaprogramaciónJava}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Intro%20java.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/30.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Java (Ingles)</h5>
+      <p class="card-text">
+        Libro teórico del lenguaje C++ desde nivel básico hasta avanzado.
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.java}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/JavaNotesForProfessionals.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/6.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Matemática discreta</h5>
+      <p class="card-text">
+        Documento explicativo sobre los las distintas operaciones matematicas pertenecientes a la matematica discreta, nivel intermedio - avanzado
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.matemáticaDiscreta}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/matemtica_discreta_para_informticos.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/33.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">Matemática discreta</h5>
+      <p class="card-text">
+        Libro de dificultad intermedia acerca de matemática discreta
+      </p>
+
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.matemáticaDiscreta2}" />
+        </p:commandButton>
+      </h:form>
+
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/matemtica_discreta_para_informticos.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+</div>
+
+  <!-- Columna 4 -->
+<div class="d-flex flex-column align-items-center">
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/17.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Divide And Conquer (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en la metodología de resolución de problemas, divide y conquista (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.divideAndConquer}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Divide-And-Conquer.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/24.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Hashing (ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en hasheos (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.hashing}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Hashing.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/28.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Introducción a la Algoritmia III - Ejemplos de análisis de costes</h5>
+      <p class="card-text">
+        Demuestra ejemplos de costes al momento de ejecutar algoritmos.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.introducciónAlgoritmiaIII}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Introducci%C3%B3n%20a%20la%20Algoritmia%20III%20Ejemplos%20de%20an%C3%A1lisis%20de%20costes.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/38.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Recursion (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en el método de resolución de problemas, recursividad (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.recursion}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Recursion.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/43.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Strings (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos de matching y manipulación de Strings (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.strings}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Strings.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/13.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Binary Search Tree (Ingles)</h5>
+      <p class="card-text">
+        Documento recopilatorio de algoritmos basados en arboles de busqueda binaria (Básico a experto).
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.binarySearchTree}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Binary-Search-Tree.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/1.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Competitive programming handbook</h5>
+      <p class="card-text">
+        El propósito de este libro es darte una introducción completa a la programación competitiva. Se asume que ya dominas lo básico de programación, pero no es necesario que poseas conocimientos previos de programación competitiva.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.competitiveProgrammingHandbook}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/(Espa%C3%B1ol)%20Competitive%20Programmer%E2%80%99s%20Handbook.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/3.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Guia de programación en C++</h5>
+      <p class="card-text">
+        Guía de nivel básico para el aprendizaje de la sintaxis básica de C++, con toques de enfoque en programación competitiva
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.guiaprogramaciónC}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/intro%20cpp.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/37.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Python (Ingles)</h5>
+      <p class="card-text">
+        Libro teórico del lenguaje Python desde nivel básico hasta avanzado.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.python}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/PythonNotesForProfessionals.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="width: 18rem;">
+    <img 
+      src="https://biblioteca-artemisa.netlify.app/assets/images/libros/descargables/7.jpg"
+      class="card-img-top card-img-fixed"
+      alt="Algorithms (ingles)" 
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">Principles of Algorithmic Problem Solving (ingles)</h5>
+      <p class="card-text">
+        La resolución algorítmica de problemas es el arte de formular métodos eficientes que resolver problemas de carácter matemático.
+      </p>
+      <h:form>
+        <p:commandButton 
+          value="Descargar libro"
+          ajax="false"
+          icon="pi pi-download"
+        >
+          <p:fileDownload value="#{filebean.principlesAlgorithmicProblemSolvingIngles}" />
+        </p:commandButton>
+      </h:form>
+      <a 
+        href="https://biblioteca-artemisa.netlify.app/assets/pdfs/Principles%20of%20Algorithmic%20Problem%20Solving.pdf"
+        target="_blank"
+        class="btn btn-primary mt-2"
+      >
+        Ver online
+      </a>
+    </div>
+  </div>
+
+</div>
+  
+
+</div>
 		</div>
 	</ui:define>
 </ui:composition>
