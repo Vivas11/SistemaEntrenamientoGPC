@@ -4,10 +4,13 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Problema {
-	
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	@Column(unique = false, name = "nombre")
 	private String nombre;
 	
@@ -34,12 +37,18 @@ public class Problema {
 		this.tema = tema;
 		this.juez = juez;
 	}
+	
+	
+	
+
+
+
 
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dificultad, juez, nombre, tema);
+		return Objects.hash(dificultad, id, juez, nombre, tema);
 	}
 
 
@@ -53,8 +62,9 @@ public class Problema {
 		if (getClass() != obj.getClass())
 			return false;
 		Problema other = (Problema) obj;
-		return Objects.equals(dificultad, other.dificultad) && Objects.equals(juez, other.juez)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(tema, other.tema);
+		return Objects.equals(dificultad, other.dificultad) && Objects.equals(id, other.id)
+				&& Objects.equals(juez, other.juez) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(tema, other.tema);
 	}
 
 
@@ -103,6 +113,21 @@ public class Problema {
 
 	public void setJuez(String juez) {
 		this.juez = juez;
+	}
+	
+	
+	
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 

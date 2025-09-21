@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 
 public class ProblemaDTO {
 	
+	
 	private String nombre;
 	private String dificultad;
 	private String tema;
