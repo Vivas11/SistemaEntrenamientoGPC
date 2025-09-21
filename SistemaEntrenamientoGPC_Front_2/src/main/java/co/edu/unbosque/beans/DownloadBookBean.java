@@ -1,7 +1,9 @@
 package co.edu.unbosque.beans;
 
+import java.io.IOException;
 import java.net.URL;
 
+import org.apache.catalina.connector.ClientAbortException;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -214,13 +216,19 @@ public class DownloadBookBean {
 	}
 
 	private StreamedContent buildFile(String name, String url) {
-		return DefaultStreamedContent.builder().name(name).contentType("application/pdf").stream(() -> {
-			try {
-				return new URL(url).openStream();
-			} catch (Exception e) {
-				
-				return null;
-			}
-		}).build();
+	    return DefaultStreamedContent.builder()
+	            .name(name)
+	            .contentType("application/pdf")
+	            .stream(() -> {
+	                try {
+	                    return new URL(url).openStream();
+	                } catch (ClientAbortException cae) {
+	                    System.out.println("Descarga cancelada por el cliente: " + name);
+	                    return null;
+	                } catch (IOException e) {
+	                    return null;
+	                }
+	            })
+	            .build();
 	}
 }

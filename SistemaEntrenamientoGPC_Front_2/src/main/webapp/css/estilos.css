@@ -142,7 +142,17 @@ body .ui-button.ui-state-hover {
 	border-radius: 10px;
 	transition: transform 0.2s;
 }
+.carousel-item {
+  transition: none !important; 
+}
 
+.carousel .carousel-inner {
+  transition: none !important;
+}
+
+.carousel .carousel-item {
+  transition: none !important;
+}
 .container-links .card:hover {
 	transform: translateY(-5px);
 }
@@ -151,19 +161,37 @@ body .ui-button.ui-state-hover {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	object-fit: cover;
-	height: 180px; /* altura uniforme para todas las imágenes */
+	height: 180px; 
 }
 
-/* Cuerpo de la card */
 .container-links .card-body {
 	text-align: center;fdvcr 
 }
 
 .container-links .card-img-fixed {
-	height: 100px; /* altura fija */
-	width: 70%; /* ocupa todo el ancho del card */
-	object-fit: contain; /* mantiene proporción sin recortar */
+	height: 100px; 
+	width: 70%; 
+	object-fit: contain; 
 }
+.card {
+  border: 2px solid transparent;
+  border-radius: 15px;
+  box-shadow: inset -9px -9px 25px 0px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+ min-height: 400px; 
+  padding: 10px;   
+  
+}
+
+.card .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px; 
+}
+
+
+
 
 .container-lenguajes {
 	position: relative;
@@ -695,7 +723,6 @@ body .ui-button.ui-state-hover {
 	border: none;
 }
 
-/* 🟦 Chase - Azul pastel */
 .btn-chase {
 	background-color: #A7C7E7;
 }
@@ -704,7 +731,6 @@ body .ui-button.ui-state-hover {
 	background-color: #90B3D9;
 }
 
-/* ❤️ Marshall - Rojo pastel */
 .btn-marshall {
 	background-color: #F28B82;
 }
@@ -713,7 +739,6 @@ body .ui-button.ui-state-hover {
 	background-color: #E57373;
 }
 
-/* 💛 Rubble - Amarillo pastel */
 .btn-rubble {
 	background-color: #FFF176;
 }
@@ -722,7 +747,6 @@ body .ui-button.ui-state-hover {
 	background-color: #FFEB3B;
 }
 
-/* 💚 Rocky - Verde pastel */
 .btn-rocky {
 	background-color: #81C784;
 }
@@ -731,7 +755,6 @@ body .ui-button.ui-state-hover {
 	background-color: #66BB6A;
 }
 
-/* 🌸 Skye - Rosa pastel */
 .btn-skye {
 	background-color: #F8BBD0;
 }
@@ -752,7 +775,7 @@ body .ui-button.ui-state-hover {
 	font-size: 18px;
 	font-weight: bold;
 	font-family: 'Comic Neue', 'Nunito', cursive;
-	color: #ffffff;
+	color: #000000;  
 	text-align: center;
 }
 
