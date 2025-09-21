@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EventoDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProblemaDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EventoService;
 
 @RestController
@@ -30,6 +28,7 @@ public class EventoController {
 	@Autowired
 	private EventoService eventoService;
 	
+	@SuppressWarnings("deprecation")
 	@PostMapping(path = "/crear")
 	public ResponseEntity<String> crear(@RequestParam String nombre, int dia, int mes, int ano, String descripcion ) {
 		EventoDTO nuevo = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);
@@ -42,6 +41,7 @@ public class EventoController {
 	}
 	
 	
+	@SuppressWarnings("deprecation")
 	@PutMapping(path = "/actualizar")
 	public ResponseEntity<String> actualizar(@RequestParam  Long id, String nombre, int dia, int mes, int ano, String descripcion) {
 			EventoDTO data = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);

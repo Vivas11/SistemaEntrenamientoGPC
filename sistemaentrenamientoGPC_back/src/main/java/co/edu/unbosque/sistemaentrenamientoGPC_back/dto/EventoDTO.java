@@ -3,7 +3,6 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 import java.util.Date;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
 
 public class EventoDTO {
 	
