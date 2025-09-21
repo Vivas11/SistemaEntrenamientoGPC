@@ -6,14 +6,12 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EventoDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Admin;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Evento;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.AdminRepository;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.repository.EventoRepository;
-
+@Service
 public class EventoService implements CRUDOperation<EventoDTO> {
 
 	@Autowired   

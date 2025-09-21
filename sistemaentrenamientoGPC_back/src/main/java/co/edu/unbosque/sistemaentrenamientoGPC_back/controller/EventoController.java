@@ -1,9 +1,10 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +12,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EventoDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProblemaDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EventoService;
 
 @RestController
@@ -28,8 +31,8 @@ public class EventoController {
 	private EventoService eventoService;
 	
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam String nombre, Date fecha,String descripcion ) {
-		EventoDTO nuevo = new EventoDTO(nombre, fecha, descripcion);
+	public ResponseEntity<String> crear(@RequestParam String nombre, int dia, int mes, int ano, String descripcion ) {
+		EventoDTO nuevo = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);
 		int status = eventoService.create(nuevo);
 		if (status == 0) {  
 			return new ResponseEntity<>("Evento creado con exito", HttpStatus.CREATED);
@@ -37,6 +40,21 @@ public class EventoController {
 			return new ResponseEntity<>("Error creando su evento", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
+	
+	@PutMapping(path = "/actualizar")
+	public ResponseEntity<String> actualizar(@RequestParam  Long id, String nombre, int dia, int mes, int ano, String descripcion) {
+			EventoDTO data = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);
+		int status = eventoService.updateById(id, data);
+		if (status == 0) {  
+			return new ResponseEntity<>("Problema actualizado", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Error al actualizar", HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	
+	
 	
 	
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
