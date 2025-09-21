@@ -2,6 +2,7 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,20 +17,22 @@ public class DocPDFController {
 	@Autowired
 	private DocPDFService docPDFSer;
 
-	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam("nombre") String nombre,
-			@RequestParam("descripcion") String descripcion, @RequestParam("imagen") MultipartFile imagen,
-			@RequestParam("archivoPdf") MultipartFile archivoPdf) {
-		try {
-			int status = docPDFSer.create(nombre, descripcion, imagen, archivoPdf);
-			if (status == 1) {
-				return new ResponseEntity<>("Documento PDF leido con éxito", HttpStatus.CREATED);
-			} else {
-				return new ResponseEntity<>("Error al leer el documento PDF", HttpStatus.NOT_ACCEPTABLE);
-			}
-		} catch (IOException e) {
-			return new ResponseEntity<>("Error al procesar los archivos", HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+	@PostMapping(path = "/crear", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<String> crear(
+	        @RequestParam("nombre") String nombre,
+	        @RequestParam("descripcion") String descripcion,
+	        @RequestPart("imagen") MultipartFile imagen,
+	        @RequestPart("archivoPdf") MultipartFile archivoPdf) {
+	    try {
+	        int status = docPDFSer.create(nombre, descripcion, imagen, archivoPdf);
+	        if (status == 1) {
+	            return new ResponseEntity<>("Documento PDF leído con éxito", HttpStatus.CREATED);
+	        } else {
+	            return new ResponseEntity<>("Error al leer el documento PDF", HttpStatus.NOT_ACCEPTABLE);
+	        }
+	    } catch (IOException e) {
+	        return new ResponseEntity<>("Error al procesar los archivos", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
 	}
 
 	@GetMapping(path = "/descargar-imagen/{id}")
