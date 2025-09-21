@@ -205,15 +205,18 @@ public class DownloadBookBean {
 		return buildFile("Combinatorial.pdf", "https://biblioteca-artemisa.netlify.app/assets/pdfs/Combinatorial.pdf");
 	}
 
+	
 	public StreamedContent getDiscreteStructuresIngles() {
 		return buildFile("Discrete Structures.pdf",
 				"https://biblioteca-artemisa.netlify.app/assets/pdfs/Matematica%20discreta.pdf");
 	}
 
+	
 	public StreamedContent getMatemáticaDiscreta2() {
 		return buildFile("Matemática discreta.pdf",
 				"https://biblioteca-artemisa.netlify.app/assets/pdfs/matemtica_discreta_para_informticos.pdf");
 	}
+	
 
 	private StreamedContent buildFile(String name, String url) {
 	    return DefaultStreamedContent.builder()
