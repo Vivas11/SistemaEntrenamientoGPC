@@ -1,6 +1,7 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,59 +16,60 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
-import co.edu.unbosque.sistemaentrenamientoGPC_back.service.AdminService;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.TemaDTO;
+import co.edu.unbosque.sistemaentrenamientoGPC_back.service.TemaService;
 
 @RestController
 @CrossOrigin(origins = { "*" })
-@RequestMapping(path = { "/admin" })
-public class AdminController {
+@RequestMapping(path = { "/tema" })
+public class TemaController {
 	
 	
 	@Autowired
-	private AdminService adminService;
+	private TemaService temaService;
 	
 	
 	
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam String nombre, String correo,int edad,String contrasena ) {
-		AdminDTO nuevo = new AdminDTO(nombre, correo, edad, contrasena);
-		int status = adminService.create(nuevo);
+	public ResponseEntity<String> crear(@RequestParam String tema, String tipo,String contenido ) {
+		TemaDTO nuevo = new TemaDTO(tema,tipo, contenido);
+		int status = temaService.create(nuevo);
 		if (status == 0) {
-			return new ResponseEntity<>("Usuario creado con exito", HttpStatus.CREATED);
+			return new ResponseEntity<>("Tema creado con exito", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("Error creando su cuenta, nombre o correo ya en uso.", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<>("Error creando su tema", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 	
+	
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<String> createNewWithJSON(@RequestBody AdminDTO newUser) {
-		int status = adminService.create(newUser);
+	ResponseEntity<String> createNewWithJSON(@RequestBody TemaDTO newUser) {
+		int status = temaService.create(newUser);
 
 		if (status == 0) {
-			return new ResponseEntity<>("Usuario creado con exito", HttpStatus.CREATED);
+			return new ResponseEntity<>("Tema creado con exito", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("Error creando su cuenta, nombre o correo ya en uso.",
+			return new ResponseEntity<>("Error creando su tema",
 					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
-		int status = adminService.deleteById(id);
+		int status = temaService.deleteById(id);
 		if (status == 0) {
 			return new ResponseEntity<>("Eliminado con exito", HttpStatus.NO_CONTENT);
 		} else {
-			return new ResponseEntity<>("Admin no encontrado", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("Tema no encontrado", HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@PutMapping(path = "/actualizar")
-	public ResponseEntity<String> actualizar(@RequestParam Long id,String nombre, String correo,int edad,String contrasena) {
-		AdminDTO data = new AdminDTO(nombre, correo, edad, contrasena);
-		int status = adminService.updateById(id, data);
+	public ResponseEntity<String> actualizar(@RequestParam Long id,String tema, String tipo,String contenido) {
+		TemaDTO data = new TemaDTO(tema,tipo, contenido);
+		int status = temaService.updateById(id, data);
 		if (status == 0) {
-			return new ResponseEntity<>("Admin actualizado", HttpStatus.OK);
+			return new ResponseEntity<>("Tema actualizado", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Error al actualizar", HttpStatus.NOT_ACCEPTABLE);
 		}
@@ -75,18 +77,15 @@ public class AdminController {
 
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
-		List<AdminDTO> lista = adminService.getAll();
+		List<TemaDTO> lista = temaService.getAll();
 		if (lista.isEmpty()) {
-			return new ResponseEntity<>("Aun no existe ningun admin", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("Aun no existe ningun tema", HttpStatus.NOT_FOUND);
 		} else {
 			StringBuilder sb = new StringBuilder();
 			lista.forEach(dto -> sb.append(dto.toString()).append("\n"));
-			return new ResponseEntity<>("Admins:\n" + sb.toString(), HttpStatus.ACCEPTED);
+			return new ResponseEntity<>("Temas:\n" + sb.toString(), HttpStatus.ACCEPTED);
 		}
 	}
-
-
-	
 	
 	
 	
