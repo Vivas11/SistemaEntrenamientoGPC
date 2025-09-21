@@ -1,12 +1,10 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 
-import java.util.Objects;
+import java.util.Arrays;
 
 import co.edu.unbosque.sistemaentrenamientoGPC_back.entity.Doc;
 
 public class DocPDFDTO extends Doc {
-
-	private Long id;
 
 	private byte[] contenidoPdf;
 
@@ -15,7 +13,6 @@ public class DocPDFDTO extends Doc {
 
 	public DocPDFDTO(Long id, byte[] contenidoPdf) {
 		super();
-		this.id = id;
 		this.contenidoPdf = contenidoPdf;
 	}
 
@@ -29,14 +26,6 @@ public class DocPDFDTO extends Doc {
 		// TODO Auto-generated constructor stub
 	}
 
-	// Getters y setters
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public byte[] getContenidoPdf() {
 		return contenidoPdf;
@@ -50,7 +39,7 @@ public class DocPDFDTO extends Doc {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(id);
+		result = prime * result + Arrays.hashCode(contenidoPdf);
 		return result;
 	}
 
@@ -63,11 +52,8 @@ public class DocPDFDTO extends Doc {
 		if (getClass() != obj.getClass())
 			return false;
 		DocPDFDTO other = (DocPDFDTO) obj;
-		return Objects.equals(id, other.id);
+		return Arrays.equals(contenidoPdf, other.contenidoPdf);
 	}
 
-	@Override
-	public String toString() {
-		return super.toString() + "LibroPDF [id=" + id + "]";
-	}
+
 }
