@@ -1,15 +1,18 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.entity;
 
-import java.sql.Date;
+
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 @Entity
 public class Tema {
 	
 	
-	
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	@Column(unique = false, name = "tema")
 	private String tema;
 	
@@ -25,18 +28,33 @@ public class Tema {
    }
 
 
+	 
+
+
 	 public Tema(String tema, String tipo, String contenido) {
 		super();
 		this.tema = tema;
 		this.tipo = tipo;
 		this.contenido = contenido;
-	 }
+	}
+	 
+	 
+	 
+
+
+
+
+
+
 
 
 	 @Override
-	 public int hashCode() {
-		return Objects.hash(contenido, tema, tipo);
-	 }
+	public int hashCode() {
+		return Objects.hash(contenido, id, tema, tipo);
+	}
+
+
+
 
 
 	 @Override
@@ -48,9 +66,12 @@ public class Tema {
 		if (getClass() != obj.getClass())
 			return false;
 		Tema other = (Tema) obj;
-		return Objects.equals(contenido, other.contenido) && Objects.equals(tema, other.tema)
-				&& Objects.equals(tipo, other.tipo);
+		return Objects.equals(contenido, other.contenido) && Objects.equals(id, other.id)
+				&& Objects.equals(tema, other.tema) && Objects.equals(tipo, other.tipo);
 	 }
+
+
+
 
 
 	 public String getTema() {
@@ -81,6 +102,23 @@ public class Tema {
 	 public void setContenido(String contenido) {
 		 this.contenido = contenido;
 	 }
+	 
+
+
+	 public Long getId() {
+		return id;
+	}
+
+
+
+
+
+	 public void setId(Long id) {
+		 this.id = id;
+	 }
+
+
+
 
 
 	 @Override

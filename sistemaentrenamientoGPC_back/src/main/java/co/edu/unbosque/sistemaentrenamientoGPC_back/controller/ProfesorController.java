@@ -43,9 +43,9 @@ public class ProfesorController {
 		int status = profesorService.create(newUser);
 
 		if (status == 0) {
-			return new ResponseEntity<>("{User create successfully}", HttpStatus.CREATED);
+			return new ResponseEntity<>("{Profesor create successfully}", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("{Error on created user, maybe username already in use}",
+			return new ResponseEntity<>("{Error on created profesor}",
 					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}

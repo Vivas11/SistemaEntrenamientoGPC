@@ -1,14 +1,17 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 @Entity
 public class Evento {
 	
-	
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	@Column(unique = false, name = "nombre")
 	private String nombre;
 	
@@ -29,10 +32,12 @@ public class Evento {
 		this.descripcion = descripcion;
 	 }
 
+	
+
 	 @Override
-	 public int hashCode() {
-		return Objects.hash(descripcion, fecha, nombre);
-	 }
+	public int hashCode() {
+		return Objects.hash(descripcion, fecha, id, nombre);
+	}
 
 	 @Override
 	 public boolean equals(Object obj) {
@@ -44,7 +49,7 @@ public class Evento {
 			return false;
 		Evento other = (Evento) obj;
 		return Objects.equals(descripcion, other.descripcion) && Objects.equals(fecha, other.fecha)
-				&& Objects.equals(nombre, other.nombre);
+				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	 }
 
 	 public String getNombre() {
@@ -69,6 +74,17 @@ public class Evento {
 
 	 public void setDescripcion(String descripcion) {
 		 this.descripcion = descripcion;
+	 }
+	 
+	 
+	 
+
+	 public Long getId() {
+		return id;
+	}
+
+	 public void setId(Long id) {
+		 this.id = id;
 	 }
 
 	 @Override
