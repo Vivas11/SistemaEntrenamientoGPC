@@ -1,15 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="template/template.xhtml">
+<ui:composition template="template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="content">
 		<div class="main">
+			<h:form>
+				<p:dataGrid value="#{librobean.listaLibros}" var="libro" columns="3"
+					layout="grid" paginator="true" rows="9" styleClass="libro-grid">
+					<p:panel styleClass="libro-card">
+						<h3>#{libro.nombre}</h3>
+						<p>
+							<b>Descripcion:</b> #{libro.descripcion}
+						</p>
+						<div class="acciones">
+							<!-- Descargar PDF -->
+							<p:commandButton value="Descargar PDF" ajax="false"
+								icon="pi pi-download">
+								<p:fileDownload value="#{libro.pdf}" />
+							</p:commandButton>
+							<!-- Botón Eliminar -->
+							<p:commandButton styleClass="delete-button"
+								actionListener="#{librobean.eliminar(libro)}" ajax="true"
+								value="Eliminar" rendered="#{librobean.adminIniciada}" process="@form" update="@all">
+								<f:facet name="output">
+									<span class="text">Delete</span>
+									<span class="icon"> <img
+										src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+										alt="delete" />
+									</span>
+								</f:facet>
+							</p:commandButton>
+						</div>
+					</p:panel>
+				</p:dataGrid>
+			</h:form>
 		</div>
 	</ui:define>
 </ui:composition>

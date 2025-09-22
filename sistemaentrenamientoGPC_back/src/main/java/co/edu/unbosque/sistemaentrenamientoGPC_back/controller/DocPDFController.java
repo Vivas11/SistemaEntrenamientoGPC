@@ -60,4 +60,14 @@ public class DocPDFController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
+	
+	@DeleteMapping(path = "/eliminar")
+	public ResponseEntity<String> eliminar(@RequestParam Long id) {
+		int status = docPDFSer.deleteById(id);
+		if (status == 0) {
+			return new ResponseEntity<>("Libro no encontrado", HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>("Eliminado con exito", HttpStatus.NO_CONTENT);
+		}
+	}
 }

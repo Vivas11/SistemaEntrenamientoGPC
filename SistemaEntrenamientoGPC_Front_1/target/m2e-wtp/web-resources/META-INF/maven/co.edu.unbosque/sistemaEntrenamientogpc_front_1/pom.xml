@@ -64,6 +64,16 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.16.0</version> <!-- puedes usar la última -->
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20240303</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
 	</dependencies>
 	<description>Virtual library for the Competitive Programming Group (GPC) is
 		a digital plataform designed to provide members with easy access to

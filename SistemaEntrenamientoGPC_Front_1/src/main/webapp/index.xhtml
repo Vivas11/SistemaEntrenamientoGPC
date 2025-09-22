@@ -10,6 +10,12 @@
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
 		<div class="main">
+
+<!-- 			<p:messages id="messages" showDetail="true" showIcon="false"> -->
+<!-- 				<p:autoUpdate /> -->
+<!-- 			</p:messages> -->
+			<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+				sticky="true" />
 			<!-- Imagen principal -->
 			<div class="hero-image-container">
 				<img src="assets/artemisahorizontal.png" alt="Imagen Principal"
@@ -20,19 +26,28 @@
 			<div class="content-flex">
 
 				<!-- Formulario de login -->
-				<p:form class="login-box"
+				<h:form class="login-box" rendered="#{!loginbean.sesionIniciada}"
 					style="margin-right: 120px; margin-top: 80px;">
 					<h2 class="login-title">Login</h2>
 					<span class="input-span"> <label for="email" class="label">Usuario</label>
 						<p:inputText id="email" value="#{loginbean.user}" required="true"
 							autocomplete="off" />
-					</span> <span class="input-span"> <label for="password"
+					</span>
+					<span class="input-span"> <label for="password"
 						class="label">Password</label> <p:inputText id="password"
 							value="#{loginbean.password}" required="true" autocomplete="off" />
-					</span><span class="span">No tienes cuenta? <a
+					</span>
+
+					<div class="signin-actions" style="margin-top: 20px;">
+						<p:commandButton value="Iniciar Sesion"
+							action="#{loginbean.iniciarSesion}" process="@form" update="@all"
+							styleClass="signin-btn" />
+					</div>
+
+					<span class="span">No tienes cuenta? <a
 						href="registrar.xhtml">Crea una</a>
 					</span>
-				</p:form>
+				</h:form>
 
 
 				<!-- Columna derecha -->
