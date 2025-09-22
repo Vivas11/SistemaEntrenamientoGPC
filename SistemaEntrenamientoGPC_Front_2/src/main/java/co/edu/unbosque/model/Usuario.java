@@ -2,33 +2,23 @@ package co.edu.unbosque.model;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 /**
  * Clase Usuario que representa a un usuario del sistema de entrenamiento
  */
-@Entity
-@Table(name = "usuario")
 public abstract class Usuario {
 
 	/**
 	 * Atributo identificador unico de la clase Usuario
 	 */
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	private Long id;
 	/**
 	 * Atributo nombre de la clase Usuario
 	 */
-	@Column(unique = false, name = "nombre")
 	private String nombre;
 	/**
 	 * Atributo correo de la clase Usuario
 	 */
-	@Column(unique = true, name = "correo")
 	private String correo;
 	/**
 	 * Atributo edad de la clase Usuario

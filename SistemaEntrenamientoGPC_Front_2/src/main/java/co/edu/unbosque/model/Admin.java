@@ -1,12 +1,11 @@
 package co.edu.unbosque.model;
 
-import jakarta.persistence.Entity;
 
 /**
  * Clase Admin que representa a un administrador del sistema de entrenamiento
  * Hereda de la clase Usuario
  */
-@Entity
+
 public class Admin extends Usuario {
 
 	/**
