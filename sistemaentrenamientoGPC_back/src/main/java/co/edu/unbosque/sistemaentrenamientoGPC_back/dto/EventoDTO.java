@@ -1,6 +1,6 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -8,7 +8,7 @@ public class EventoDTO {
 	
 	
 	private String nombre;
-	private Date fecha;
+	private LocalDate fecha;
 	private String descripcion ;
 	
 	
@@ -17,7 +17,7 @@ public class EventoDTO {
 	}
 
 
-	public EventoDTO(String nombre, Date fecha, String descripcion) {
+	public EventoDTO(String nombre, LocalDate fecha, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -55,12 +55,12 @@ public class EventoDTO {
 	}
 
 
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 

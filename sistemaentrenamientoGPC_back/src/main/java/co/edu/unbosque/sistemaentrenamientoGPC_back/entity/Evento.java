@@ -1,6 +1,6 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -16,7 +16,7 @@ public class Evento {
 	private String nombre;
 	
 	@Column(unique = false, name = "fecha")
-	private Date fecha; 
+	private LocalDate fecha; 
 
 	@Column(unique = false, name = "descripcion")
 	private String descripcion ;
@@ -25,7 +25,7 @@ public class Evento {
 		// TODO Auto-generated constructor stub
 	}
 
-	 public Evento(String nombre, Date fecha, String descripcion) {
+	 public Evento(String nombre, LocalDate fecha, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -60,11 +60,11 @@ public class Evento {
 		 this.nombre = nombre;
 	 }
 
-	 public Date getFecha() {
+	 public LocalDate getFecha() {
 		 return fecha;
 	 }
 
-	 public void setFecha(Date fecha) {
+	 public void setFecha(LocalDate fecha) {
 		 this.fecha = fecha;
 	 }
 
