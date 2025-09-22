@@ -2,13 +2,11 @@ package co.edu.unbosque.model;
 
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
 
 /**
  * Clase Profesor que representa a un profesor perteneciente al GPC(grupo de programación competitiva)
  * Hereda de la clase Usuario
  */
-@Entity
 public class Profesor  extends Usuario{
 	
 	/**
