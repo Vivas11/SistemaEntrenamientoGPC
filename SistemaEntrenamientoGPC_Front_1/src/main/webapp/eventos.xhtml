@@ -10,6 +10,78 @@
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
 		<div class="main">
+			<div class="card">
+				<h:form id="formEventosEliminar">
+					<!-- Calendario -->
+					<p:schedule id="schedule" value="#{eventbean.eventModel}"
+						widgetVar="myschedule" timeZone="UTC" draggable="false"
+						resizable="false" selectable="false" allDaySlot="true"
+						aspectRatio="1.5">
+
+						<!-- Cuando seleccionas un evento abre el diálogo -->
+						<p:ajax event="eventSelect" listener="#{eventbean.onEventSelect}"
+							update=":form:dialogDetalle" oncomplete="PF('dlgDetalle').show()" />
+					</p:schedule>
+
+					<!-- Ventanita de detalles -->
+					<p:dialog id="dialogDetalle" header="Detalles del Evento"
+						widgetVar="dlgDetalle" modal="true" resizable="false"
+						closable="true" width="400">
+
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Título:" />
+							<h:outputText value="#{eventbean.event.title}" />
+
+							<h:outputText value="Descripción:" />
+							<h:outputText value="#{eventbean.event.description}" />
+
+							<h:outputText value="Inicio:" />
+							<h:outputText value="#{eventbean.event.startDate}" />
+
+							<h:outputText value="Fin:" />
+							<h:outputText value="#{eventbean.event.endDate}" />
+							
+							<p:commandButton value="Eliminar"
+							action="#{eventobean.eliminarEvento(eventbean.event)}" process="formEventosEliminar"
+							update="formEventos" icon="pi pi-save"
+							styleClass="ui-button-success" />
+							
+						</h:panelGrid>
+					</p:dialog>
+				</h:form>
+
+				<h:form id="formEventos">
+					<p:panel header="Registrar Evento">
+						<h:panelGrid columns="1" columnClasses="label,value"
+							style="width:100%">
+
+							<!-- Nombre del evento -->
+							<h:outputLabel for="nombre" value="Nombre:" />
+							<p:inputText id="nombre" value="#{eventobean.nombre}"
+								required="true" placeholder="Ej: Reunión de equipo" />
+
+							<!-- Fecha del evento -->
+							<p:outputLabel for="fecha" value="Fecha" />
+							<p:datePicker id="fecha" value="#{eventobean.fecha}"
+								showIcon="true" showOnFocus="false" />
+
+							<!-- Descripción -->
+							<h:outputLabel for="descripcion" value="Descripción:" />
+							<p:inputTextarea id="descripcion"
+								value="#{eventobean.descripcion}" rows="3" autoResize="true"
+								placeholder="Detalles del evento..." />
+						</h:panelGrid>
+
+						<p:separator />
+
+						<!-- Botón Guardar -->
+						<p:commandButton value="Guardar"
+							action="#{eventobean.crearEvento}" process="formEventos"
+							update="formEventos" icon="pi pi-save"
+							styleClass="ui-button-success" />
+					</p:panel>
+				</h:form>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>
