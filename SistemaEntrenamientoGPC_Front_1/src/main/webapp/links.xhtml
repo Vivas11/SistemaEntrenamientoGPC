@@ -9,7 +9,189 @@
 
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
-		<div class="main">
+		<div class="main" style="text-align: center; padding: 20px;">
+			<h2>📚 Recursos para Aprender Programación</h2>
+
+			<p:panelGrid columns="3"
+				style="width:95%; margin: 0 auto; text-align:center;"
+				columnClasses="grid-item,grid-item,grid-item,grid-item">
+
+				<!-- 1. Codeforces -->
+				<p:panel header="Codeforces" style="text-align:center;">
+					<h:graphicImage
+						value="https://sta.codeforces.com/s/18251/images/codeforces-logo-with-telegram.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Plataforma de entrenamiento competitivo." />
+					<br />
+					<p:button value="Visitar" href="https://codeforces.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 2. LeetCode -->
+				<p:panel header="LeetCode" style="text-align:center;">
+					<h:graphicImage
+						value="https://leetcode.com/static/images/LeetCode_logo.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Ejercicios de algoritmos y entrevistas." />
+					<br />
+					<p:button value="Visitar" href="https://leetcode.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 3. HackerRank -->
+				<p:panel header="HackerRank" style="text-align:center;">
+					<h:graphicImage
+						value="https://hrcdn.net/community-frontend/assets/favicon-ddc852f75a.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText
+						value="Ejercicios de práctica en múltiples lenguajes." />
+					<br />
+					<p:button value="Visitar" href="https://www.hackerrank.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 4. GeeksForGeeks -->
+				<p:panel header="GeeksForGeeks" style="text-align:center;">
+					<h:graphicImage
+						value="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Tutoriales y problemas de programación." />
+					<br />
+					<p:button value="Visitar" href="https://www.geeksforgeeks.org"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 5. Coursera -->
+				<p:panel header="Coursera" style="text-align:center;">
+					<h:graphicImage
+						value="https://about.coursera.org/static/ico/favicon-16x16.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Cursos universitarios en línea." />
+					<br />
+					<p:button value="Visitar" href="https://www.coursera.org"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 6. Udemy -->
+				<p:panel header="Udemy" style="text-align:center;">
+					<h:graphicImage
+						value="https://www.udemy.com/staticx/udemy/images/v7/favicon-32x32.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Cursos prácticos de programación." />
+					<br />
+					<p:button value="Visitar" href="https://www.udemy.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 7. freeCodeCamp -->
+				<p:panel header="freeCodeCamp" style="text-align:center;">
+					<h:graphicImage
+						value="https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.png"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Aprendizaje interactivo gratuito." />
+					<br />
+					<p:button value="Visitar" href="https://www.freecodecamp.org"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 8. W3Schools -->
+				<p:panel header="W3Schools" style="text-align:center;">
+					<h:graphicImage value="https://www.w3schools.com/favicon.ico"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Tutoriales de programación web." />
+					<br />
+					<p:button value="Visitar" href="https://www.w3schools.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 9. YouTube - Programming with Mosh -->
+				<p:panel header="Programming with Mosh" style="text-align:center;">
+					<h:graphicImage
+						value="https://yt3.googleusercontent.com/HCv0fXFEEcD0HRyF0_qR1K7b7qO3KCzmIoyH1DEJYB94CIUFhIE5i2t2IDIPX97W1-DK4hegww=s160-c-k-c0x00ffffff-no-rj"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Videos de programación y prácticas." />
+					<br />
+					<p:button value="Visitar"
+						href="https://www.youtube.com/c/programmingwithmosh"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 10. Khan Academy -->
+				<p:panel header="Khan Academy" style="text-align:center;">
+					<h:graphicImage value="https://cdn.kastatic.org/images/favicon.ico"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Aprendizaje gratuito interactivo." />
+					<br />
+					<p:button value="Visitar"
+						href="https://www.khanacademy.org/computing" target="_blank"
+						icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 11. CodeChef -->
+				<p:panel header="CodeChef" style="text-align:center;">
+					<h:graphicImage
+						value="data:image/jpeg;base64,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"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Problemas de algoritmos y concursos." />
+					<br />
+					<p:button value="Visitar" href="https://www.codechef.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 12. OmegaUp -->
+				<p:panel header="OmegaUp" style="text-align:center;">
+					<h:graphicImage
+						value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAJ1BMVEVHcExViN1ViN1ViN1ViN1ViN1ViN1ViN1ViN1ViN1ViN1ViN1ViN3UuA3lAAAADHRSTlMADlzR34Am8Jc+u6r8CRQqAAAAv0lEQVQ4jbVTSRLDIAwDDJjt/+9thy2yoZ1eqhOWiZAFMUbCWvMRMZTW4au7takhqu7XppFF3x/91vAcuvRRI02G+kd5H7f9ac1FhFmX48woJUZR0HRCF+4ylh1cgghY5jLmJlir6BKYkI4nwrFB3Y/7w4YvHjyMrKbwx3qD4Ks81ORjFOleTASRLjoWAnsyguDBNxAsCTqvj3ASLViY2cOjWb/Pm+71el7bKNbxieG+If+igER4QsJs7MKyjcQLt8IVtYZNEUQAAAAASUVORK5CYII="
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Plataforma educativa para programadores." />
+					<br />
+					<p:button value="Visitar" href="https://omegaup.com"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 13. VJudge -->
+				<p:panel header="VJudge" style="text-align:center;">
+					<h:graphicImage
+						value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA5FBMVEXm8vns9vvX4eHCwsLMx8XPz8/Q2dqJiYmSkpKYmZqBgoC4uLjp8/HZ2dnDx8Lc3Nzo6Oitra1zc3M8PDy/v7/JyclgYGDv7+++vr6np6Shn6QAABUAAAANDBt6eX8oJzaHiABtbgBYWF9ITEuVlwDc3Qf//wC9w7l9eQDi5AVWVgAAAAz49Ant8QEYGBcTGA/L0AlQTk83OAAiIgdGRgpPTwc0MgAlJSPHxAsYGQADBQCzswsiHgppbGQ6PgAyMDYIBCCiogBrawYbGyFrbHcsLARYWkKgoAkcGypYWFsuMjEdHRnmJ2mUAAABt0lEQVR4AX3ShXrqMBiA4e5knBpWSGoLDsGquDPX+7+f/en6rOnshfpXryRd/EWSpH/oD5eFC+m/LCvqz2RN1otSSS5Xqj8zanWZB6USRgmSQinFrMsWBJWSbnNId1zOQdhOCAGswcQwryjXaGICyzb+DCo65MRo0XaiQ7tqAQJbCDAmPdofsA+DDm0O80fASKEj9mk8mWokFxC50fdYxp8EBhIC7IQjPyeaxDbKAqTS2Yxy8wVNLFdrRwj02izabOluR/f+iE9mXnQ4kiwwrvpscKJgwPrJARibnUtCcH3D2P52dmp7bNzvnJYbCOpicAdBHgQF8RQ/BGchsO87PmOjDePSmVksBEjZwrr2w5hxN2HEvP3aRVmAjeDWY17/EDHm3VCI/VFXx8IpkEkHsK0zu729nfMT7Hcuyr9N88TfRXuxXO4ZuG0SOx/oj23Y4sFrgM2bUd1AwtssQYD0++nqaQzBoHN6burlL98DthFyn+lssVg+0DuDIJwF2Ud7qZov3ZejWkY2yIJqBZNUgSMJRIiaBo6q/Uiu9ZJAe30Lf/QW0LoCgWPGvzIhsKxKKQUzebDGegfNdWPlzOhqugAAAABJRU5ErkJggg=="
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Juez virtual para practicar problemas." />
+					<br />
+					<p:button value="Visitar" href="https://vjudge.net" target="_blank"
+						icon="pi pi-external-link" />
+				</p:panel>
+
+				<!-- 14. Online Judge (UVA) -->
+				<p:panel header="Online Judge (UVA)" style="text-align:center;">
+					<h:graphicImage
+						value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAABnRSTlMAAAAAAABupgeRAAAEk0lEQVR4AWKgB7jHkHGRIYkW6C5DOsgCIOswQwwt0HmGxMFhwagFAEaqAViSJQjWt23bto2znrE427Zt2/ba3mfbtm3O5WxHzBkdg+psZDmWht12ayBJeOEufwGBzKbCE0T+eK5EcDMjGOIgXyf5OMlPuA5bGQIZQoBrg8AkcLCla7QRiGPuGkoYwQ8MlT0tvvCsRPeIyHmXmO0wPSCSPSNRPCGGoHl6MFZlT4iMd1++y0EizQN+wLVPSe33iK/lJkYwmDASe2+ujMwvTyxInnFWT2643Urujt+XVMQXlMlTZG+PzNxoLU/IL7dnGz6faiUvdlhDbomzz1UkF+Rsc+ru9xOsv8pFLAapQw5yrpG9x6aigXCOidwcg9YD6SprO/GGJHreGbYhetIRDfV3qe977ilRfXwZwKTlSjkNCCYxNAMNe64iSJHsY+cztxtAgAUQ2AesBdJSUHfx9aG6r6dyrd2YFpyNOn+3G9NA//vcztYu4Oaf58FuHFTc46V+TMQ/D/oqyc1GfsjPawhM1xNo3x594SGvmoh8TJvz6hVvjXGQt4IGxM85BaQqouDUo17YEL/wXFlgen1caV1MUWVwVso6jfz5IREkvj2B4f1xZ6lH8hoV2xPosV5HA8/f51miS8I0eZXiwIP9889EsdXmtPK23Fomp6/XIWB3RKClPtb/FnNdrmPbTKfoP/3Hkzqq2rs7ONVvs03fzOEK2riqTufwnUep1777+iSdDcTO1uRK0/Mjb0DAXCwQ6D4cj6S68LS4JrYESE1U4aEHB4SKtkGGQxBqywNi1Zsjzn4/5egHw21/LJL9Ny/ymJm3prhZ+c6EqwgybhRk3fvj4XTkSdomPcdD3MkfJyXsMvL7txgQDBzR/zgz+3RIc0EDrBRGU1GT8p1xV6UpCFjCGWiQZcAq3szCBliAcgVi7bcSPsEI3HKxNDEPdwGRU09kUXtRE/CmxLIg6ZaLf8+EBVcRJPbdyJgrbGlHH3S7QL2O0L8xi84AqUutkr88DAR4zr8wuDG1mj9Z09TV1dWaVi1/XiqjPumbTQC72rgzf808R//uo1+D11zgXVTYpHrbReB4dVxbXiMgKJh8zKGWbApacrqjqhVI3ulIlvgoIngj50CA4IGsg07mn4wdZnZWL1537J6++p5L2spcBhU2IqcJw0Y+gcN3w7lXDeafn+cayY2VJbLT4b1JWLX6bgCiR7T6rmZliG9DUklLbnNZdA5P2ciZv5xJGGhJMnKz9FqZfzqkOjKvNroA38wDdu2XU9FwhO5oJx/Vi8MLtzuKz4cVbrfpXh4BzWCc+i6PQJ/N5fa0usTi6tA8q2SL9ve5JafDSw+Hx3yxgFi7RveALqhvzSP+mifE+EI2kgfTHS0WD5olqh+UWFLTIMhCcwaous8bbVV5vw9kE3ljD4RwkrosoEtLhJfg0IoB7DS422EMzFoFgYBOBOuNAsrCleGvMhFmwe3AKPQRUpCKBK2+A1U4mFUmhjqEZjzKsApegPsAUw5uOrwSBSI0+4AMuBqsCG7BaLuIQBDdYcgAWkULdJshHQA+GId5vp4CrgAAAABJRU5ErkJggg=="
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText value="Clásico juez online de algoritmos." />
+					<br />
+					<p:button value="Visitar" href="https://onlinejudge.org"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<p:panel header="CS50 - Harvard" style="text-align:center;">
+					<h:graphicImage value="https://cs50.harvard.edu/x/2023/favicon.ico"
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText
+						value="Curso introductorio gratuito de Harvard sobre ciencias de la computación." />
+					<br />
+					<p:button value="Visitar" href="https://cs50.harvard.edu/x/"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+				<p:panel header="Exercism" style="text-align:center;">
+					<h:graphicImage value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAKlBMVEUjCHIXB2owCHs+CYRKC41TDZNZDpfgx/PKsOT54/5XNpKzldaMbrh2WaZbOXnTAAAA6ElEQVQokX2NgZKFIAhFEShU7P9/dy9Y1pvZEQguHEgqG6MtJPDf9NtM8XzlM0qb//i/I6mtvpto+LNq7fpeXs1my/DSWpkqnFY/W2wyxBP4E0pqpISvJaQdfC65Wb6Vg3hpQWHurVI3c0ykWhWqrUMyicSgk/Xig9lHGY7NirFQJEDuqB2BAzSAkpeYmHNUzkDCdtSEYjWGbESmE/KEuqD4GBAaMG9Ig1rOVMYQRQ2oEJQZ70fBmqYICEH6wmX35Q3drg+Vy/yGB/z06poqHM2Zgo6wWDse09XRsbGAZ8aycyY4nRvbwj9a4Aq12U9A6AAAAABJRU5ErkJggg=="
+						style="max-width:120px; margin-bottom:10px;" />
+					<h:outputText
+						value="Ejercicios prácticos con mentoría en distintos lenguajes." />
+					<br />
+					<p:button value="Visitar" href="https://exercism.org"
+						target="_blank" icon="pi pi-external-link" />
+				</p:panel>
+
+			</p:panelGrid>
 		</div>
 	</ui:define>
 </ui:composition>
