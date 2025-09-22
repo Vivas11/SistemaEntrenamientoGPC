@@ -57,7 +57,7 @@
             </h:form>
 
             <!-- FORMULARIO SUBIDA -->
-            <h:form id="formSubidaLibro" enctype="multipart/form-data">
+            <h:form id="formSubidaLibro" enctype="multipart/form-data" rendered="#{librobean.adminIniciada}">
                 <p:panel header="Añadir Nuevo Libro" style="margin-top:20px;">
 
                     <h:panelGrid columns="2" columnClasses="label,value" style="width:100%">

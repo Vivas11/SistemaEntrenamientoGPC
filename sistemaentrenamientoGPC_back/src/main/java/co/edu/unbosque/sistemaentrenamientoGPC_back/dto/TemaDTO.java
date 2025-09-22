@@ -6,7 +6,7 @@ import java.util.Objects;
 public class TemaDTO {
 	
 	
-	
+	private Long id;
 	private String tema;
 	private String tipo; 
 	private String contenido ;

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class EventoDTO {
 	
-	
+	private Long id;
 	private String nombre;
 	private LocalDate fecha;
 	private String descripcion ;
@@ -78,6 +78,16 @@ public class EventoDTO {
 	@Override
 	public String toString() {
 		return "EventoDTO [nombre=" + nombre + ", fecha=" + fecha + ", descripcion=" + descripcion + "]";
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

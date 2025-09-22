@@ -10,6 +10,81 @@
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
 		<div class="main">
+			<p:messages id="messages" showDetail="true" showIcon="false">
+				<p:autoUpdate />
+			</p:messages>
+			<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+				sticky="true" />
+
+			<h:form id="formProblemas">
+				<p:panel header="Listado de Problemas">
+					<p:dataTable value="#{problemabean.problemas}" var="prob"
+						paginator="true" rows="10" responsiveLayout="scroll"
+						style="width:100%" rowIndexVar="i">
+
+						<p:column headerText="ID">
+							<h:outputText value="#{i + 1}" />
+						</p:column>
+
+						<p:column headerText="Nombre">
+							<h:outputText value="#{prob.nombre}" />
+						</p:column>
+
+						<p:column headerText="Dificultad">
+							<h:outputText value="#{prob.dificultad}" />
+						</p:column>
+
+						<p:column headerText="Tema">
+							<h:outputText value="#{prob.tema}" />
+						</p:column>
+
+						<p:column headerText="Juez">
+							<p:button value="Ver en Juez" icon="pi pi-external-link"
+								href="#{prob.juez}" target="_blank" />
+						</p:column>
+
+						<p:column headerText="Acciones"
+							rendered="#{problemabean.adminIniciada}">
+							<p:commandButton value="Eliminar" update="formProblemas"
+								process="@this"
+								action="#{problemabean.eliminarProblema(prob)}"
+								styleClass="ui-button-danger" icon="pi pi-trash" />
+						</p:column>
+
+					</p:dataTable>
+				</p:panel>
+				
+				<p:panel header="Añadir Nuevo Problema" style="margin-top:20px;"
+					rendered="#{problemabean.adminIniciada}">
+
+					<h:panelGrid columns="2" columnClasses="label,value"
+						style="width:100%">
+						<h:outputLabel for="nombre" value="Nombre:" />
+						<p:inputText id="nombre" value="#{problemabean.nombre}"
+							required="true" />
+
+						<h:outputLabel for="dificultad" value="Dificultad:" />
+						<p:inputText id="dificultad" value="#{problemabean.dificultad}"
+							required="true" />
+
+						<h:outputLabel for="tema" value="Tema" />
+						<p:inputText id="tema" value="#{problemabean.tema}"
+							required="true" />
+
+						<h:outputLabel for="enlace" value="Enlace" />
+						<p:inputText id="enlace" value="#{problemabean.juez}"
+							required="true" />
+
+					</h:panelGrid>
+
+					<p:separator />
+
+					<p:commandButton value="Guardar"
+						action="#{problemabean.crearProblema}" process="@form"
+						update="@all" icon="pi pi-save" styleClass="ui-button-success" />
+				</p:panel>
+			</h:form>
+
 		</div>
 	</ui:define>
 </ui:composition>
