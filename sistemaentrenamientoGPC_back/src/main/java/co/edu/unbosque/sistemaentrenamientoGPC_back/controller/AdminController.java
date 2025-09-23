@@ -18,30 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.AdminDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.AdminService;
 
-/**
- * Controlador REST para gestionar operaciones CRUD sobre entidades Admin.
- * Expone endpoints para crear, actualizar, eliminar y consultar administradores.
- */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/admin" })
 public class AdminController {
-
-	/**
-	 * Servicio encargado de la lógica de negocio relacionada con administradores.
-	 */
+	
+	
 	@Autowired
 	private AdminService adminService;
-
-	/**
-	 * Crea un nuevo administrador a partir de parámetros individuales.
-	 *
-	 * @param nombre Nombre del administrador
-	 * @param correo Correo electrónico del administrador
-	 * @param edad Edad del administrador
-	 * @param contrasena Contraseña del administrador
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
+	
+	
+	
 	@PostMapping(path = "/crear")
 	public ResponseEntity<String> crear(@RequestParam String nombre, String correo,int edad,String contrasena ) {
 		AdminDTO nuevo = new AdminDTO(nombre, correo, edad, contrasena);
@@ -52,13 +39,7 @@ public class AdminController {
 			return new ResponseEntity<>("Error creando su cuenta, nombre o correo ya en uso.", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-
-	/**
-	 * Crea un nuevo administrador a partir de un objeto JSON.
-	 *
-	 * @param newUser Objeto AdminDTO con los datos del nuevo administrador
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
+	
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> createNewWithJSON(@RequestBody AdminDTO newUser) {
 		int status = adminService.create(newUser);
@@ -71,12 +52,6 @@ public class AdminController {
 		}
 	}
 
-	/**
-	 * Elimina un administrador por su ID.
-	 *
-	 * @param id Identificador del administrador a eliminar
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = adminService.deleteById(id);
@@ -87,16 +62,6 @@ public class AdminController {
 		}
 	}
 
-	/**
-	 * Actualiza los datos de un administrador por su ID.
-	 *
-	 * @param id Identificador del administrador
-	 * @param nombre Nuevo nombre
-	 * @param correo Nuevo correo
-	 * @param edad Nueva edad
-	 * @param contrasena Nueva contraseña
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
 	@PutMapping(path = "/actualizar")
 	public ResponseEntity<String> actualizar(@RequestParam Long id,String nombre, String correo,int edad,String contrasena) {
 		AdminDTO data = new AdminDTO(nombre, correo, edad, contrasena);
@@ -108,11 +73,6 @@ public class AdminController {
 		}
 	}
 
-	/**
-	 * Muestra todos los administradores en formato texto.
-	 *
-	 * @return ResponseEntity con lista de administradores o mensaje de error
-	 */
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
 		List<AdminDTO> lista = adminService.getAll();
@@ -125,11 +85,7 @@ public class AdminController {
 		}
 	}
 
-	/**
-	 * Obtiene todos los administradores en formato JSON.
-	 *
-	 * @return ResponseEntity con lista de administradores o estado sin contenido
-	 */
+
 	@GetMapping("/getall")
 	ResponseEntity<List<AdminDTO>> getAll() {
 		List<AdminDTO> users = adminService.getAll();
@@ -139,5 +95,8 @@ public class AdminController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
+	
+	
+	
 
 }

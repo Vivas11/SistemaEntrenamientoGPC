@@ -19,30 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.ProblemaDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.ProblemaService;
 
-/**
- * Controlador REST para gestionar operaciones relacionadas con problemas.
- * Proporciona endpoints para crear, actualizar, eliminar y consultar problemas.
- */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/problema" })
 public class ProblemaController {
-
-	/**
-	 * Servicio encargado de la lógica de negocio para problemas.
-	 */
+	
 	@Autowired
 	private ProblemaService problemaService;
-
-	/**
-	 * Crea un nuevo problema a partir de parámetros individuales.
-	 *
-	 * @param nombre Nombre del problema
-	 * @param dificultad Nivel de dificultad del problema
-	 * @param tema Tema asociado al problema
-	 * @param juez Juez que evalúa el problema
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
+	
+	
 	@PostMapping(path = "/crear")
 	public ResponseEntity<String> crear(@RequestParam String nombre, String dificultad,String tema, String juez ) {
 		ProblemaDTO nuevo = new ProblemaDTO(nombre, dificultad, tema, juez);
@@ -53,13 +38,7 @@ public class ProblemaController {
 			return new ResponseEntity<>("Error creando su problema", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-
-	/**
-	 * Crea un nuevo problema a partir de un objeto JSON.
-	 *
-	 * @param newUser Objeto ProblemaDTO con los datos del nuevo problema
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
+	
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> createNewWithJSON(@RequestBody ProblemaDTO newUser) {
 		int status = problemaService.create(newUser);
@@ -72,12 +51,6 @@ public class ProblemaController {
 		}
 	}
 
-	/**
-	 * Elimina un problema por su ID.
-	 *
-	 * @param id Identificador del problema
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = problemaService.deleteById(id);
@@ -88,19 +61,9 @@ public class ProblemaController {
 		}
 	}
 
-	/**
-	 * Actualiza los datos de un problema por su ID.
-	 *
-	 * @param id Identificador del problema
-	 * @param nombre Nuevo nombre
-	 * @param dificultad Nueva dificultad
-	 * @param tema Nuevo tema
-	 * @param juez Nuevo juez
-	 * @return ResponseEntity con mensaje de éxito o error
-	 */
 	@PutMapping(path = "/actualizar")
 	public ResponseEntity<String> actualizar(@RequestParam Long id,String nombre, String dificultad,String tema, String juez) {
-		ProblemaDTO data = new ProblemaDTO(nombre, dificultad, tema, juez);
+			ProblemaDTO data = new ProblemaDTO(nombre, dificultad, tema, juez);
 		int status = problemaService.updateById(id, data);
 		if (status == 0) {
 			return new ResponseEntity<>("Problema actualizado", HttpStatus.OK);
@@ -109,11 +72,6 @@ public class ProblemaController {
 		}
 	}
 
-	/**
-	 * Muestra todos los problemas en formato texto.
-	 *
-	 * @return ResponseEntity con lista de problemas o mensaje de error
-	 */
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
 		List<ProblemaDTO> lista = problemaService.getAll();
@@ -125,12 +83,8 @@ public class ProblemaController {
 			return new ResponseEntity<>("Problemas:\n" + sb.toString(), HttpStatus.ACCEPTED);
 		}
 	}
-
-	/**
-	 * Obtiene todos los problemas en formato JSON.
-	 *
-	 * @return ResponseEntity con lista de problemas o estado sin contenido
-	 */
+	
+	
 	@GetMapping("/getall")
 	ResponseEntity<List<ProblemaDTO>> getAll() {
 		List<ProblemaDTO> users = problemaService.getAll();
@@ -140,4 +94,5 @@ public class ProblemaController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
+
 }
