@@ -2,98 +2,127 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="template/template.xhtml">
-    <ui:define name="content">
-        <div class="main">
-            <h:form id="usuariosForm">
-                <h2 class="titulo">👥 Administración de Usuarios</h2>
+	<ui:define name="content">
+		<div class="main">
+			<h:form id="usuariosForm" rendered="#{loginbean.sesionIniciada}">
+				<h2 class="titulo">👥 Administración de Usuarios</h2>
 
-                <div class="accordion-container">
+				<div class="accordion-container">
 
-                    <!-- TODOS LOS USUARIOS -->
-                    <div class="accordion-card">
-                        <input type="checkbox" id="usuarios1" /> 
-                        <label class="accordion-header" for="usuarios1">🌍 Todos los usuarios</label>
-                        <div class="accordion-content">
-                            <ui:repeat value="#{usuariosBean.usuarios}" var="u">
-                                <div class="tema-item">
-                                    <span>#{u.nombre} --> (#{usuariosBean.getTipoUsuario(u)})</span>
-                                    <div class="acciones">
-                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌" 
-                                            styleClass="ui-button-danger"
-                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
-                                            update="usuariosForm" />
-                                    </div>
-                                </div>
-                            </ui:repeat>
-                        </div>
-                    </div>
+					<!-- TODOS LOS USUARIOS -->
+					<div class="accordion-card">
+						<input type="checkbox" id="usuarios1" /> <label
+							class="accordion-header" for="usuarios1">🌍 Todos los
+							usuarios</label>
+						<div class="accordion-content scrollable">
+							<ui:repeat value="#{usuariosBean.usuarios}" var="u">
+								<div class="tema-item">
+									<span>#{u.nombre} -->
+										(#{usuariosBean.getTipoUsuario(u)})</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{loginbean.sesionIniciada}"
+											value="❌" styleClass="ui-button-danger"
+											actionListener="#{usuariosBean.eliminarUsuario(u)}"
+											update="usuariosForm" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
 
-                    <!-- ADMINISTRADORES -->
-                    <div class="accordion-card">
-                        <input type="checkbox" id="usuarios2" /> 
-                        <label class="accordion-header" for="usuarios2">🛠 Administradores</label>
-                        <div class="accordion-content">
-                            <ui:repeat value="#{usuariosBean.admins}" var="u">
-                                <div class="tema-item">
-                                    <span>#{u.nombre}</span>
-                                    <div class="acciones">
-                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
-                                            styleClass="ui-button-danger"
-                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
-                                            update="usuariosForm" />
-                                    </div>
-                                </div>
-                            </ui:repeat>
-                        </div>
-                    </div>
+					<!-- ADMINISTRADORES -->
+					<div class="accordion-card">
+						<input type="checkbox" id="usuarios2" /> <label
+							class="accordion-header" for="usuarios2">🛠
+							Administradores</label>
+						<div class="accordion-content scrollable">
+							<p:dataTable id="tablaAdmins" value="#{usuariosBean.admins}"
+								var="u">
 
-                    <!-- PROFESORES -->
-                    <div class="accordion-card">
-                        <input type="checkbox" id="usuarios3" /> 
-                        <label class="accordion-header" for="usuarios3">👨‍🏫 Profesores</label>
-                        <div class="accordion-content">
-                            <ui:repeat value="#{usuariosBean.profesores}" var="u">
-                                <div class="tema-item">
-                                    <span>#{u.nombre}</span>
-                                    <div class="acciones">
-                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
-                                            styleClass="ui-button-danger"
-                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
-                                            update="usuariosForm" />
-                                    </div>
-                                </div>
-                            </ui:repeat>
-                        </div>
-                    </div>
+								<p:column headerText="Nombre">
+                                    #{u.nombre}
+                                </p:column>
 
-                    <!-- ESTUDIANTES -->
-                    <div class="accordion-card">
-                        <input type="checkbox" id="usuarios4" /> 
-                        <label class="accordion-header" for="usuarios4">🎓 Estudiantes</label>
-                        <div class="accordion-content">
-                            <ui:repeat value="#{usuariosBean.estudiantes}" var="u">
-                                <div class="tema-item">
-                                    <span>#{u.nombre}</span>
-                                    <div class="acciones">
-                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
-                                            styleClass="ui-button-danger"
-                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
-                                            update="usuariosForm" />
-                                    </div>
-                                </div>
-                            </ui:repeat>
-                        </div>
-                    </div>
+								<p:column headerText="Acciones">
+									<p:commandButton rendered="#{loginbean.sesionIniciada}"
+										value="❌" styleClass="ui-button-danger"
+										actionListener="#{usuariosBean.eliminarUsuario(u)}"
+										update=":usuariosForm:tablaAdmins :usuariosForm:msgs" />
+								</p:column>
+							</p:dataTable>
+						</div>
+					</div>
 
-                </div>
-            </h:form>
-        </div>
-    </ui:define>
+					<!-- PROFESORES -->
+					<div class="accordion-card">
+						<input type="checkbox" id="usuarios3" /> <label
+							class="accordion-header" for="usuarios3">👨‍🏫 Profesores</label>
+						<div class="accordion-content scrollable">
+							<p:dataTable id="tablaProfesores"
+								value="#{usuariosBean.profesores}" var="u">
+
+								<p:column headerText="Nombre">
+                                    #{u.nombre}
+                                </p:column>
+
+								<p:column headerText="Cargo">
+                                    #{u.cargo}
+                                </p:column>
+
+								<p:column headerText="Es Profesor">
+									<h:outputText value="#{u.esEntrenador ? 'Sí' : 'No'}" />
+								</p:column>
+
+								<p:column headerText="Acciones">
+									<p:commandButton value="❌" styleClass="ui-button-danger"
+										update=":usuariosForm:tablaProfesores :usuariosForm:msgs"
+										actionListener="#{usuariosBean.eliminarUsuario(u)}" />
+								</p:column>
+							</p:dataTable>
+						</div>
+					</div>
+
+					<!-- ESTUDIANTES -->
+					<div class="accordion-card">
+						<input type="checkbox" id="usuarios4" /> <label
+							class="accordion-header" for="usuarios4">🎓 Estudiantes</label>
+						<div class="accordion-content scrollable">
+							<p:dataTable id="tablaEstudiantes"
+								value="#{usuariosBean.estudiantes}" var="u">
+
+								<p:column headerText="Nombre">
+                                    #{u.nombre}
+                                </p:column>
+
+								<p:column headerText="Nivel">
+                                    #{u.nivelCompe}
+                                </p:column>
+
+								<p:column headerText="Semestre">
+                                    #{u.semestre}
+                                </p:column>
+
+								<p:column headerText="Acciones">
+									<p:commandButton value="❌" styleClass="ui-button-danger"
+										update=":usuariosForm:tablaEstudiantes :usuariosForm:msgs"
+										actionListener="#{usuariosBean.eliminarUsuario(u)}" />
+								</p:column>
+							</p:dataTable>
+						</div>
+					</div>
+
+					<!-- MENSAJES -->
+					<p:growl id="msgs" showDetail="true" />
+
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
 </ui:composition>
 </html>

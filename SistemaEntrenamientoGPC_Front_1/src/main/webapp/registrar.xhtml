@@ -71,9 +71,15 @@
 							<h3>Datos Estudiante</h3>
 
 							<div class="signin-input">
-								<p:inputText id="nivelCompetitiva"
-									value="#{registerbean.nivelCompetitiva}" autocomplete="off" />
-								<label for="nivelCompetitiva">Nivel de competitiva</label>
+								<p:selectOneMenu id="nivelCompetitiva"
+									value="#{registerbean.nivelCompetitiva}" style="width:100%">
+									<f:selectItem itemLabel="-- Selecciona Nivel --" itemValue=""/>
+									<f:selectItem itemLabel="Aprendiz" itemValue="aprendiz" />
+									<f:selectItem itemLabel="Básica" itemValue="basica" />
+									<f:selectItem itemLabel="Intermedia" itemValue="intermedia" />
+									<f:selectItem itemLabel="Avanzada" itemValue="avanzada" />
+								</p:selectOneMenu>
+								<label for="nivelCompetitiva"></label>
 							</div>
 
 							<div class="signin-input">

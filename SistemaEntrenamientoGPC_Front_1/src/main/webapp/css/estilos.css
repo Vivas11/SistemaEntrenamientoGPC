@@ -894,3 +894,8 @@ fc .fc-event {
 .accordion-content li:last-child {
 	border-bottom: none;
 }
+
+.scrollable {
+    max-height: 250px;
+    overflow-y: auto;
+}

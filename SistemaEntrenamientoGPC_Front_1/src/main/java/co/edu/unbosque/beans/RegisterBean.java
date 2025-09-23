@@ -29,6 +29,10 @@ public class RegisterBean {
 	public void crearUsuario() {
 		System.out.println(nivelCompetitiva + semestre + cargo + esEntrenador);
 		
+		if(nivelCompetitiva.equals("")) {
+			showStickyLogin("406", "Seleccionen todos los datos.");
+			return;
+		}
 		
 		fullName = AESUtil.encrypt(fullName);
 		password = AESUtil.encrypt(password);
