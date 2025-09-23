@@ -19,17 +19,32 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EstudianteDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EstudianteService;
 
-
-
+/**
+ * Controlador REST para gestionar operaciones CRUD sobre entidades Estudiante.
+ * Proporciona endpoints para crear, actualizar, eliminar y consultar estudiantes.
+ */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/estudiante" })
 public class EstudianteController {
+
+	/**
+	 * Servicio encargado de la lógica de negocio relacionada con estudiantes.
+	 */
 	@Autowired
 	private EstudianteService estudianteService;
-	
-	
-	
+
+	/**
+	 * Crea un nuevo estudiante a partir de parámetros individuales.
+	 *
+	 * @param nombre Nombre del estudiante
+	 * @param correo Correo electrónico
+	 * @param edad Edad del estudiante
+	 * @param contrasena Contraseña
+	 * @param nivelCompe Nivel de competencia
+	 * @param semestre Semestre actual
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/crear")
 	public ResponseEntity<String> crear(@RequestParam String nombre, String correo, int edad, String contrasena, String nivelCompe, int semestre) {
 		EstudianteDTO nuevo = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
@@ -41,7 +56,12 @@ public class EstudianteController {
 		}
 	}
 
-	
+	/**
+	 * Crea un nuevo estudiante a partir de un objeto JSON.
+	 *
+	 * @param newUser Objeto EstudianteDTO con los datos del nuevo estudiante
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> createNewWithJSON(@RequestBody EstudianteDTO newUser) {
 		int status = estudianteService.create(newUser);
@@ -53,7 +73,13 @@ public class EstudianteController {
 					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-	
+
+	/**
+	 * Elimina un estudiante por su ID.
+	 *
+	 * @param id Identificador del estudiante
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = estudianteService.deleteById(id);
@@ -64,6 +90,18 @@ public class EstudianteController {
 		}
 	}
 
+	/**
+	 * Actualiza los datos de un estudiante por su ID.
+	 *
+	 * @param id Identificador del estudiante
+	 * @param nombre Nuevo nombre
+	 * @param correo Nuevo correo
+	 * @param edad Nueva edad
+	 * @param contrasena Nueva contraseña
+	 * @param nivelCompe Nuevo nivel de competencia
+	 * @param semestre Nuevo semestre
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@PutMapping(path = "/actualizar")
 	public ResponseEntity<String> actualizar(@RequestParam Long id, String nombre, String correo, int edad, String contrasena, String nivelCompe, int semestre) {
 		EstudianteDTO data = new EstudianteDTO(nombre, correo, edad, contrasena, nivelCompe, semestre);
@@ -75,6 +113,11 @@ public class EstudianteController {
 		}
 	}
 
+	/**
+	 * Muestra todos los estudiantes en formato texto.
+	 *
+	 * @return ResponseEntity con lista de estudiantes o mensaje de error
+	 */
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
 		List<EstudianteDTO> lista = estudianteService.getAll();
@@ -87,6 +130,11 @@ public class EstudianteController {
 		}
 	}
 
+	/**
+	 * Obtiene todos los estudiantes en formato JSON.
+	 *
+	 * @return ResponseEntity con lista de estudiantes o estado sin contenido
+	 */
 	@GetMapping("/getall")
 	ResponseEntity<List<EstudianteDTO>> getAll() {
 		List<EstudianteDTO> users = estudianteService.getAll();
@@ -96,7 +144,5 @@ public class EstudianteController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
-	
-	
 
 }

@@ -1,7 +1,5 @@
 package co.edu.unbosque.sistemaentrenamientoGPC_back.controller;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -22,39 +20,72 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EventoDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EventoService;
 
+/**
+ * Controlador REST para gestionar operaciones relacionadas con eventos.
+ * Proporciona endpoints para crear, actualizar, eliminar y consultar eventos.
+ */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/evento" })
 public class EventoController {
 
+	/**
+	 * Servicio encargado de la lógica de negocio para eventos.
+	 */
 	@Autowired
 	private EventoService eventoService;
 
+	/**
+	 * Crea un nuevo evento a partir de parámetros individuales.
+	 *
+	 * @param nombre Nombre del evento
+	 * @param dia Día del evento
+	 * @param mes Mes del evento (0 = enero)
+	 * @param ano Año del evento (sin sumar 1900)
+	 * @param descripcion Descripción del evento
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
+	@SuppressWarnings("deprecation")
 	@PostMapping(path = "/crear")
-	public ResponseEntity<String> crear(@RequestParam String nombre, int dia, int mes, int ano, String descripcion) {
-		LocalDate fecha = LocalDate.of(ano, mes, dia);
-		EventoDTO nuevo = new EventoDTO(nombre, fecha, descripcion);
+	public ResponseEntity<String> crear(@RequestParam String nombre, int dia, int mes, int ano, String descripcion ) {
+		EventoDTO nuevo = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);
 		int status = eventoService.create(nuevo);
-		if (status == 0) {
+		if (status == 0) {  
 			return new ResponseEntity<>("Evento creado con exito", HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>("Error creando su evento", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 
+	/**
+	 * Actualiza los datos de un evento por su ID.
+	 *
+	 * @param id Identificador del evento
+	 * @param nombre Nuevo nombre
+	 * @param dia Nuevo día
+	 * @param mes Nuevo mes (0 = enero)
+	 * @param ano Nuevo año (sin sumar 1900)
+	 * @param descripcion Nueva descripción
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
+	@SuppressWarnings("deprecation")
 	@PutMapping(path = "/actualizar")
-	public ResponseEntity<String> actualizar(@RequestParam Long id, String nombre, int dia, int mes, int ano,
-			String descripcion) {
-		LocalDate fecha = LocalDate.of(ano, mes, dia);
-		EventoDTO data = new EventoDTO(nombre, fecha, descripcion);
+	public ResponseEntity<String> actualizar(@RequestParam  Long id, String nombre, int dia, int mes, int ano, String descripcion) {
+		EventoDTO data = new EventoDTO(nombre, new Date(ano + 1900, mes, dia) , descripcion);
 		int status = eventoService.updateById(id, data);
-		if (status == 0) {
+		if (status == 0) {  
 			return new ResponseEntity<>("Problema actualizado", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Error al actualizar", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 
+	/**
+	 * Crea un nuevo evento a partir de un objeto JSON.
+	 *
+	 * @param newUser Objeto EventoDTO con los datos del nuevo evento
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> createNewWithJSON(@RequestBody EventoDTO newUser) {
 		int status = eventoService.create(newUser);
@@ -62,10 +93,17 @@ public class EventoController {
 		if (status == 0) {
 			return new ResponseEntity<>("Evento creado con exito", HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>("Error creando su Evento.", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<>("Error creando su Evento.",
+					HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 
+	/**
+	 * Elimina un evento por su ID.
+	 *
+	 * @param id Identificador del evento
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = eventoService.deleteById(id);
@@ -76,6 +114,11 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Muestra todos los eventos en formato texto.
+	 *
+	 * @return ResponseEntity con lista de eventos o mensaje de error
+	 */
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
 		List<EventoDTO> lista = eventoService.getAll();
@@ -88,6 +131,11 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Obtiene todos los eventos en formato JSON.
+	 *
+	 * @return ResponseEntity con lista de eventos o estado sin contenido
+	 */
 	@GetMapping("/getall")
 	ResponseEntity<List<EventoDTO>> getAll() {
 		List<EventoDTO> users = eventoService.getAll();
@@ -97,5 +145,4 @@ public class EventoController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
-
 }

@@ -11,14 +11,30 @@ import java.util.List;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.DocPDFDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.DocPDFService;
 
+/**
+ * Controlador REST para gestionar documentos PDF con imagen asociada.
+ * Permite crear, descargar y eliminar documentos, así como listar todos los existentes.
+ */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/doc/pdf" })
 public class DocPDFController {
 
+	/**
+	 * Servicio encargado de la lógica de negocio para documentos PDF.
+	 */
 	@Autowired
 	private DocPDFService docPDFSer;
 
+	/**
+	 * Crea un nuevo documento PDF con imagen asociada.
+	 *
+	 * @param nombre Nombre del documento
+	 * @param descripcion Descripción del documento
+	 * @param imagen Archivo de imagen (Multipart)
+	 * @param archivoPdf Archivo PDF (Multipart)
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/crear", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> crear(
 	        @RequestParam("nombre") String nombre,
@@ -37,6 +53,12 @@ public class DocPDFController {
 	    }
 	}
 
+	/**
+	 * Descarga la imagen asociada a un documento por su ID.
+	 *
+	 * @param id Identificador del documento
+	 * @return ResponseEntity con el archivo de imagen en formato byte[]
+	 */
 	@GetMapping(path = "/descargar-imagen/{id}")
 	public ResponseEntity<byte[]> descargarImagen(@PathVariable Long id) {
 		byte[] imagen = docPDFSer.getImagenById(id);
@@ -44,13 +66,24 @@ public class DocPDFController {
 				.body(imagen);
 	}
 
+	/**
+	 * Descarga el contenido PDF de un documento por su ID.
+	 *
+	 * @param id Identificador del documento
+	 * @return ResponseEntity con el archivo PDF en formato byte[]
+	 */
 	@GetMapping(path = "/descargar-pdf/{id}")
 	public ResponseEntity<byte[]> descargarPdf(@PathVariable Long id) {
 		byte[] pdfContent = docPDFSer.getPdfContentById(id);
 		return ResponseEntity.ok().header("Content-Disposition", "attachment; filename=\"libro_" + id + ".pdf\"")
 				.body(pdfContent);
 	}
-	
+
+	/**
+	 * Obtiene todos los documentos PDF registrados.
+	 *
+	 * @return ResponseEntity con la lista de documentos o estado sin contenido
+	 */
 	@GetMapping("/getall")
 	ResponseEntity<List<DocPDFDTO>> getAll() {
 		List<DocPDFDTO> users = docPDFSer.getAll();
@@ -60,7 +93,13 @@ public class DocPDFController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
-	
+
+	/**
+	 * Elimina un documento PDF por su ID.
+	 *
+	 * @param id Identificador del documento
+	 * @return ResponseEntity con mensaje de éxito o error
+	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = docPDFSer.deleteById(id);
