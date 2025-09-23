@@ -3,6 +3,7 @@ package co.edu.unbosque.beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import co.edu.unbosque.model.Admin;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.model.UsuarioActual;
 import co.edu.unbosque.service.AdministradorService;
@@ -39,7 +40,6 @@ public class LogInBean implements Serializable{
 			if(usuarioN.equals(user) && contrasenaN.equals(password)) {
 				showStickyLogin("200","Sesion inicaiada exitosamente");
 				UsuarioActual.setUsuarioActual(usuario);
-				user = "";
 				password = "";
 				return;
 			}
@@ -107,6 +107,10 @@ public class LogInBean implements Serializable{
 	public String cerrarSesion() {
 		UsuarioActual.setUsuarioActual(null);
 		return "index.xhtml?faces-redirect=true";
+	}
+	
+	public boolean getAdminIniciada() {
+		return UsuarioActual.getUsuarioActual() instanceof Admin;
 	}
 	
 }

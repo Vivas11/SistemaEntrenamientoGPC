@@ -34,7 +34,11 @@ public class LibroService {
 		System.out.println("get status code -> " + response.statusCode());
 		String json = response.body();
 		Gson g = new Gson();
+		
 		DocPDF[] temps = g.fromJson(json, DocPDF[].class);
+		if (temps == null) {
+			return new ArrayList<>();
+		}
 		return new ArrayList<>(Arrays.asList(temps));
 
 	}

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template/template.xhtml">
+    <ui:define name="content">
+        <div class="main">
+            <h:form id="usuariosForm">
+                <h2 class="titulo">👥 Administración de Usuarios</h2>
+
+                <div class="accordion-container">
+
+                    <!-- TODOS LOS USUARIOS -->
+                    <div class="accordion-card">
+                        <input type="checkbox" id="usuarios1" /> 
+                        <label class="accordion-header" for="usuarios1">🌍 Todos los usuarios</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{usuariosBean.usuarios}" var="u">
+                                <div class="tema-item">
+                                    <span>#{u.nombre} --> (#{usuariosBean.getTipoUsuario(u)})</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌" 
+                                            styleClass="ui-button-danger"
+                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
+                                            update="usuariosForm" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                    <!-- ADMINISTRADORES -->
+                    <div class="accordion-card">
+                        <input type="checkbox" id="usuarios2" /> 
+                        <label class="accordion-header" for="usuarios2">🛠 Administradores</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{usuariosBean.admins}" var="u">
+                                <div class="tema-item">
+                                    <span>#{u.nombre}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
+                                            styleClass="ui-button-danger"
+                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
+                                            update="usuariosForm" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                    <!-- PROFESORES -->
+                    <div class="accordion-card">
+                        <input type="checkbox" id="usuarios3" /> 
+                        <label class="accordion-header" for="usuarios3">👨‍🏫 Profesores</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{usuariosBean.profesores}" var="u">
+                                <div class="tema-item">
+                                    <span>#{u.nombre}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
+                                            styleClass="ui-button-danger"
+                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
+                                            update="usuariosForm" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                    <!-- ESTUDIANTES -->
+                    <div class="accordion-card">
+                        <input type="checkbox" id="usuarios4" /> 
+                        <label class="accordion-header" for="usuarios4">🎓 Estudiantes</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{usuariosBean.estudiantes}" var="u">
+                                <div class="tema-item">
+                                    <span>#{u.nombre}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{loginbean.sesionIniciada}" value="❌"
+                                            styleClass="ui-button-danger"
+                                            actionListener="#{usuariosBean.eliminarUsuario(u)}"
+                                            update="usuariosForm" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

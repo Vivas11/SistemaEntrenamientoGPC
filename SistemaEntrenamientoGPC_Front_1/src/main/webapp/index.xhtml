@@ -26,16 +26,31 @@
 			<div class="content-flex">
 
 				<!-- Formulario de login -->
+
+
+				<h:form class="login-box" rendered="#{loginbean.sesionIniciada}"
+					style="margin-top: 80px;">
+					<h2 class="login-title">Sesion Iniciada!</h2>
+					
+					<h:panelGroup rendered="#{loginbean.sesionIniciada}"
+						styleClass="welcome-box">
+						<h2>👋 Bienvenido, #{loginbean.user}</h2>
+						<p>Nos alegra verte de nuevo. Explora los temas y problemas
+							disponibles 🚀.</p>
+					</h:panelGroup>
+				</h:form>
+
 				<h:form class="login-box" rendered="#{!loginbean.sesionIniciada}"
-					style="margin-right: 120px; margin-top: 80px;">
+					style="margin-top: 80px;">
 					<h2 class="login-title">Login</h2>
 					<span class="input-span"> <label for="email" class="label">Usuario</label>
 						<p:inputText id="email" value="#{loginbean.user}" required="true"
 							autocomplete="off" />
 					</span>
 					<span class="input-span"> <label for="password"
-						class="label">Password</label> <p:inputText id="password"
-							value="#{loginbean.password}" required="true" autocomplete="off" />
+						class="label">Password</label> <p:password id="password"
+							value="#{loginbean.password}" feedback="false" toggleMask="true"
+							required="true" autocomplete="off" />
 					</span>
 
 					<div class="signin-actions" style="margin-top: 20px;">
@@ -45,13 +60,13 @@
 					</div>
 
 					<span class="span">No tienes cuenta? <a
-						href="registrar.xhtml">Crea una</a>
-					</span>
+						href="registrar.xhtml">Crea una</a></span>
 				</h:form>
 
 
 				<!-- Columna derecha -->
-				<div class="right-column">
+				<div class="right-column"
+					style="margin-left: 100px; margin-right: 25%">
 					<!-- Lenguajes -->
 					<div class="container-lenguajes">
 						<div data-text="C" style="--r: -15;" class="glass-lenguajes">

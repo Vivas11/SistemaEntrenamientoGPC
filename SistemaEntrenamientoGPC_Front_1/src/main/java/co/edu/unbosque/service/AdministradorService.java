@@ -51,7 +51,28 @@ public class AdministradorService {
 		String json = response.body();		
 		Gson g = new Gson();
 		Admin[] temps=g.fromJson(json, Admin[].class);		
+		if (temps == null) {
+			return new ArrayList<>();
+		}
 		return new ArrayList<>(Arrays.asList(temps));
 
+	}
+	public static String doDelete(String url) {
+		HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create(url))
+				.setHeader("User-Agent", "Java 11 HttpClient Bot").header("Content-Type", "application/json").build();
+
+		HttpResponse<String> response = null;
+		try {
+			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			Thread.currentThread().interrupt(); // buena práctica si es interrumpido
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("delete status code -> " + response.statusCode());
+
+		return response.statusCode() + "\n" + response.body();
 	}
 }

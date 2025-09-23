@@ -52,6 +52,15 @@
 					</span> <span class="btn-text-two">Eventos</span>
 				</a></li>
 
+				<h:panelGroup rendered="#{loginbean.adminIniciada}">
+					<li><a href="usuarios.xhtml" class="btn-navbar" role="button">
+							<span class="btn-text-one"> <img
+								src="css/fa6p/svgs/solid/user-pen.svg" width="24" height="24"
+								style="border-radius: 20%; filter: invert(100%);" />
+						</span> <span class="btn-text-two">Administrar Usuarios</span>
+					</a></li>
+				</h:panelGroup>
+
 				<!-- Dropdown -->
 				<li class="nav-item dropdown"><a href="#"
 					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <img
@@ -80,7 +89,7 @@
 								Online Judge
 						</a></li>
 					</ul></li>
-				<li><h:form id="cerrar"  rendered="#{loginbean.sesionIniciada}">
+				<li><h:form id="cerrar" rendered="#{loginbean.sesionIniciada}">
 						<p:commandButton value="Cerrar Sesión"
 							action="#{loginbean.cerrarSesion}" process="@this" update="@all" />
 					</h:form></li>

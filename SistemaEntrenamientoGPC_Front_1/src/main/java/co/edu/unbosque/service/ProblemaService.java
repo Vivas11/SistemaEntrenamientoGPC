@@ -33,6 +33,9 @@ public class ProblemaService {
 		String json = response.body();
 		Gson g = new Gson();
 		Problema[] temps = g.fromJson(json, Problema[].class);
+		if (temps == null) {
+			return new ArrayList<>();
+		}
 		return new ArrayList<>(Arrays.asList(temps));
 
 	}

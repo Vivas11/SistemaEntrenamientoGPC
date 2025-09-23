@@ -41,6 +41,9 @@ public class EventoService {
 		Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
 
 		Evento[] eventos = gson.fromJson(json, Evento[].class);
+		if (eventos == null) {
+			return new ArrayList<>();
+		}
 		return new ArrayList<>(Arrays.asList(eventos));
 	}
 	
