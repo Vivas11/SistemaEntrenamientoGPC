@@ -60,7 +60,7 @@ public class TemarioBean implements Serializable{
 			 temas = new ArrayList<>();
 		    }
 		for (Tema tema : temas) {
-			switch (tema.getTema()) {
+			switch (tema.getTipo()) {
 			case "basica": {
 				teoriaBasica.add(tema);
 				break;
@@ -144,7 +144,6 @@ public class TemarioBean implements Serializable{
 		String[] data = respuesta.split("\n");
 		if (data[0].equals("204")) {
 			showStickyLogin(data[0], "tema eliminado");
-			temas.remove(tema);
 			cargarTemas();
 			return;
 		} else {
