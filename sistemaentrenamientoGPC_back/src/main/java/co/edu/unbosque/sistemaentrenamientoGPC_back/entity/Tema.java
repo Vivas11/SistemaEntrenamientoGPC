@@ -25,10 +25,11 @@ public class Tema {
 
 	/** Tipo o categoría del tema. */
 	@Column(unique = false, name = "tipo")
+
 	private String tipo;
 
 	/** Contenido asociado al tema. */
-	@Column(unique = false, name = "contenido")
+	@Column(unique = false, name = "contenido", length = 10000)
 	private String contenido;
 
 	/**

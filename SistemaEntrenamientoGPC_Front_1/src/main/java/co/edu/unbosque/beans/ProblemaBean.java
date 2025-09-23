@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.Admin;
-import co.edu.unbosque.model.DocPDF;
 import co.edu.unbosque.model.Problema;
 import co.edu.unbosque.model.Profesor;
 import co.edu.unbosque.model.UsuarioActual;
-import co.edu.unbosque.service.EstudianteService;
-import co.edu.unbosque.service.LibroService;
 import co.edu.unbosque.service.ProblemaService;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;

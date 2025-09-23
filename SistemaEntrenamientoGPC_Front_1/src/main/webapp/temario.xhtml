@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -10,7 +10,296 @@
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
 		<div class="main">
+			<h:form id="temario">
+				<h2 class="titulo">📚 Temarios separados por grupos</h2>
+
+				<div class="accordion-container">
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema1" /> <label
+							class="accordion-header" for="tema1">🌍 Todo el temario</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.temas}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" 
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" 
+											oncomplete="PF('dlg').show();"/>
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema2" /> <label
+							class="accordion-header" for="tema2">🏛 Teoría básica</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.teoriaBasica}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema3" /> <label
+							class="accordion-header" for="tema3">🔍 Algoritmos de
+							búsqueda</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.busqueda}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+					<div class="accordion-card">
+						<input type="checkbox" id="tema4" /> <label
+							class="accordion-header" for="tema4">📊 Algoritmos de
+							ordenamiento</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.ordenamiento}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema5" /> <label
+							class="accordion-header" for="tema5">⚡ Programación
+							dinámica</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.programacionDinamica}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema6" /> <label
+							class="accordion-header" for="tema6">🗂 Estructuras de
+							datos</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.estructurasDatos}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema7" /> <label
+							class="accordion-header" for="tema7">➗ Matemáticas</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.matematicas}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema8" /> <label
+							class="accordion-header" for="tema8">💡 Operaciones
+							Bitwise</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.bitwise}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema9" /> <label
+							class="accordion-header" for="tema9">🔤 Algoritmos con
+							cadenas</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.cadenas}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema10" /> <label
+							class="accordion-header" for="tema10">📐 Geometría
+							computacional</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.geometria}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+					<div class="accordion-card">
+						<input type="checkbox" id="tema11" /> <label
+							class="accordion-header" for="tema11">🌐 Teoría de grafos</label>
+						<div class="accordion-content">
+							<ui:repeat value="#{temarioBean.grafos}" var="tema">
+								<div class="tema-item">
+									<span>#{tema.tema}</span>
+									<div class="acciones">
+										<p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+											actionListener="#{temarioBean.eliminarTema(tema)}"
+											update="temario" />
+										<p:commandButton value="📖" onclick="PF('dlg').show();"
+											actionListener="#{temarioBean.seleccionarTema(tema)}"
+											process="@this" update=":dialogForm:dialogContent" />
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+
+				</div>
+			</h:form>
+
+			<h:form id="subida">
+				<p:panel header="➕ Añadir Nuevo Tema" style="margin-top:20px;"
+					rendered="#{temarioBean.adminIniciada}">
+
+					<h:panelGrid columns="1" columnClasses="label,value"
+						style="width:100%">
+
+						<h:outputLabel for="tema" value="Tema:" />
+						<p:inputText id="tema" value="#{temarioBean.tema}" required="true" />
+
+						<h:outputLabel for="tipo" value="Tipo:" />
+						<p:selectOneMenu id="tipo" value="#{temarioBean.tipo}"
+							required="true" style="width:100%">
+							<f:selectItem itemLabel="Seleccione un tipo" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItem itemLabel="Básica" itemValue="basica" />
+							<f:selectItem itemLabel="Búsqueda" itemValue="busqueda" />
+							<f:selectItem itemLabel="Ordenamiento" itemValue="ordenamiento" />
+							<f:selectItem itemLabel="Programación Dinámica"
+								itemValue="dinamica" />
+							<f:selectItem itemLabel="Estructuras de Datos"
+								itemValue="estructuras" />
+							<f:selectItem itemLabel="Matemáticas" itemValue="matematicas" />
+							<f:selectItem itemLabel="Bitwise" itemValue="bitwise" />
+							<f:selectItem itemLabel="Cadenas" itemValue="cadenas" />
+							<f:selectItem itemLabel="Geometría" itemValue="geometria" />
+							<f:selectItem itemLabel="Grafos" itemValue="grafos" />
+						</p:selectOneMenu>
+
+						<!-- Contenido -->
+						<h:outputLabel for="contenido" value="Contenido:"
+							style="vertical-align:top;" />
+						<p:inputTextarea id="contenido" value="#{temarioBean.contenido}"
+							rows="6" cols="40" autoResize="true" style="width:100%"
+							required="true" />
+
+					</h:panelGrid>
+
+					<p:separator />
+
+					<p:commandButton value="Guardar" action="#{temarioBean.crearTema}"
+						process="@form" update="@all" icon="pi pi-save"
+						styleClass="ui-button-success" />
+				</p:panel>
+			</h:form>
+
+
+			<h:form id="dialogForm">
+				<p:dialog id="dialogContent" widgetVar="dlg" modal="true"
+					header="#{temarioBean.temaSeleccionado.tema}" width="400">
+					<h:outputText value="#{temarioBean.temaSeleccionado.contenido}" />
+				</p:dialog>
+			</h:form>
 		</div>
+
 	</ui:define>
 </ui:composition>
 </html>

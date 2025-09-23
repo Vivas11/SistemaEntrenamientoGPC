@@ -40,7 +40,8 @@
 				<li><a href="links.xhtml" class="btn-navbar" role="button">
 						<span class="btn-text-one"> <img
 							src="css/fa6p/svgs/solid/arrow-up-right-from-square.svg"
-							width="24" height="24" style="border-radius: 20%; filter: invert(100%);" />
+							width="24" height="24"
+							style="border-radius: 20%; filter: invert(100%);" />
 					</span> <span class="btn-text-two">Links valiosos</span>
 				</a></li>
 
@@ -79,6 +80,11 @@
 								Online Judge
 						</a></li>
 					</ul></li>
+				<li><h:form id="cerrar"  rendered="#{loginbean.sesionIniciada}">
+						<p:commandButton value="Cerrar Sesión"
+							action="#{loginbean.cerrarSesion}" process="@this" update="@all" />
+					</h:form></li>
+
 
 			</ul>
 

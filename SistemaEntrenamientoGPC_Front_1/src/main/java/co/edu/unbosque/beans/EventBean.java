@@ -29,6 +29,7 @@ import jakarta.inject.Named;
 @ViewScoped
 public class EventBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Date fecha;
 	private String nombre;
 	private String descripcion;

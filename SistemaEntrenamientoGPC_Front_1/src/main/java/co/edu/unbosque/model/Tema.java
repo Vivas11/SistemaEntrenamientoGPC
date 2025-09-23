@@ -1,4 +1,4 @@
-package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
+package co.edu.unbosque.model;
 
 import java.util.Objects;
 
@@ -7,7 +7,7 @@ import java.util.Objects;
  * DTO (Data Transfer Object) que representa un tema de programación o contenido académico.
  * Contiene información sobre el nombre del tema, su tipo y el contenido asociado.
  */
-public class TemaDTO {
+public class Tema {
 
 	/** Identificador único del tema. */
 	private Long id;
@@ -24,7 +24,7 @@ public class TemaDTO {
 	/**
 	 * Constructor vacío requerido para serialización/deserialización.
 	 */
-	public TemaDTO() {
+	public Tema() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,7 +35,7 @@ public class TemaDTO {
 	 * @param tipo      tipo del tema
 	 * @param contenido contenido asociado al tema
 	 */
-	public TemaDTO(String tema, String tipo, String contenido) {
+	public Tema(String tema, String tipo, String contenido) {
 		super();
 		this.tema = tema;
 		this.tipo = tipo;
@@ -61,7 +61,7 @@ public class TemaDTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TemaDTO other = (TemaDTO) obj;
+		Tema other = (Tema) obj;
 		return Objects.equals(contenido, other.contenido) &&
 		       Objects.equals(tema, other.tema) &&
 		       Objects.equals(tipo, other.tipo);
@@ -96,14 +96,6 @@ public class TemaDTO {
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
 	}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * Representación textual del objeto {@code TemaDTO}.
@@ -112,4 +104,14 @@ public class TemaDTO {
 	public String toString() {
 		return "TemaDTO [tema=" + tema + ", tipo=" + tipo + ", contenido=" + contenido + "]";
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }
