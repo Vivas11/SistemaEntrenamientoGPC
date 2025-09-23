@@ -56,13 +56,36 @@ public class EventBean implements Serializable {
                     .startDate(fechaIni)
                     .endDate(fechaFin)
                     .description(evento.getDescripcion())
-                    .editable(false)    // ❌ no se pueden mover
-                    .resizable(false)   // ❌ no se pueden redimensionar
+                    .editable(false)  
+                    .resizable(false) 
                     .build());
         }
     }
 
-    // Guardar evento nuevo (ejemplo básico)
+    public void agregarEvento() {
+		try {
+			Evento nuevoEvento = new Evento();
+			nuevoEvento.setFecha(LocalDate.parse(new java.text.SimpleDateFormat("yyyy-MM-dd").format(fecha)));
+			nuevoEvento.setNombre(nombre);
+			nuevoEvento.setDescripcion(descripcion);
+
+			boolean exito = EventoService.doPostJson(nuevoEvento);
+
+			if (exito) {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Evento agregado exitosamente");
+				FacesContext.getCurrentInstance().addMessage(null, message);
+				cargarEventos();
+				inicializarEventos();
+			} else {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se pudo agregar el evento");
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			}
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Ocurrió un error al agregar el evento");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		}
+	}
+    
     public void crearEvento() {
         event = new DefaultScheduleEvent<>();
     }
