@@ -43,4 +43,41 @@ public class EventoService {
 		Evento[] eventos = gson.fromJson(json, Evento[].class);
 		return new ArrayList<>(Arrays.asList(eventos));
 	}
+	
+	public static String doPostJson(String json) {
+		String url = "http://localhost:8081/evento/createjson";
+		HttpRequest request = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json))
+				.uri(URI.create(url)).setHeader("User-Agent", "Java 11 HttpClient Bot")
+				.header("Content-Type", "application/json").build();
+
+		HttpResponse<String> response = null;
+		try {
+			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return response.statusCode() + "\n" + response.body();
+	}
+	
+	public static String doDelete(String url) {
+		HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create(url))
+				.setHeader("User-Agent", "Java 11 HttpClient Bot").header("Content-Type", "application/json").build();
+
+		HttpResponse<String> response = null;
+		try {
+			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			Thread.currentThread().interrupt(); // buena práctica si es interrumpido
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("delete status code -> " + response.statusCode());
+
+		return response.statusCode() + "\n" + response.body();
+	}
 }

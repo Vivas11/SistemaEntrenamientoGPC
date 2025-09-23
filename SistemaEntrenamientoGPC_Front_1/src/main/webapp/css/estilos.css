@@ -720,3 +720,100 @@ body .ui-button.ui-state-hover {
   justify-content: center; /* Centra los botones */
   gap: 15px; /* Espacio entre botones */
 }
+
+/* Fondo general del calendario */
+.fc {
+    background-color: #f4f6fa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Encabezados de los días */
+.fc-col-header-cell {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+/* Días normales */
+.fc-daygrid-day {
+    background-color: #ffffff;
+    transition: background 0.3s;
+}
+
+.fc-daygrid-day:hover {
+    background-color: #e6f7ff;
+}
+
+/* Fines de semana */
+.fc-day-sat, .fc-day-sun {
+    background-color: #f9f0f0;
+}
+
+/* Eventos */
+.fc-event {
+    background-color: #3498db !important;   /* Azul */
+    border: none !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+/* Evento al pasar el mouse */
+.fc-event:hover {
+    background-color: #2980b9 !important;
+    cursor: pointer;
+}
+
+/* Estilo base de todos los botones del calendario */
+.fc .fc-button {
+    background-color: var(--main-gray-color) !important;
+    border: 1px solid var(--main-gray-color) !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 6px !important;
+    padding: 5px 12px !important;
+}
+
+/* Hover */
+.fc .fc-button:hover {
+    background-color: var(--main-gray-color-hover) !important;
+    border-color: var(--main-gray-color-hover) !important;
+    color: #fff !important;
+}
+
+/* Botón activo (por ejemplo, vista Mes, Semana, Día seleccionado) */
+.fc .fc-button-active {
+    background-color: var(--main-gray-color-hover) !important;
+    border-color: var(--main-gray-color-hover) !important;
+    color: #fff !important;
+}
+
+fc .fc-event {
+    background-color: var(--main-gray-color) !important; /* mismo gris de los botones */
+    border: 1px solid var(--main-gray-color) !important;
+    color: #fff !important; /* texto blanco para contraste */
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500;
+}
+
+/* Evento normal en el calendario */
+.fc-daygrid-event {
+    background-color: var(--main-gray-color) !important; /* gris de los botones */
+    color: #fff !important;               /* texto blanco */
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500;
+}
+
+
+.fc .fc-event:hover {
+    background-color: var(--main-gray-color-hover) !important; /* un gris más oscuro */
+    border-color: #444 !important;
+}
