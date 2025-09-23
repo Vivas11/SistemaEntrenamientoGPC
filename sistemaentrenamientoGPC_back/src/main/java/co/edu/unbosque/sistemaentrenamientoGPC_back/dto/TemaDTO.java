@@ -3,23 +3,38 @@ package co.edu.unbosque.sistemaentrenamientoGPC_back.dto;
 import java.util.Objects;
 
 
-
+/**
+ * DTO (Data Transfer Object) que representa un tema de programación o contenido académico.
+ * Contiene información sobre el nombre del tema, su tipo y el contenido asociado.
+ */
 public class TemaDTO {
-	
-	
+
+	/** Identificador único del tema. */
 	private Long id;
+
+	/** Nombre del tema. */
 	private String tema;
-	private String tipo; 
-	private String contenido ;
-	
-	
-	
+
+	/** Tipo de tema (por ejemplo: teoría, práctica, algoritmo, etc.). */
+	private String tipo;
+
+	/** Contenido textual o descripción del tema. */
+	private String contenido;
+
+	/**
+	 * Constructor vacío requerido para serialización/deserialización.
+	 */
 	public TemaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
+	/**
+	 * Constructor con parámetros para inicializar un nuevo tema.
+	 *
+	 * @param tema      nombre del tema
+	 * @param tipo      tipo del tema
+	 * @param contenido contenido asociado al tema
+	 */
 	public TemaDTO(String tema, String tipo, String contenido) {
 		super();
 		this.tema = tema;
@@ -27,15 +42,17 @@ public class TemaDTO {
 		this.contenido = contenido;
 	}
 
-
-
+	/**
+	 * Calcula el hash del objeto basado en sus atributos clave.
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(contenido, tema, tipo);
 	}
 
-
-
+	/**
+	 * Compara si dos objetos {@code TemaDTO} son equivalentes.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -45,53 +62,46 @@ public class TemaDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		TemaDTO other = (TemaDTO) obj;
-		return Objects.equals(contenido, other.contenido) && Objects.equals(tema, other.tema)
-				&& Objects.equals(tipo, other.tipo);
+		return Objects.equals(contenido, other.contenido) &&
+		       Objects.equals(tema, other.tema) &&
+		       Objects.equals(tipo, other.tipo);
 	}
 
-
-
+	/** @return el nombre del tema */
 	public String getTema() {
 		return tema;
 	}
 
-
-
+	/** @param tema establece el nombre del tema */
 	public void setTema(String tema) {
 		this.tema = tema;
 	}
 
-
-
+	/** @return el tipo del tema */
 	public String getTipo() {
 		return tipo;
 	}
 
-
-
+	/** @param tipo establece el tipo del tema */
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-
-
+	/** @return el contenido del tema */
 	public String getContenido() {
 		return contenido;
 	}
 
-
-
+	/** @param contenido establece el contenido del tema */
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
 	}
 
-
-
+	/**
+	 * Representación textual del objeto {@code TemaDTO}.
+	 */
 	@Override
 	public String toString() {
 		return "TemaDTO [tema=" + tema + ", tipo=" + tipo + ", contenido=" + contenido + "]";
 	}
-	
-	
-
 }

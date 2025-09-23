@@ -22,14 +22,30 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.dto.EventoDTO;
 import co.edu.unbosque.sistemaentrenamientoGPC_back.service.EventoService;
 
+/**
+ * Controlador REST para gestionar operaciones relacionadas con eventos.
+ * Expone endpoints para crear, actualizar, eliminar y consultar eventos.
+ * Utiliza {@link EventoService} para delegar la lógica de negocio.
+ */
 @RestController
 @CrossOrigin(origins = { "*" })
 @RequestMapping(path = { "/evento" })
 public class EventoController {
 
+	/** Servicio que gestiona la lógica de negocio para eventos. */
 	@Autowired
 	private EventoService eventoService;
 
+	/**
+	 * Crea un nuevo evento a partir de parámetros individuales.
+	 *
+	 * @param nombre       nombre del evento
+	 * @param dia          día del evento
+	 * @param mes          mes del evento
+	 * @param ano          año del evento
+	 * @param descripcion  descripción del evento
+	 * @return respuesta HTTP con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/crear")
 	public ResponseEntity<String> crear(@RequestParam String nombre, int dia, int mes, int ano, String descripcion) {
 		LocalDate fecha = LocalDate.of(ano, mes, dia);
@@ -42,6 +58,17 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Actualiza los datos de un evento por su ID.
+	 *
+	 * @param id           identificador del evento
+	 * @param nombre       nuevo nombre
+	 * @param dia          nuevo día
+	 * @param mes          nuevo mes
+	 * @param ano          nuevo año
+	 * @param descripcion  nueva descripción
+	 * @return respuesta HTTP con mensaje de éxito o error
+	 */
 	@PutMapping(path = "/actualizar")
 	public ResponseEntity<String> actualizar(@RequestParam Long id, String nombre, int dia, int mes, int ano,
 			String descripcion) {
@@ -49,16 +76,21 @@ public class EventoController {
 		EventoDTO data = new EventoDTO(nombre, fecha, descripcion);
 		int status = eventoService.updateById(id, data);
 		if (status == 0) {
-			return new ResponseEntity<>("Problema actualizado", HttpStatus.OK);
+			return new ResponseEntity<>("Evento actualizado", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Error al actualizar", HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
 
+	/**
+	 * Crea un nuevo evento a partir de un objeto JSON.
+	 *
+	 * @param newUser DTO con los datos del nuevo evento
+	 * @return respuesta HTTP con mensaje de éxito o error
+	 */
 	@PostMapping(path = "/createjson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> createNewWithJSON(@RequestBody EventoDTO newUser) {
 		int status = eventoService.create(newUser);
-
 		if (status == 0) {
 			return new ResponseEntity<>("Evento creado con exito", HttpStatus.CREATED);
 		} else {
@@ -66,6 +98,12 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Elimina un evento por su ID.
+	 *
+	 * @param id identificador del evento
+	 * @return respuesta HTTP con mensaje de éxito o error
+	 */
 	@DeleteMapping(path = "/eliminar")
 	public ResponseEntity<String> eliminar(@RequestParam Long id) {
 		int status = eventoService.deleteById(id);
@@ -76,6 +114,11 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Muestra todos los eventos en formato de texto plano.
+	 *
+	 * @return respuesta HTTP con listado de eventos o mensaje de vacío
+	 */
 	@GetMapping(path = "/mostrar")
 	public ResponseEntity<String> mostrar() {
 		List<EventoDTO> lista = eventoService.getAll();
@@ -88,6 +131,11 @@ public class EventoController {
 		}
 	}
 
+	/**
+	 * Obtiene todos los eventos en formato JSON.
+	 *
+	 * @return respuesta HTTP con lista de eventos o estado vacío
+	 */
 	@GetMapping("/getall")
 	ResponseEntity<List<EventoDTO>> getAll() {
 		List<EventoDTO> users = eventoService.getAll();
@@ -97,5 +145,4 @@ public class EventoController {
 			return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
 		}
 	}
-
 }
