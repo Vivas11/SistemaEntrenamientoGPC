@@ -43,6 +43,18 @@
 	--bs-border-radius-pill: 50rem;
 }
 
+
+/* Cuando está en modo oscuro */
+[data-bs-theme="dark"] {
+    --main-gray-color: #343a40;          /* Gris oscuro profundo */
+    --main-gray-color-hover: #2c3136;    /* Hover más oscuro */
+    --bg-color: #212529;                 /* Fondo oscuro */
+    --text-color: #f8f9fa;               /* Texto claro */
+    --border-color: #495057;             /* Bordes oscuros */
+    --card-bg: #343a40;                  /* Fondo de tarjetas oscuro */
+    --card-bg-hover: #2c3136;  
+}
+
 .navbar {
 	--bs-bg-opacity: 1;
 	background-color: var(--bg-color) !important;
@@ -898,4 +910,44 @@ fc .fc-event {
 .scrollable {
     max-height: 250px;
     overflow-y: auto;
+}
+/* From Uiverse.io by zjssun */ 
+.button {
+  position: relative;
+  list-style: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: grab;
+}
+
+.button .svg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 0.3s;
+}
+
+.button .svg2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  fill: #f4af03;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.button:hover .svg {
+  fill: #f4af03;
+}
+
+.button:hover .svg2 {
+  opacity: 1;
+  fill: #f4af03;
 }
