@@ -1,7 +1,9 @@
 package co.edu.unbosque.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import co.edu.unbosque.model.Admin;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.model.UsuarioActual;
 import co.edu.unbosque.service.AdministradorService;
@@ -9,14 +11,16 @@ import co.edu.unbosque.service.EstudianteService;
 import co.edu.unbosque.service.ProfesorService;
 import co.edu.unbosque.util.AESUtil;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
 @Named(value = "loginbean")
 
-@RequestScoped
-public class LogInBean {
+@SessionScoped
+public class LogInBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	private String user;
 	private String password;
@@ -36,7 +40,6 @@ public class LogInBean {
 			if(usuarioN.equals(user) && contrasenaN.equals(password)) {
 				showStickyLogin("200","Sesion inicaiada exitosamente");
 				UsuarioActual.setUsuarioActual(usuario);
-				user = "";
 				password = "";
 				return;
 			}
@@ -100,6 +103,14 @@ public class LogInBean {
 	public void setSesionIniciada(Usuario sesionIniciada) {
 		this.sesionIniciada = sesionIniciada;
 	}
-
+	
+	public String cerrarSesion() {
+		UsuarioActual.setUsuarioActual(null);
+		return "index.xhtml?faces-redirect=true";
+	}
+	
+	public boolean getAdminIniciada() {
+		return UsuarioActual.getUsuarioActual() instanceof Admin;
+	}
 	
 }

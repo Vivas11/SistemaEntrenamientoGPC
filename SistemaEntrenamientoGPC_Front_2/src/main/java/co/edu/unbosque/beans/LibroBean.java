@@ -30,31 +30,26 @@ public class LibroBean implements Serializable {
 	private String descripcion;
 	private UploadedFile pdf;
 	private UploadedFile img;
-	
 
-    private DocPDF libroSeleccionado;
-    private StreamedContent pdfDownload;
-	
+	private DocPDF libroSeleccionado;
+	private StreamedContent pdfDownload;
+
 	private ArrayList<DocPDF> listaLibros = new ArrayList<>();
 
-	
 	public void seleccionar(DocPDF libro) {
-        this.libroSeleccionado = libro;
-    }
-	
-	public StreamedContent getPdfDownload() {
-        if (libroSeleccionado != null && libroSeleccionado.getPdf() != null) {
+		this.libroSeleccionado = libro;
+	}
 
-    	    byte[] bytes = Base64.getDecoder().decode(libroSeleccionado.getContenidoPdf());
-            return DefaultStreamedContent.builder()
-                    .name(libroSeleccionado.getNombre() + ".pdf")
-                    .contentType("application/pdf")
-                    .stream(() -> new ByteArrayInputStream(bytes))
-                    .build();
-        }
-        return null;
-    }
-	
+	public StreamedContent getPdfDownload() {
+		if (libroSeleccionado != null && libroSeleccionado.getPdf() != null) {
+
+			byte[] bytes = Base64.getDecoder().decode(libroSeleccionado.getContenidoPdf());
+			return DefaultStreamedContent.builder().name(libroSeleccionado.getNombre() + ".pdf")
+					.contentType("application/pdf").stream(() -> new ByteArrayInputStream(bytes)).build();
+		}
+		return null;
+	}
+
 	public LibroBean() {
 		cargarLibros();
 	}
@@ -62,7 +57,7 @@ public class LibroBean implements Serializable {
 	public void cargarLibros() {
 		listaLibros = LibroService.doGetAll("http://localhost:8081/doc/pdf/getall");
 	}
-	
+
 	public void showStickyLogin(String code, String content) {
 		if (code.equals("204")) {
 			FacesContext.getCurrentInstance().addMessage("sticky-key",
@@ -78,35 +73,34 @@ public class LibroBean implements Serializable {
 					"Error Critico", "Error al crear," + "comuniquese con el administrador"));
 		}
 	}
-	
+
 	public void eliminar(DocPDF libro) {
 		String respuesta = LibroService.doDelete("http://localhost:8081/doc/pdf/eliminar?id=" + libro.getId());
 		String[] data = respuesta.split("\n");
 		if (data[0].equals("204")) {
 			showStickyLogin(data[0], "Libro eliminado");
-			 listaLibros.remove(libro);
+			listaLibros.remove(libro);
+			cargarLibros();
 			return;
-		}else{
+		} else {
 			showStickyLogin(data[0], "no se ha podido eliminar el libro.");
+			cargarLibros();
 			return;
 		}
 	}
-	
+
 	public void guardarNuevoLibro() {
-	    try {
-	        String url = "http://localhost:8081/doc/pdf/crear";
-	        System.out.println(url);
-	        String respuesta = LibroService.doPostMultipart(
-	                url,
-	                nombre,
-	                descripcion,
-	                img,     // UploadedFile imagen
-	                pdf         // UploadedFile pdf
-	        );
-	        System.out.println("Respuesta servidor: " + respuesta);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		try {
+			String url = "http://localhost:8081/doc/pdf/crear";
+			System.out.println(url);
+			String respuesta = LibroService.doPostMultipart(url, nombre, descripcion, img, // UploadedFile imagen
+					pdf // UploadedFile pdf
+			);
+			System.out.println("Respuesta servidor: " + respuesta);
+			cargarLibros();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public ArrayList<DocPDF> getListaLibros() {
@@ -121,7 +115,8 @@ public class LibroBean implements Serializable {
 		if (UsuarioActual.getUsuarioActual() == null)
 			return false;
 
-		return UsuarioActual.getUsuarioActual() instanceof Admin || UsuarioActual.getUsuarioActual() instanceof Profesor;
+		return UsuarioActual.getUsuarioActual() instanceof Admin
+				|| UsuarioActual.getUsuarioActual() instanceof Profesor;
 	}
 
 	public String getNombre() {
@@ -167,6 +162,5 @@ public class LibroBean implements Serializable {
 	public void setPdfDownload(StreamedContent pdfDownload) {
 		this.pdfDownload = pdfDownload;
 	}
-	
-	
+
 }

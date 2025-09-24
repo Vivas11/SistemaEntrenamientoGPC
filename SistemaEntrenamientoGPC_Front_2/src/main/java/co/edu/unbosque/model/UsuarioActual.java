@@ -4,6 +4,9 @@ public class UsuarioActual {
 	private static Usuario usuarioActual;
 
 	public static Usuario getUsuarioActual() {
+		if (usuarioActual == null) {
+			return null;
+		}
 		return usuarioActual;
 	}
 

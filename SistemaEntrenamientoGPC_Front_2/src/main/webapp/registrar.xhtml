@@ -1,121 +1,144 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="template/template.xhtml">
-	<ui:define name="content">
-		<div class="main">
-			<div class="signin-box">
-				<div class="signin-title">Registrarse</div>
+    <ui:define name="content">
+   <style>
+      .form-container {
+        display: flex;
+        justify-content: center;
+        padding-top: 50px; /* baja un poco el formulario */
+      }
+   </style>
 
-				<h:form class="signin-form">
+<div class="form-container">
+    <div class="main">
+        <div class="signin-box">
+            <h:form id="registerForm" styleClass="signin-form">
+                
+                <!-- Sección: Datos Generales -->
+                <div class="signin-section">
+                    <h3 class="btn-text">¡Vamos a comenzar! 🎉</h3>
 
-					<!-- Contenedor en tres columnas -->
-					<div class="signin-container" style="display: flex; gap: 30px;">
+                    <div class="form-grid">
 
-						<!-- Columna 1: Datos Generales -->
-						<div class="signin-main" style="flex: 1; min-width: 300px;">
-							<h3>Datos Generales</h3>
+                        <!-- Nombre completo -->
+                        <div class="signin-input">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                                <p:inputText id="username" value="#{registerbean.fullName}" 
+                                             required="true" placeholder="Escribe tu nombre completo ✨" styleClass="btn-text" />
+                            </div>
+                        </div>
 
-							<div class="signin-input">
-								<p:inputText id="username" value="#{registerbean.fullName}"
-									required="true" autocomplete="off" />
-								<label for="username">Usuario</label>
-							</div>
+                        <!-- Email -->
+                        <div class="signin-input">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-envelope"></i></div>
+                                <p:inputText id="email" value="#{registerbean.email}" 
+                                             required="true" placeholder="Tu correo mágico 📧" styleClass="btn-text" />
+                            </div>
+                        </div>
 
-							<div class="signin-input">
-								<p:inputText id="email" value="#{registerbean.email}"
-									required="true" autocomplete="off" />
-								<label for="email">Email</label>
-							</div>
+                        <!-- Edad -->
+                        <div class="signin-input">
+                            <div class="ui-inputgroup ">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-calendar"></i></div>
+                                <p:inputNumber id="age" value="#{registerbean.age}" required="true"
+                                               minValue="1" maxValue="120" placeholder="¿Cuántos años tienes? 🎂" styleClass="btn-text" />
+                            </div>
+                        </div>
 
-							<div class="signin-input">
-								<p:inputNumber id="age" value="#{registerbean.age}"
-									required="true" minValue="1" maxValue="120" decimalPlaces="0"
-									autocomplete="off" inputStyleClass="signin-inputfield"
-									placeholder="Edad" />
-								<label for="age">Edad</label>
-							</div>
+                        <!-- Contraseña -->
+                        <div class="signin-input">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-lock"></i></div>
+                                <p:password id="password" value="#{registerbean.password}"
+                                            feedback="true" required="true" placeholder="Crea tu clave secreta 🔑" styleClass="btn-text" />
+                            </div>
+                        </div>
 
-							<div class="signin-input">
-								<p:password id="password" value="#{registerbean.password}"
-									feedback="true" required="true" autocomplete="off" />
-								<label for="password">Password</label>
-							</div>
+                        <!-- Confirmar contraseña -->
+                        <div class="signin-input">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-check"></i></div>
+                                <p:password id="confirmPassword" value="#{registerbean.confirmPassword}"
+                                            required="true" placeholder="Repite tu clave secreta 🌀" styleClass="btn-text" />
+                            </div>
+                        </div>
 
-							<div class="signin-input">
-								<p:password id="confirmPassword"
-									value="#{registerbean.confirmPassword}" required="true"
-									autocomplete="off" />
-								<label for="confirmPassword">Confirm Password</label>
-							</div>
+                    </div>
 
-							<div class="signin-input">
-								<p:selectOneRadio id="page" value="#{registerbean.type}"
-									layout="pageDirection">
-									<f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
-									<f:selectItem itemLabel="Profesor" itemValue="Profesor" />
-									<f:selectItem itemLabel="Administrador"
-										itemValue="Administrador" />
-								</p:selectOneRadio>
-							</div>
-						</div>
+                    <!-- Tipo de usuario -->
+                    <div class="signin-input">
+                        <h3 class="btn-text">Elige tu rol 🌟</h3>
+                        <p:selectOneRadio id="type" value="#{registerbean.type}" required="true" layout="pageDirection" styleClass="btn-text">
+                            <f:selectItem itemLabel="👦 Estudiante" itemValue="Estudiante" />
+                            <f:selectItem itemLabel="👩‍🏫 Profesor" itemValue="Profesor" />
+                            <f:selectItem itemLabel="🛡️ Administrador" itemValue="Administrador" />
+                            <p:ajax update="registerForm" />
+                        </p:selectOneRadio>
+                    </div>
+                </div>
 
-						<!-- Columna 2: Datos Estudiante -->
-						<div class="signin-extra" style="flex: 1; min-width: 300px;">
-							<h3>Datos Estudiante</h3>
 
-							<div class="signin-input">
-								<p:inputText id="nivelCompetitiva"
-									value="#{registerbean.nivelCompetitiva}" autocomplete="off" />
-								<label for="nivelCompetitiva">Nivel de competitiva</label>
-							</div>
+                <!-- Sección: Datos Estudiante -->
+                <h:panelGroup rendered="#{registerbean.type eq 'Estudiante'}">
+                    <div class="signin-section">
+                        <h3 class="btn-text">Datos del Estudiante 🎒</h3>
+                        <div class="signin-input">
+                            <p:selectOneMenu id="nivelCompetitiva" value="#{registerbean.nivelCompetitiva}" styleClass="custom-select btn-text">
+                                <f:selectItem itemLabel="👉 Escoge tu nivel de juego" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="🌱 Aprendiz" itemValue="Aprendiz" />
+                                <f:selectItem itemLabel="📘 Básica" itemValue="Básica" />
+                                <f:selectItem itemLabel="🚀 Intermedia" itemValue="Intermedia" />
+                                <f:selectItem itemLabel="🌟 Avanzada" itemValue="Avanzada" />
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                </h:panelGroup>
 
-							<div class="signin-input">
-								<p:inputNumber id="semestre" value="#{registerbean.semestre}"
-									minValue="1" maxValue="12" decimalPlaces="0" autocomplete="off"
-									inputStyleClass="signin-inputfield" placeholder="Semestre" />
-								<label for="semestre">Semestre</label>
-							</div>
-						</div>
+                <!-- Sección: Datos Profesor -->
+                <h:panelGroup rendered="#{registerbean.type eq 'Profesor'}">
+                    <div class="signin-section">
+                        <h3 class="btn-text">Datos del Profesor 👩‍🏫</h3>
+                        <div class="signin-input">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-briefcase"></i></div>
+                                <p:inputText id="cargo" value="#{registerbean.cargo}" 
+                                             styleClass="btn-text" placeholder="Escribe tu cargo aquí ✍️" />
+                            </div>
+                        </div>
 
-						<!-- Columna 3: Datos Profesor -->
-						<div class="signin-extra" style="flex: 1; min-width: 300px;">
-							<h3>Datos Profesor</h3>
+                        <div class="signin-input checkbox-inline">
+                            <h:outputLabel for="entrenador" value="¿Eres entrenador de héroes? 🦸" styleClass="btn-text"/>
+                            <p:selectBooleanCheckbox id="entrenador" value="#{registerbean.esEntrenador}" styleClass="btn-text"/>
+                        </div>
+                    </div>
+                </h:panelGroup>
 
-							<div class="signin-input">
-								<p:inputText id="cargo" value="#{registerbean.cargo}"
-									autocomplete="off" />
-								<label for="cargo">Cargo</label>
-							</div>
+                <!-- Botón de registro -->
+                <p:commandButton value="¡Registrarme ahora! 🚀"
+                                 action="#{registerbean.crearUsuario}"
+                                 process="@form"
+                                 update="@form, messages"
+                                 styleClass="signin-btn btn-text" />
 
-							<div class="signin-input">
-								<p:selectBooleanCheckbox id="entrenador"
-									value="#{registerbean.esEntrenador}" />
-								<h:outputLabel for="entrenador" value="¿Es entrenador?" />
-							</div>
-						</div>
-					</div>
+                <!-- Mensajes -->
+                <p:messages id="messages" showDetail="true" showIcon="false" autoUpdate="true" styleClass="btn-text" />
 
-					<div class="signin-actions" style="margin-top: 20px;">
-						<p:commandButton value="Registrar"
-							action="#{registerbean.crearUsuario}" process="@form"
-							update="@form" styleClass="signin-btn" />
-					</div>
-					<p:messages id="messages" showDetail="true" showIcon="false">
-						<p:autoUpdate />
-					</p:messages>
-				</h:form>
-			</div>
-		</div>
-		<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
-			sticky="true" />
+            </h:form>
+        </div>
+    </div>
+</div>
 
-	</ui:define>
+<p:growl id="growl-sticky" for="sticky-key" showDetail="true" sticky="true" styleClass="btn-text"/>
+
+    </ui:define>
 </ui:composition>
 </html>

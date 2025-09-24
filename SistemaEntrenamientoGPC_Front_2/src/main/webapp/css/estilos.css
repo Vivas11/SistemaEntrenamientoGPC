@@ -43,6 +43,14 @@
 	--bs-border-radius-pill: 50rem;
 }
 
+body {
+	background-image: url(assets/fondo1.png) !important;
+	background-repeat: no-repeat;
+	background-size: 500px;
+	background-position: center;
+	background-attachment: fixed;
+}
+
 .navbar {
 	--bs-bg-opacity: 1;
 	border-bottom: 1px solid gray;
@@ -58,19 +66,114 @@
 
 .btn-primary {
 	--bs-btn-color: #fff;
-	--bs-btn-bg: var(--main-gray-color);
-	--bs-btn-border-color: var(--main-gray-color);
+	--bs-btn-bg: #6FA8DC;
+	--bs-btn-border-color: #6FA8DC;
 	--bs-btn-hover-color: #fff;
-	--bs-btn-hover-bg: var(--main-gray-color-hover);
-	--bs-btn-hover-border-color: var(--main-gray-color);
-	--bs-btn-focus-shadow-rgb: 49, 132, 253;
+	--bs-btn-hover-bg: #4a89c9;
+	--bs-btn-hover-border-color: #4a89c9;
+	--bs-btn-focus-shadow-rgb: 111, 168, 220;
 	--bs-btn-active-color: #fff;
-	--bs-btn-active-bg: var(--main-gray-color);
-	--bs-btn-active-border-color: var(--main-gray-color);
+	--bs-btn-active-bg: #6FA8DC;
+	--bs-btn-active-border-color: #6FA8DC;
 	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 	--bs-btn-disabled-color: #fff;
-	--bs-btn-disabled-bg: var(--main-gray-color);
-	--bs-btn-disabled-border-color: var(--main-gray-color);
+	--bs-btn-disabled-bg: #6FA8DC;
+	--bs-btn-disabled-border-color: #6FA8DC;
+}
+/* --- Estilos para la tabla de problemas --- */
+.ui-datatable {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    background-color: #6FA8DC !important; /* color azul solicitado */
+    font-size: 14px !important; /* más compacta */
+}
+
+.ui-datatable thead th {
+    background-color: #6FA8DC !important; /* encabezado azul */
+    color: white !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    padding: 8px !important; /* menos alto */
+}
+
+.ui-datatable tbody tr:nth-child(even) {
+    background-color: rgba(111, 168, 220, 0.3) !important; /* celda par azul suave */
+}
+
+.ui-datatable tbody tr:nth-child(odd) {
+    background-color: rgba(111, 168, 220, 0.15) !important; /* celda impar azul más claro */
+}
+
+/* Tabla más compacta y color de fondo #6FA8DC */
+.ui-datatable.compact {
+    width: 80% !important;      /* ancho de la tabla */
+    margin: auto !important;    /* centrada */
+    background-color: #6FA8DC !important; /* color de fondo */
+    font-size: 12px !important; /* fuente más pequeña */
+}
+
+.ui-datatable.compact thead th,
+.ui-datatable.compact tbody td {
+    padding: 4px 6px !important; /* menos padding */
+    text-align: center !important;
+}
+
+.custom-panel {
+    display: inline-block;
+    width: fit-content;
+    margin: 10px auto; /* centrado horizontal */
+}
+
+
+
+.card-juego {
+	width: 100%;
+	max-width: 20rem;
+	border: 2px solid #e0e0e0;
+	border-radius: 15px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	margin: 1rem auto;
+	padding: 1rem;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-juego .card-title {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #333;
+	margin-bottom: 0.8rem;
+	text-align: center;
+}
+
+.card-juego .btn, .card-juego button, .card-juego .ui-button {
+	background-color: #6FA8DC !important;
+	border: none !important;
+	color: #fff !important;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 0.6rem 1rem;
+	transition: 0.3s ease;
+	width: 100%;
+}
+
+.card-juego .btn:hover, .card-juego button:hover, .card-juego .ui-button:hover
+	{
+	background-color: #4a89c9 !important;
+	transform: scale(1.05);
+}
+
+.card-juego .form-control, .card-juego input {
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 0.8rem;
 }
 
 .ui-button.btn-primary {
@@ -142,17 +245,19 @@ body .ui-button.ui-state-hover {
 	border-radius: 10px;
 	transition: transform 0.2s;
 }
+
 .carousel-item {
-  transition: none !important; 
+	transition: none !important;
 }
 
 .carousel .carousel-inner {
-  transition: none !important;
+	transition: none !important;
 }
 
 .carousel .carousel-item {
-  transition: none !important;
+	transition: none !important;
 }
+
 .container-links .card:hover {
 	transform: translateY(-5px);
 }
@@ -161,36 +266,46 @@ body .ui-button.ui-state-hover {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	object-fit: cover;
-	height: 180px; 
+	height: 180px;
 }
 
 .container-links .card-body {
-	text-align: center;fdvcr 
+	text-align: center;
+	fdvcr
 }
 
 .container-links .card-img-fixed {
-	height: 100px; 
-	width: 70%; 
-	object-fit: contain; 
+	height: 100px;
+	width: 70%;
+	object-fit: contain;
 }
+
 .card {
-  border: 2px solid transparent;
-  border-radius: 15px;
-  box-shadow: inset -9px -9px 25px 0px rgba(0, 0, 0, 0.25);
-  flex-direction: column;
- min-height: 400px; 
-  padding: 10px;   
-  
+	border: 2px solid transparent;
+	border-radius: 15px;
+	box-shadow: inset -9px -9px 25px 0px rgba(0, 0, 0, 0.25);
+	flex-direction: column;
+/* 	min-height: 400px; */
+	padding: 10px;
 }
 
 .card .card-img-top {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px; 
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 10px;
 }
 
+footer .nav-link {
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+}
 
+footer .nav-link i {
+  color: #ffffff !important;
+}
 
 
 .container-lenguajes {
@@ -775,10 +890,9 @@ body .ui-button.ui-state-hover {
 	font-size: 18px;
 	font-weight: bold;
 	font-family: 'Comic Neue', 'Nunito', cursive;
-	color: #000000;  
+	color: #000000;
 	text-align: center;
 }
-
 
 .kids-box {
 	background: #fffbe6;
@@ -814,4 +928,183 @@ body .ui-button.ui-state-hover {
 	padding: 12px 25px;
 	border: none;
 	cursor: pointer;
+}
+
+/* Contenedor principal del temario */
+.temario-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del temario */
+.temario-container .titulo {
+    color: #FF6B6B;
+    text-align: center;
+    font-family: 'Comic Neue', cursive;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* Contenedor del acordeón */
+.accordion-container {
+    width: 100%;
+}
+
+/* Tarjeta del acordeón */
+.accordion-card {
+    margin-bottom: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+/* Encabezado del acordeón */
+.accordion-header {
+    display: block;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #6FA8DC, #81C784);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: linear-gradient(135deg, #5D9CEC, #66BB6A);
+}
+
+/* Contenido del acordeón */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f8f9ff;
+    padding: 0 20px;
+}
+
+/* Checkbox oculto para el acordeón */
+.accordion-card input[type="checkbox"] {
+    display: none;
+}
+
+/* Mostrar contenido cuando el checkbox está marcado */
+.accordion-card input[type="checkbox"]:checked ~ .accordion-content {
+    max-height: 1000px;
+    padding: 20px;
+}
+
+/* Elemento del tema */
+.tema-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.tema-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Texto del tema */
+.tema-item span {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Contenedor de acciones */
+.acciones {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botón de eliminar */
+.ui-button-danger {
+    background-color: #FF6B6B !important;
+    border-color: #FF6B6B !important;
+    color: white !important;
+}
+
+/* Botón de ver contenido */
+.ui-button-info {
+    background-color: #6FA8DC !important;
+    border-color: #6FA8DC !important;
+    color: white !important;
+}
+
+/* Panel para añadir nuevo tema */
+.ui-panel {
+    background-color: #E3F2FD;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del panel */
+.ui-panel .ui-panel-title {
+    font-family: 'Comic Neue', cursive;
+    color: #4682B4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Diálogo para mostrar contenido */
+.ui-dialog {
+    border-radius: 20px;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    background: linear-gradient(135deg, #6FA8DC, #81C784);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 15px;
+}
+
+.ui-dialog-content {
+    background-color: #f8f9ff;
+    padding: 25px;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Campos de entrada en el panel */
+.ui-inputtext,
+.ui-selectonemenu,
+.ui-inputtextarea {
+    border-radius: 10px;
+    border: 2px solid #B3D9FF;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Botón de guardar */
+.ui-button-success {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.ui-button-success:hover {
+    background-color: #3E8E41 !important;
+    transform: scale(1.05);
 }
