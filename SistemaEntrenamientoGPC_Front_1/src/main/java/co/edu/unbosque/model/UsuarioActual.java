@@ -13,6 +13,4 @@ public class UsuarioActual {
 	public static void setUsuarioActual(Usuario usuarioActual) {
 		UsuarioActual.usuarioActual = usuarioActual;
 	}
-	
-	
 }

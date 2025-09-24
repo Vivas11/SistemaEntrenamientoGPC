@@ -113,7 +113,7 @@ public class LibroService {
 	}
 
 	// Igual que antes: concatenador de bytes
-	private static byte[] concat(byte[]... arrays) {
+	public static byte[] concat(byte[]... arrays) {
 	    int totalLength = 0;
 	    for (byte[] arr : arrays) {
 	        totalLength += arr.length;

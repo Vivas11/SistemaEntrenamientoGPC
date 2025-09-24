@@ -39,8 +39,7 @@ public class EventBean implements Serializable {
 	private ScheduleModel eventModel;
 	private ScheduleEvent<?> event = new DefaultScheduleEvent<>();
 
-	@PostConstruct
-	public void init() {
+	public EventBean() {
 		cargarEventos();
 		inicializarEventos();
 	}
