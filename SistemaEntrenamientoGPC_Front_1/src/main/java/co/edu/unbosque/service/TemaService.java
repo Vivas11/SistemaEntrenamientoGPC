@@ -13,69 +13,96 @@ import com.google.gson.Gson;
 
 import co.edu.unbosque.model.Tema;
 
+/**
+ * Servicio REST para operaciones sobre temas (listar, crear y eliminar).
+ */
 public class TemaService {
-	private static final HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1)
-			.connectTimeout(Duration.ofSeconds(15)).build();
+	/** Cliente HTTP con timeout de 15s. */
+	private static final HttpClient httpClient = HttpClient.newBuilder()
+			.version(HttpClient.Version.HTTP_1_1)
+			.connectTimeout(Duration.ofSeconds(15))
+			.build();
 
+	/**
+	 * Recupera todos los temas.
+	 * @param url Endpoint de listado.
+	 * @return Lista de temas o vacía en error.
+	 */
 	public static ArrayList<Tema> doGetAll(String url) {
-		HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(url))
-				.setHeader("User-Agent", "Java 11 HttpClient Bot").header("Content-Type", "application/json").build();
+		HttpRequest request = HttpRequest.newBuilder()
+				.GET()
+				.uri(URI.create(url))
+				.setHeader("User-Agent", "Java 11 HttpClient Bot")
+				.header("Content-Type", "application/json")
+				.build();
 
-		HttpResponse<String> response = null;
+		HttpResponse<String> response;
 		try {
 			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
+			return new ArrayList<>();
 		} catch (IOException e) {
-			e.printStackTrace();
+			return new ArrayList<>();
 		}
 		System.out.println("get status code -> " + response.statusCode());
 		String json = response.body();
-		Gson g = new Gson();
-		Tema[] temps = g.fromJson(json, Tema[].class);
-
+		Tema[] temps = new Gson().fromJson(json, Tema[].class);
 		if (temps == null) {
 			return new ArrayList<>();
 		}
-
 		return new ArrayList<>(Arrays.asList(temps));
-
 	}
 
+	/**
+	 * Crea un nuevo tema mediante JSON.
+	 * @param json Representación JSON del tema.
+	 * @return Status code y body, o código de error simbólico.
+	 */
 	public static String doPostJson(String json) {
 		String url = "http://localhost:8081/tema/createjson";
-		HttpRequest request = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(json))
-				.uri(URI.create(url)).setHeader("User-Agent", "Java 11 HttpClient Bot")
-				.header("Content-Type", "application/json").build();
+		HttpRequest request = HttpRequest.newBuilder()
+				.POST(HttpRequest.BodyPublishers.ofString(json))
+				.uri(URI.create(url))
+				.setHeader("User-Agent", "Java 11 HttpClient Bot")
+				.header("Content-Type", "application/json")
+				.build();
 
-		HttpResponse<String> response = null;
+		HttpResponse<String> response;
 		try {
 			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
+			return "ERROR_INTERRUPTED";
 		} catch (IOException e) {
-			e.printStackTrace();
+			return "ERROR_IO: " + e.getMessage();
 		}
-
 		return response.statusCode() + "\n" + response.body();
 	}
 
+	/**
+	 * Elimina un tema mediante DELETE.
+	 * @param url Endpoint DELETE.
+	 * @return Status code y body o código simbólico en caso de fallo.
+	 */
 	public static String doDelete(String url) {
-		HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create(url))
-				.setHeader("User-Agent", "Java 11 HttpClient Bot").header("Content-Type", "application/json").build();
+		HttpRequest request = HttpRequest.newBuilder()
+				.DELETE()
+				.uri(URI.create(url))
+				.setHeader("User-Agent", "Java 11 HttpClient Bot")
+				.header("Content-Type", "application/json")
+				.build();
 
-		HttpResponse<String> response = null;
+		HttpResponse<String> response;
 		try {
 			response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 		} catch (InterruptedException e) {
-			e.printStackTrace();
-			Thread.currentThread().interrupt(); // buena práctica si es interrumpido
+			Thread.currentThread().interrupt();
+			return "ERROR_INTERRUPTED";
 		} catch (IOException e) {
-			e.printStackTrace();
+			return "ERROR_IO: " + e.getMessage();
 		}
-
 		System.out.println("delete status code -> " + response.statusCode());
-
 		return response.statusCode() + "\n" + response.body();
 	}
 }
