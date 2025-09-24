@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -10,7 +10,7 @@
 <ui:composition template="template/template.xhtml">
 	<ui:define name="content">
 		<div class="main">
-		         <div class="botones-contenedor">
+			         <div class="botones-contenedor">
 
                 <div class="boton-item">
                     <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
@@ -49,7 +49,258 @@
 
             </div>
 		
+		 <h:form id="temario" styleClass="temario-container">
+                <h2 class="titulo">📚 Los Misterios de las Aventuras con Rocky</h2>
+                <div class="accordion-container">
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema1" />
+                        <label class="accordion-header" for="tema1">🌍 La Gran Aventura de Todos los Temas con Rocky</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.temas}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema2" />
+                         <label class="accordion-header" for="tema2">🏛 La Cueva Secreta de la Teoría Básica</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.teoriaBasica}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema3" />
+                        <label class="accordion-header" for="tema3">🔍 Rocky Busca los Algoritmos Perdidos</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.busqueda}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema4" />
+                        <label class="accordion-header" for="tema4">📊 Algoritmos de ordenamiento</label>
+                        
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.ordenamiento}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema5" />
+                        <label class="accordion-header" for="tema5">⚡ La Misión Relámpago de la Programación Dinámica</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.programacionDinamica}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema6" />
+                        <label class="accordion-header" for="tema6">🗂 Explorando el Bosque de Estructuras de Datos</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.estructurasDatos}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema7" />
+                        <label class="accordion-header" for="tema7">➗ Matemagia con Rocky: Números Divertidos</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.matematicas}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema8" />
+                        <label class="accordion-header" for="tema8">💡 Rocky y el Mundo Mágico de los Bits</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.bitwise}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema9" />
+                        <label class="accordion-header" for="tema9">🔤 Cadenas Encantadas y Mensajes Secretos</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.cadenas}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema10" />
+                        <label class="accordion-header" for="tema10">📐 Geometría de Castillos y Laberintos</label>
+
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.geometria}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                    <div class="accordion-card">
+                        <input type="checkbox" id="tema11" />
+                        <label class="accordion-header" for="tema11">🌐 Aventuras en el Reino de los Grafos</label>
+                        <div class="accordion-content">
+                            <ui:repeat value="#{temarioBean.grafos}" var="tema">
+                                <div class="tema-item">
+                                    <span>#{tema.tema}</span>
+                                    <div class="acciones">
+                                        <p:commandButton rendered="#{temarioBean.adminIniciada}" value="❌" styleClass="ui-button-danger"
+                                            actionListener="#{temarioBean.eliminarTema(tema)}" update="temario" />
+                                        <p:commandButton value="📖" styleClass="ui-button-info"
+                                            actionListener="#{temarioBean.seleccionarTema(tema)}"
+                                            process="@this" update=":dialogForm:dialogContent"
+                                            oncomplete="PF('dlg').show();" />
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    </div>
+                </div>
+                <p:panel header="➕ Añadir Nuevo Tema" styleClass="ui-panel" style="margin-top:20px;" rendered="#{temarioBean.adminIniciada}">
+                    <h:panelGrid columns="1" columnClasses="label,value" style="width:100%">
+                        <h:outputLabel for="tema" value="Tema:" />
+                        <p:inputText id="tema" value="#{temarioBean.tema}" required="true" styleClass="ui-inputtext" />
+                        <h:outputLabel for="tipo" value="Tipo:" />
+                        <p:selectOneMenu id="tipo" value="#{temarioBean.tipo}" required="true" style="width:100%" styleClass="ui-selectonemenu">
+                            <f:selectItem itemLabel="Seleccione un tipo" itemValue="" noSelectionOption="true" />
+                            <f:selectItem itemLabel="Básica" itemValue="basica" />
+                            <f:selectItem itemLabel="Búsqueda" itemValue="busqueda" />
+                            <f:selectItem itemLabel="Ordenamiento" itemValue="ordenamiento" />
+                            <f:selectItem itemLabel="Programación Dinámica" itemValue="dinamica" />
+                            <f:selectItem itemLabel="Estructuras de Datos" itemValue="estructuras" />
+                            <f:selectItem itemLabel="Matemáticas" itemValue="matematicas" />
+                            <f:selectItem itemLabel="Bitwise" itemValue="bitwise" />
+                            <f:selectItem itemLabel="Cadenas" itemValue="cadenas" />
+                            <f:selectItem itemLabel="Geometría" itemValue="geometria" />
+                            <f:selectItem itemLabel="Grafos" itemValue="grafos" />
+                        </p:selectOneMenu>
+                        <h:outputLabel for="contenido" value="Contenido:" style="vertical-align:top;" />
+                        <p:inputTextarea id="contenido" value="#{temarioBean.contenido}" rows="6" cols="40" autoResize="true" style="width:100%" styleClass="ui-inputtextarea" required="true" />
+                    </h:panelGrid>
+                    <p:separator />
+                    <p:commandButton value="Guardar" action="#{temarioBean.crearTema}" process="@form" update="@all" icon="pi pi-save" styleClass="save-button" />
+                </p:panel>
+            </h:form>
+            <h:form id="dialogForm">
+                <p:dialog id="dialogContent" widgetVar="dlg" modal="true" header="#{temarioBean.temaSeleccionado.tema}" width="400" styleClass="ui-dialog">
+                    <h:outputText value="#{temarioBean.temaSeleccionado.contenido}" />
+                </p:dialog>
+            </h:form>
 		</div>
+
 	</ui:define>
 </ui:composition>
 </html>

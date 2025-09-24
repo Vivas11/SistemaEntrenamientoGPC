@@ -1,56 +1,106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui"> <ui:composition
+	template="template/template.xhtml">
 	<ui:define name="content">
-		<div class="main">
-		
-		         <div class="botones-contenedor">
+		<div class="main"> <div class="botones-contenedor"> <div
+			class="boton-item"> <h:link outcome="temario.xhtml"
+			styleClass="btn-img btn-rocky">
+			<img src="assets/temario.gif" width="75" height="75" alt="Temario" />
+		</h:link> <p class="btn-text">📖 Aprendamos Juntos</p> </div> <div class="boton-item">
+		<h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
+			<img
+				src="https://www.pngall.com/wp-content/uploads/15/Skye-Paw-Patrol-PNG-Picture.png"
+				width="75" height="75" alt="Problemas" />
+		</h:link> <p class="btn-text">🪁 Retos aéreos con Skye</p> </div> <div
+			class="boton-item"> <h:link outcome="libros.xhtml"
+			styleClass="btn-img btn-marshall">
+			<img src="assets/book.gif" width="75" height="75" alt="Libros" />
+		</h:link> <p class="btn-text">📚 Cuentos y Libros</p> </div> <div class="boton-item">
+		<h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
+			<img src="assets/link.gif" width="75" height="75" alt="Links" />
+		</h:link> <p class="btn-text">🌍 Aventuras en la web</p> </div> <div
+			class="boton-item"> <h:link outcome="eventos.xhtml"
+			styleClass="btn-img btn-rubble">
+			<img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
+		</h:link> <p class="btn-text">🎉 Actividades y Juegos</p> </div> </div> <p:messages
+			id="messages" showDetail="true" showIcon="true">
+			<p:autoUpdate />
+		</p:messages> <p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+			sticky="true" /> 
+			
+			<h:form id="formProblemas" Class="custom-panel">
 
-                <div class="boton-item">
-                    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
-                        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
-                    </h:link>
-                    <p class="btn-text">📖 Aprendamos Juntos</p>
-                </div>
+			<p:panel header="🎮 Listado de Problemas Divertidos"
+				styleClass="ui-panel custom-panel">
+				<p:dataTable value="#{problemabean.problemas}" var="prob"
+					paginator="true" rows="10" responsiveLayout="scroll"
+					class="compact" rowIndexVar="i">
+					<p:column headerText="🆔 ID">
+						<h:outputText value="#{i + 1}" />
+					</p:column>
+					<p:column headerText="📝 Nombre">
+						<h:outputText value="#{prob.nombre}" />
+					</p:column>
+					<p:column headerText="🌟 Dificultad">
+						<h:outputText value="#{prob.dificultad}" />
+					</p:column>
+					<p:column headerText="📚 Tema">
+						<h:outputText value="#{prob.tema}" />
+					</p:column>
+					<p:column headerText="🌐 Juez">
+						<p:button value="Ver en Juez" icon="pi pi-external-link"
+							href="#{prob.juez}" target="_blank" styleClass="ui-button-info" />
+					</p:column>
+					<p:column headerText="⚙️ Acciones"
+						rendered="#{problemabean.adminIniciada}">
+						<p:commandButton value="Eliminar" update="formProblemas"
+							process="@this" action="#{problemabean.eliminarProblema(prob)}"
+							styleClass="delete-button" icon="pi pi-trash" style="font-family: 'Comic Sans MS', cursive; font-weight: bold;"  />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
 
-                <div class="boton-item">
-                    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
-                        <img src="https://www.pngall.com/wp-content/uploads/15/Skye-Paw-Patrol-PNG-Picture.png" width="75" height="75" alt="Problemas" />
-                    </h:link>
-                    <p class="btn-text">🪁 Retos aéreos con Skye</p>
-                </div>
+			<p:panel header="✨ ¡Crea un Nuevo Reto! ✨"
+				Class="ui-panel ui-panel-titlebar"
+				style="margin-top:20px; border-radius: 15px !important;"
+				rendered="#{problemabean.adminIniciada}">
+				<h:panelGrid columns="1" columnClasses="form-field"
+					style="width:100%; max-width: 500px; margin: 0 auto;">
+					
+					<h:outputLabel for="nombre" value="Nombre:" />
+					<p:inputText id="nombre" value="#{problemabean.nombre}"
+						required="true" placeholder="Ejemplo: Laberinto" styleClass="form-input"/>
 
-                <div class="boton-item">
-                    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
-                        <img src="assets/book.gif" width="75" height="75" alt="Libros" />
-                    </h:link>
-                    <p class="btn-text">📚 Cuentos y Libros</p>
-                </div>
+					<h:outputLabel for="dificultad" value="Dificultad:"/>
+					<p:inputText id="dificultad" value="#{problemabean.dificultad}"
+						required="true" placeholder="Ejemplo: 5" styleClass="form-input"/>
 
-                <div class="boton-item">
-                    <h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
-                        <img src="assets/link.gif" width="75" height="75" alt="Links" />
-                    </h:link>
-                    <p class="btn-text">🌍 Aventuras en la web</p>
-                </div>
+					<h:outputLabel for="tema" value="Tema" />
+					<p:inputText id="tema" value="#{problemabean.tema}" required="true"
+						placeholder="Analisis de grafos" styleClass="form-input"/>
 
-                <div class="boton-item">
-                    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
-                        <img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
-                    </h:link>
-                    <p class="btn-text">🎉 Actividades y Juegos</p>
-                </div>
+					<h:outputLabel for="enlace" value="Enlace" />
+					<p:inputText id="enlace" value="#{problemabean.juez}"
+						required="true" placeholder="https://ejemplo.com/problema123"
+						styleClass="form-input" style="width: 100%;" />
 
-            </div>
-		
-		</div>
+					<p:separator style="margin: 15px 0;" />
+
+					<div style="text-align: center;"> <p:commandButton
+						value="¡Guardar mi reto! 🎉"
+						action="#{problemabean.crearProblema}" process="@form"
+						update="@all" icon="pi pi-save" styleClass="save-button"
+						style="font-family: 'Comic Sans MS', cursive; font-weight: bold;" />
+					</div>
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form> </div>
 	</ui:define>
-</ui:composition>
-</html>
+</ui:composition> </html>
+
