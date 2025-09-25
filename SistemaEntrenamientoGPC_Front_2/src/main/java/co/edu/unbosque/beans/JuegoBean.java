@@ -22,12 +22,22 @@ public class JuegoBean implements Serializable {
 
 	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarJuego1 = true;
+	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarJuego2 = false;
+	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarJuego3 = false;
+	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarJuego4 = false;
+	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarJuego5 = false;
+	/** Variables para controlar la visibilidad de cada etapa del juego */
 	private boolean mostrarFinal = false;
-
+	
+	/** constructor vacio */
+	public JuegoBean() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * Valida la respuesta del Juego 1. La respuesta correcta es "0". Si es
 	 * correcta, avanza al juego 2 y limpia la respuesta. Si es incorrecta, muestra
