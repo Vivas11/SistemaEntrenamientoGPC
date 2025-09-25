@@ -19,13 +19,13 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
-@Named(value = "librobean")
-@ViewScoped
 /**
  * Bean de vista responsable de la administración de documentos PDF ("Libros").
  * Permite listar, crear, descargar y eliminar documentos almacenados a través
  * de un servicio REST.
  */
+@Named(value = "librobean")
+@ViewScoped
 public class LibroBean implements Serializable {
 
 	/** Serial UID. */

@@ -19,13 +19,13 @@ import co.edu.unbosque.service.EstudianteService;
 import co.edu.unbosque.service.ProblemaService;
 import co.edu.unbosque.service.ProfesorService;
 
-@Named("usuariosBean")
-@ViewScoped
 /**
  * Bean de vista para la administración de usuarios del sistema. Consolida las
  * listas de administradores, profesores y estudiantes obtenidas de los
  * servicios REST y permite eliminar usuarios individuales.
  */
+@Named("usuariosBean")
+@ViewScoped
 public class UsuarioBean implements Serializable {
 
 	/** Lista consolidada de todos los usuarios. */
@@ -101,9 +101,8 @@ public class UsuarioBean implements Serializable {
 	}
 
 	/**
-	 * Elimina un usuario invocando el servicio REST correspondiente según su
-	 * tipo. Tras la operación recarga la lista consolidada y muestra mensajes al
-	 * usuario.
+	 * Elimina un usuario invocando el servicio REST correspondiente según su tipo.
+	 * Tras la operación recarga la lista consolidada y muestra mensajes al usuario.
 	 * 
 	 * @param u Usuario a eliminar.
 	 */
@@ -135,7 +134,7 @@ public class UsuarioBean implements Serializable {
 			return;
 		}
 	}
-	
+
 	/**
 	 * Muestra mensajes de estado según el resultado de operaciones con usuarios.
 	 * 
@@ -215,6 +214,5 @@ public class UsuarioBean implements Serializable {
 	public void setUsuarios(ArrayList<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
-	
-	
+
 }

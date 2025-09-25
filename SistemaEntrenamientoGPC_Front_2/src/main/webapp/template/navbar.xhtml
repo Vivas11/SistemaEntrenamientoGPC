@@ -57,10 +57,34 @@
 				</ul>
 			</div>
 			<h:form id="cerrar" rendered="#{loginbean.sesionIniciada}">
-						<p:commandButton value="Cerrar Sesión"
-							action="#{loginbean.cerrarSesion}" process="@this" update="@all" />
-					</h:form>
+				<h:commandButton value="Cerrar Sesión"
+					action="#{loginbean.cerrarSesion}"
+					styleClass="btn btn-admin bold-comic" />
+			</h:form>
+
+			<h:panelGroup rendered="#{loginbean.adminIniciada}">
+				<h:button outcome="usuarios.xhtml" value="Administrar Usuarios"
+					styleClass="btn btn-admin bold-comic" />
+			</h:panelGroup>
+
 		</div>
 	</nav>
 
 </ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,117 +1,182 @@
-	package co.edu.unbosque.model;
+package co.edu.unbosque.model;
 
-	import java.util.Objects;
+import java.util.Objects;
+import jakarta.persistence.Entity;
 
-	import jakarta.persistence.Entity;
+/**
+ * Entidad que representa un problema de programación con sus atributos principales:
+ * dificultad, tema y juez (plataforma) asociado.
+ */
+@Entity
+public class Problema {
 
-	/**
-	 * Entidad que representa un problema de programación con sus atributos
-	 * principales: dificultad, tema y juez (plataforma) asociado.
-	 */
-	@Entity
-	public class Problema {
+    /** Identificador único del problema. */
+    private Long id;
 
-		/** Identificador único del problema. */
-		private Long id;
-		/** Nombre descriptivo del problema. */
-		private String nombre;
-		/** Dificultad (por ejemplo: Facil, Medio, Dificil). */
-		private String dificultad;
-		/** Tema o categoría principal (ej. Grafos, DP). */
-		private String tema;
-		/** Juez o plataforma de origen (ej. UVA, Codeforces). */
-		private String juez;
+    /** Nombre descriptivo del problema. */
+    private String nombre;
 
-		/** Constructor vacío requerido por frameworks/JPA. */
-		public Problema() { }
+    /** Dificultad del problema (por ejemplo: Fácil, Medio, Difícil). */
+    private String dificultad;
 
-		/**
-		 * Constructor completo.
-		 * @param id Identificador.
-		 * @param nombre Nombre del problema.
-		 * @param dificultad Dificultad textual.
-		 * @param tema Tema asociado.
-		 * @param juez Juez/plataforma.
-		 */
-		public Problema(Long id, String nombre, String dificultad, String tema, String juez) {
-			this.id = id;
-			this.nombre = nombre;
-			this.dificultad = dificultad;
-			this.tema = tema;
-			this.juez = juez;
-		}
+    /** Tema o categoría principal del problema (ej. Grafos, Programación Dinámica). */
+    private String tema;
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(dificultad, id, juez, nombre, tema);
-		}
+    /** Juez o plataforma de origen del problema (ej. UVA, Codeforces, SPOJ). */
+    private String juez;
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Problema other = (Problema) obj;
-			return Objects.equals(dificultad, other.dificultad) && Objects.equals(id, other.id)
-					&& Objects.equals(juez, other.juez) && Objects.equals(nombre, other.nombre)
-					&& Objects.equals(tema, other.tema);
-		}
+    /**
+     * Constructor vacío requerido por frameworks como JPA.
+     */
+    public Problema() {
+    }
 
-		/**
-		 * @return Nombre del problema.
-		 */
-		public String getNombre() { return nombre; }
+    /**
+     * Constructor completo para inicializar un problema con todos sus atributos.
+     *
+     * @param id          Identificador único del problema.
+     * @param nombre      Nombre descriptivo del problema.
+     * @param dificultad  Dificultad textual del problema.
+     * @param tema        Tema o categoría principal del problema.
+     * @param juez        Juez o plataforma de origen del problema.
+     */
+    public Problema(Long id, String nombre, String dificultad, String tema, String juez) {
+        this.id = id;
+        this.nombre = nombre;
+        this.dificultad = dificultad;
+        this.tema = tema;
+        this.juez = juez;
+    }
 
-		/**
-		 * @param nombre Nombre del problema.
-		 */
-		public void setNombre(String nombre) { this.nombre = nombre; }
+    /**
+     * Genera un código hash para el objeto Problema basado en sus atributos.
+     *
+     * @return Código hash del objeto.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(dificultad, id, juez, nombre, tema);
+    }
 
-		/**
-		 * @return Dificultad textual.
-		 */
-		public String getDificultad() { return dificultad; }
+    /**
+     * Compara este objeto Problema con otro para determinar si son iguales.
+     *
+     * @param obj Objeto a comparar.
+     * @return {@code true} si los objetos son iguales, {@code false} en caso contrario.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Problema other = (Problema) obj;
+        return Objects.equals(dificultad, other.dificultad)
+                && Objects.equals(id, other.id)
+                && Objects.equals(juez, other.juez)
+                && Objects.equals(nombre, other.nombre)
+                && Objects.equals(tema, other.tema);
+    }
 
-		/**
-		 * @param dificultad Dificultad textual.
-		 */
-		public void setDificultad(String dificultad) { this.dificultad = dificultad; }
+    /**
+     * Obtiene el nombre del problema.
+     *
+     * @return Nombre del problema.
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
-		/**
-		 * @return Tema asociado.
-		 */
-		public String getTema() { return tema; }
+    /**
+     * Establece el nombre del problema.
+     *
+     * @param nombre Nombre del problema.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-		/**
-		 * @param tema Tema asociado.
-		 */
-		public void setTema(String tema) { this.tema = tema; }
+    /**
+     * Obtiene la dificultad del problema.
+     *
+     * @return Dificultad textual del problema.
+     */
+    public String getDificultad() {
+        return dificultad;
+    }
 
-		/**
-		 * @return Juez/plataforma de origen.
-		 */
-		public String getJuez() { return juez; }
+    /**
+     * Establece la dificultad del problema.
+     *
+     * @param dificultad Dificultad textual del problema.
+     */
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
+    }
 
-		/**
-		 * @param juez Juez/plataforma de origen.
-		 */
-		public void setJuez(String juez) { this.juez = juez; }
+    /**
+     * Obtiene el tema o categoría principal del problema.
+     *
+     * @return Tema asociado al problema.
+     */
+    public String getTema() {
+        return tema;
+    }
 
-		/**
-		 * @return Identificador.
-		 */
-		public Long getId() { return id; }
+    /**
+     * Establece el tema o categoría principal del problema.
+     *
+     * @param tema Tema asociado al problema.
+     */
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
 
-		/**
-		 * @param id Identificador.
-		 */
-		public void setId(Long id) { this.id = id; }
+    /**
+     * Obtiene el juez o plataforma de origen del problema.
+     *
+     * @return Juez/plataforma de origen del problema.
+     */
+    public String getJuez() {
+        return juez;
+    }
 
-		@Override
-		public String toString() {
-			return "Problema [nombre=" + nombre + ", dificultad=" + dificultad + ", tema=" + tema + ", juez=" + juez + ", id=" + id + "]";
-		}
-	}
+    /**
+     * Establece el juez o plataforma de origen del problema.
+     *
+     * @param juez Juez/plataforma de origen del problema.
+     */
+    public void setJuez(String juez) {
+        this.juez = juez;
+    }
+
+    /**
+     * Obtiene el identificador único del problema.
+     *
+     * @return Identificador del problema.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Establece el identificador único del problema.
+     *
+     * @param id Identificador del problema.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Devuelve una representación en cadena del objeto Problema.
+     *
+     * @return Cadena que representa el objeto Problema.
+     */
+    @Override
+    public String toString() {
+        return "Problema [nombre=" + nombre + ", dificultad=" + dificultad + ", tema=" + tema + ", juez=" + juez + ", id=" + id + "]";
+    }
+}

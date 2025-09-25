@@ -16,20 +16,17 @@ import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
-@Named(value = "loginbean")
-@SessionScoped
 /**
  * Bean de sesión encargado del proceso de autenticación de usuarios.
- * <p>
- * Responsabilidades:
- * <ul>
- *   <li>Cargar todos los usuarios disponibles desde los diferentes servicios (Admin, Estudiante, Profesor).</li>
- *   <li>Validar credenciales ingresadas contra la lista cargada (desencriptando datos).</li>
- *   <li>Mantener en sesión el usuario autenticado a través de {@link UsuarioActual}.</li>
- *   <li>Proveer utilidades para cerrar sesión y verificar el tipo de usuario autenticado.</li>
- * </ul>
+ * Responsabilidades: Cargar todos los usuarios disponibles desde los diferentes
+ * servicios (Admin, Estudiante, Profesor). Validar credenciales ingresadas
+ * contra la lista cargada (desencriptando datos). Mantener en sesión el usuario
+ * autenticado a través de {@link UsuarioActual}. Proveer utilidades para cerrar
+ * sesión y verificar el tipo de usuario autenticado.
  */
-public class LogInBean implements Serializable{
+@Named(value = "loginbean")
+@SessionScoped
+public class LogInBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** Nombre de usuario digitado. */
@@ -40,7 +37,7 @@ public class LogInBean implements Serializable{
 	private Usuario sesionIniciada;
 	/** Lista consolidada de usuarios obtenidos de los servicios REST. */
 	ArrayList<Usuario> listUsers = new ArrayList<>();
-	
+
 	/**
 	 * Constructor que dispara la carga de usuarios desde los servicios.
 	 */
@@ -54,20 +51,35 @@ public class LogInBean implements Serializable{
 	 * están cifradas y se descifran temporalmente para la validación.
 	 */
 	public void iniciarSesion() {
+		boolean encontrado = false;
+
 		for (Usuario usuario : listUsers) {
-			String usuarioN = AESUtil.decrypt(usuario.getNombre());
-			String contrasenaN = AESUtil.decrypt(usuario.getContrasena());
-			if (usuarioN.equals(user) && contrasenaN.equals(password)) {
-				showStickyLogin("200", "Sesion iniciada exitosamente");
-				UsuarioActual.setUsuarioActual(usuario);
-				password = "";
-				return;
+			try {
+				String usuarioN = AESUtil.decrypt(usuario.getNombre()).trim();
+				String contrasenaN = AESUtil.decrypt(usuario.getContrasena()).trim();
+
+				if (usuarioN.equalsIgnoreCase(user.trim()) && contrasenaN.equals(password.trim())) {
+					showStickyLogin("200", "Sesión iniciada exitosamente");
+
+					UsuarioActual.setUsuarioActual(usuario);
+
+					password = "";
+
+					encontrado = true;
+					break;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		showStickyLogin("401", "Credenciales invalidas");
-		password = "";
+
+		if (!encontrado) {
+			showStickyLogin("401", "Credenciales inválidas");
+			password = "";
+		}
 	}
-	
+
 	/**
 	 * Carga todos los usuarios de los diferentes servicios y los unifica en una
 	 * sola lista para facilitar la validación de credenciales.
@@ -77,7 +89,7 @@ public class LogInBean implements Serializable{
 		listUsers.addAll(EstudianteService.doGetAll("http://localhost:8081/estudiante/getall"));
 		listUsers.addAll(ProfesorService.doGetAll("http://localhost:8081/profesor/getall"));
 	}
-	
+
 	/**
 	 * Muestra mensajes de resultado de la operación de autenticación.
 	 * 
@@ -85,7 +97,7 @@ public class LogInBean implements Serializable{
 	 * @param content Mensaje adicional.
 	 */
 	public void showStickyLogin(String code, String content) {
-		if (code.equals("200")) {
+		if (code.equals("202")) {
 			FacesContext.getCurrentInstance().addMessage("sticky-key",
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Hecho", content));
 		} else if (code.equals("401")) {
@@ -97,7 +109,6 @@ public class LogInBean implements Serializable{
 		}
 	}
 
-	
 	/**
 	 * @return Nombre de usuario ingresado.
 	 */
@@ -148,12 +159,13 @@ public class LogInBean implements Serializable{
 	}
 
 	/**
-	 * @param sesionIniciada Usuario de sesión (no usado directamente; mantenido por compatibilidad).
+	 * @param sesionIniciada Usuario de sesión (no usado directamente; mantenido por
+	 *                       compatibilidad).
 	 */
 	public void setSesionIniciada(Usuario sesionIniciada) {
 		this.sesionIniciada = sesionIniciada;
 	}
-	
+
 	/**
 	 * Cierra la sesión eliminando el usuario actual y redirige a la página de
 	 * inicio.
@@ -164,12 +176,12 @@ public class LogInBean implements Serializable{
 		UsuarioActual.setUsuarioActual(null);
 		return "index.xhtml?faces-redirect=true";
 	}
-	
+
 	/**
 	 * @return {@code true} si el usuario autenticado es un administrador.
 	 */
 	public boolean getAdminIniciada() {
 		return UsuarioActual.getUsuarioActual() instanceof Admin;
 	}
-	
+
 }

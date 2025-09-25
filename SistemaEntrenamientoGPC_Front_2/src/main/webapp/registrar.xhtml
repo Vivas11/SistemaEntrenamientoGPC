@@ -48,6 +48,7 @@
 				<f:selectItem itemLabel="🛡️ Administrador"
 					itemValue="Administrador" />
 				<p:ajax update="estudiantePanel profesorPanel" />
+				<p:ajax update="estudiantePanel profesorPanel administradorPanel" />
 			</p:selectOneRadio> </div> </div>
 
 			<h:panelGroup id="estudiantePanel" layout="block"
@@ -82,6 +83,10 @@
 					for="entrenador" value="¿Eres entrenador de héroes? 🦸"
 					styleClass="btn-text" /> <p:selectBooleanCheckbox id="entrenador"
 					value="#{registerbean.esEntrenador}" styleClass="btn-text" /> </div> </div>
+			</h:panelGroup>
+
+			<h:panelGroup id="administradorPanel" layout="block"
+				style="display: #{registerbean.type eq 'Administrador' ? 'block' : 'none'};">
 			</h:panelGroup>
 
 			<p:commandButton value="¡Registrarme ahora! 🚀"

@@ -25,22 +25,21 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
-@Named("eventbean")
-@ViewScoped
+
 /**
  * Backing bean encargado de gestionar los eventos que se muestran en el
- * componente Schedule de PrimeFaces.
- * <p>
- * Funcionalidades principales:
- * <ul>
- *   <li>Consumir el servicio REST para listar, crear y eliminar eventos.</li>
- *   <li>Construir el {@link ScheduleModel} que alimenta el calendario.</li>
- *   <li>Controlar la interacción de selección en el calendario.</li>
- *   <li>Mostrar mensajes (FacesMessage) al usuario sobre las acciones realizadas.</li>
- * </ul>
- * El bean es {@code @ViewScoped} para mantener el estado del calendario mientras
- * el usuario permanezca en la misma vista.
+ * componente Schedule de PrimeFaces. Funcionalidades principales:
+ * 
+ * Consumir el servicio REST para listar, crear y eliminar eventos. Construir el
+ * {@link ScheduleModel} que alimenta el calendario. Controlar la interacción de
+ * selección en el calendario. Mostrar mensajes (FacesMessage) al usuario sobre
+ * las acciones realizadas.
+ * 
+ * El bean es {@code @ViewScoped} para mantener el estado del calendario
+ * mientras el usuario permanezca en la misma vista.
  */
+@Named("eventbean")
+@ViewScoped
 public class EventBean implements Serializable {
 
 	/** Serial version UID para la serialización del bean. */
@@ -70,8 +69,8 @@ public class EventBean implements Serializable {
 	}
 
 	/**
-	 * Consume el servicio REST para recuperar todos los eventos. En caso de que
-	 * el servicio retorne {@code null}, se inicializa una lista vacía para evitar
+	 * Consume el servicio REST para recuperar todos los eventos. En caso de que el
+	 * servicio retorne {@code null}, se inicializa una lista vacía para evitar
 	 * {@link NullPointerException} posteriores.
 	 */
 	public void cargarEventos() {
@@ -82,9 +81,9 @@ public class EventBean implements Serializable {
 	}
 
 	/**
-	 * Reconstruye el {@link ScheduleModel} con los eventos disponibles. Cada
-	 * evento se fija en un rango horario por defecto (09:00 - 10:00) ya que el
-	 * modelo de dominio sólo provee la fecha. Se marcan como no editables ni
+	 * Reconstruye el {@link ScheduleModel} con los eventos disponibles. Cada evento
+	 * se fija en un rango horario por defecto (09:00 - 10:00) ya que el modelo de
+	 * dominio sólo provee la fecha. Se marcan como no editables ni
 	 * redimensionables.
 	 */
 	public void inicializarEventos() {
@@ -95,14 +94,8 @@ public class EventBean implements Serializable {
 			LocalDateTime fechaIni = fecha.atTime(9, 0);
 			LocalDateTime fechaFin = fecha.atTime(10, 0);
 
-			eventModel.addEvent(DefaultScheduleEvent.builder()
-					.title(evento.getNombre())
-					.startDate(fechaIni)
-					.endDate(fechaFin)
-					.description(evento.getDescripcion())
-					.editable(false)
-					.resizable(false)
-					.build());
+			eventModel.addEvent(DefaultScheduleEvent.builder().title(evento.getNombre()).startDate(fechaIni)
+					.endDate(fechaFin).description(evento.getDescripcion()).editable(false).resizable(false).build());
 		}
 	}
 
@@ -136,9 +129,7 @@ public class EventBean implements Serializable {
 	 * @param evento Evento de PrimeFaces seleccionado para eliminar.
 	 */
 	public void eliminarEvento(DefaultScheduleEvent<?> evento) {
-		Evento encontrado = eventos.stream()
-				.filter(e -> e.getNombre().equals(evento.getTitle()))
-				.findFirst()
+		Evento encontrado = eventos.stream().filter(e -> e.getNombre().equals(evento.getTitle())).findFirst()
 				.orElse(null);
 
 		if (encontrado == null) {
@@ -186,8 +177,8 @@ public class EventBean implements Serializable {
 	}
 
 	/**
-	 * Inicializa un nuevo objeto {@link ScheduleEvent} vacío. Útil para limpiar
-	 * un formulario antes de crear un evento.
+	 * Inicializa un nuevo objeto {@link ScheduleEvent} vacío. Útil para limpiar un
+	 * formulario antes de crear un evento.
 	 */
 	public void crearEvento() {
 		event = new DefaultScheduleEvent<>();
@@ -273,7 +264,7 @@ public class EventBean implements Serializable {
 	public void setEventModel(ScheduleModel eventModel) {
 		this.eventModel = eventModel;
 	}
-	
+
 	/**
 	 * Indica si el usuario autenticado posee rol de administrador o profesor.
 	 * 
@@ -286,5 +277,5 @@ public class EventBean implements Serializable {
 		return UsuarioActual.getUsuarioActual() instanceof Admin
 				|| UsuarioActual.getUsuarioActual() instanceof Profesor;
 	}
-	
+
 }

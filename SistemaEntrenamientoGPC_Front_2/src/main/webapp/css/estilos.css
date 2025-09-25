@@ -285,6 +285,31 @@ body .main .save-button:not(.ui-state-disabled):hover {
 	box-shadow: 6px 12px 10px rgba(0, 0, 0, 0.25) !important;
 	background: linear-gradient(173deg, #2b1377, #ffffff) !important;
 }
+.main .btn-admin,
+.main .btn-admin.ui-button {
+    background: linear-gradient(173deg, #ffffff, #2b1377) !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 10px 25px !important;
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase;
+    display: inline-block; /* Para que los <a> se comporten como botón */
+    text-align: center;
+    text-decoration: none; /* Quita subrayado en <a> */
+}
+
+.main .btn-admin:hover,
+.main .btn-admin.ui-button:not(.ui-state-disabled):hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 6px 12px 10px rgba(0, 0, 0, 0.25) !important;
+    background: linear-gradient(173deg, #2b1377, #ffffff) !important;
+}
+
+
 
 body .main .form-input {
 	border-radius: 10px !important;
@@ -421,7 +446,7 @@ body .main .form-input:focus {
 body .ui-button {
 	background: var(--main-gray-color);
 	color: #fff;
-	border: 1px solid var(--main-gray-color);
+	border: 1px solid #ffffff00;
 	margin: 0;
 	outline: 0 none;
 	border-radius: 4px;

@@ -14,14 +14,14 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
-@Named(value = "temarioBean")
-@ViewScoped
 /**
  * Bean de vista para la organización y gestión de los distintos temas del
  * temario. Agrupa los objetos {@link Tema} por categoría (básica, búsqueda,
  * grafos, etc.) para facilitar su renderizado en la interfaz y permite crear y
  * eliminar temas mediante el consumo de servicios REST.
  */
+@Named(value = "temarioBean")
+@ViewScoped
 public class TemarioBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -215,209 +215,268 @@ public class TemarioBean implements Serializable{
 	}
 
 	/**
-	 * Asigna el tema cuyos detalles deben mostrarse.
-	 * 
-	 * @param tema Tema seleccionado.
+	 * Asigna el tema cuyos detalles se mostrarán en la interfaz.
+	 * Este método se utiliza para seleccionar un tema específico y cargar su información
+	 * en la vista de detalles.
+	 *
+	 * @param tema Tema seleccionado para mostrar sus detalles.
 	 */
 	public void verDetalles(Tema tema) {
-		this.temaSeleccionado = tema;
+	    this.temaSeleccionado = tema;
 	}
 
 	/**
-	 * @return Lista completa de temas.
+	 * Obtiene la lista completa de temas disponibles.
+	 *
+	 * @return Lista de todos los temas registrados.
 	 */
 	public ArrayList<Tema> getTemas() {
-		return temas;
+	    return temas;
 	}
 
 	/**
-	 * @param temas Lista completa de temas.
+	 * Establece la lista completa de temas.
+	 *
+	 * @param temas Lista de temas a asignar.
 	 */
 	public void setTemas(ArrayList<Tema> temas) {
-		this.temas = temas;
+	    this.temas = temas;
 	}
 
 	/**
+	 * Obtiene la lista de temas pertenecientes a la categoría de teoría básica.
+	 *
 	 * @return Lista de temas de teoría básica.
 	 */
 	public ArrayList<Tema> getTeoriaBasica() {
-		return teoriaBasica;
+	    return teoriaBasica;
 	}
 
 	/**
-	 * @param teoriaBasica Lista de teoría básica.
+	 * Establece la lista de temas de teoría básica.
+	 *
+	 * @param teoriaBasica Lista de temas de teoría básica a asignar.
 	 */
 	public void setTeoriaBasica(ArrayList<Tema> teoriaBasica) {
-		this.teoriaBasica = teoriaBasica;
+	    this.teoriaBasica = teoriaBasica;
 	}
 
 	/**
+	 * Obtiene la lista de temas relacionados con algoritmos de búsqueda.
+	 *
 	 * @return Lista de temas de búsqueda.
 	 */
 	public ArrayList<Tema> getBusqueda() {
-		return busqueda;
+	    return busqueda;
 	}
 
 	/**
-	 * @param busqueda Lista de búsqueda.
+	 * Establece la lista de temas de búsqueda.
+	 *
+	 * @param busqueda Lista de temas de búsqueda a asignar.
 	 */
 	public void setBusqueda(ArrayList<Tema> busqueda) {
-		this.busqueda = busqueda;
+	    this.busqueda = busqueda;
 	}
 
 	/**
+	 * Obtiene la lista de temas relacionados con algoritmos de ordenamiento.
+	 *
 	 * @return Lista de temas de ordenamiento.
 	 */
 	public ArrayList<Tema> getOrdenamiento() {
-		return ordenamiento;
+	    return ordenamiento;
 	}
 
 	/**
-	 * @param ordenamiento Lista de ordenamiento.
+	 * Establece la lista de temas de ordenamiento.
+	 *
+	 * @param ordenamiento Lista de temas de ordenamiento a asignar.
 	 */
 	public void setOrdenamiento(ArrayList<Tema> ordenamiento) {
-		this.ordenamiento = ordenamiento;
+	    this.ordenamiento = ordenamiento;
 	}
 
 	/**
-	 * @return Lista de programación dinámica.
+	 * Obtiene la lista de temas relacionados con programación dinámica.
+	 *
+	 * @return Lista de temas de programación dinámica.
 	 */
 	public ArrayList<Tema> getProgramacionDinamica() {
-		return programacionDinamica;
+	    return programacionDinamica;
 	}
 
 	/**
-	 * @param programacionDinamica Lista de programación dinámica.
+	 * Establece la lista de temas de programación dinámica.
+	 *
+	 * @param programacionDinamica Lista de temas de programación dinámica a asignar.
 	 */
 	public void setProgramacionDinamica(ArrayList<Tema> programacionDinamica) {
-		this.programacionDinamica = programacionDinamica;
+	    this.programacionDinamica = programacionDinamica;
 	}
 
 	/**
-	 * @return Lista de estructuras de datos.
+	 * Obtiene la lista de temas relacionados con estructuras de datos.
+	 *
+	 * @return Lista de temas de estructuras de datos.
 	 */
 	public ArrayList<Tema> getEstructurasDatos() {
-		return estructurasDatos;
+	    return estructurasDatos;
 	}
 
 	/**
-	 * @param estructurasDatos Lista de estructuras de datos.
+	 * Establece la lista de temas de estructuras de datos.
+	 *
+	 * @param estructurasDatos Lista de temas de estructuras de datos a asignar.
 	 */
 	public void setEstructurasDatos(ArrayList<Tema> estructurasDatos) {
-		this.estructurasDatos = estructurasDatos;
+	    this.estructurasDatos = estructurasDatos;
 	}
 
 	/**
-	 * @return Lista de matemáticas.
+	 * Obtiene la lista de temas relacionados con matemáticas.
+	 *
+	 * @return Lista de temas de matemáticas.
 	 */
 	public ArrayList<Tema> getMatematicas() {
-		return matematicas;
+	    return matematicas;
 	}
 
 	/**
-	 * @param matematicas Lista de matemáticas.
+	 * Establece la lista de temas de matemáticas.
+	 *
+	 * @param matematicas Lista de temas de matemáticas a asignar.
 	 */
 	public void setMatematicas(ArrayList<Tema> matematicas) {
-		this.matematicas = matematicas;
+	    this.matematicas = matematicas;
 	}
 
 	/**
-	 * @return Lista de bitwise.
+	 * Obtiene la lista de temas relacionados con operaciones bitwise.
+	 *
+	 * @return Lista de temas de bitwise.
 	 */
 	public ArrayList<Tema> getBitwise() {
-		return bitwise;
+	    return bitwise;
 	}
 
 	/**
-	 * @param bitwise Lista de bitwise.
+	 * Establece la lista de temas de bitwise.
+	 *
+	 * @param bitwise Lista de temas de bitwise a asignar.
 	 */
 	public void setBitwise(ArrayList<Tema> bitwise) {
-		this.bitwise = bitwise;
+	    this.bitwise = bitwise;
 	}
 
 	/**
-	 * @return Lista de cadenas.
+	 * Obtiene la lista de temas relacionados con manipulación de cadenas.
+	 *
+	 * @return Lista de temas de cadenas.
 	 */
 	public ArrayList<Tema> getCadenas() {
-		return cadenas;
+	    return cadenas;
 	}
 
 	/**
-	 * @param cadenas Lista de cadenas.
+	 * Establece la lista de temas de cadenas.
+	 *
+	 * @param cadenas Lista de temas de cadenas a asignar.
 	 */
 	public void setCadenas(ArrayList<Tema> cadenas) {
-		this.cadenas = cadenas;
+	    this.cadenas = cadenas;
 	}
 
 	/**
-	 * @return Lista de geometría.
+	 * Obtiene la lista de temas relacionados con geometría.
+	 *
+	 * @return Lista de temas de geometría.
 	 */
 	public ArrayList<Tema> getGeometria() {
-		return geometria;
+	    return geometria;
 	}
 
 	/**
-	 * @param geometria Lista de geometría.
+	 * Establece la lista de temas de geometría.
+	 *
+	 * @param geometria Lista de temas de geometría a asignar.
 	 */
 	public void setGeometria(ArrayList<Tema> geometria) {
-		this.geometria = geometria;
+	    this.geometria = geometria;
 	}
 
 	/**
-	 * @return Lista de grafos.
+	 * Obtiene la lista de temas relacionados con grafos.
+	 *
+	 * @return Lista de temas de grafos.
 	 */
 	public ArrayList<Tema> getGrafos() {
-		return grafos;
+	    return grafos;
 	}
 
 	/**
-	 * @param grafos Lista de grafos.
+	 * Establece la lista de temas de grafos.
+	 *
+	 * @param grafos Lista de temas de grafos a asignar.
 	 */
 	public void setGrafos(ArrayList<Tema> grafos) {
-		this.grafos = grafos;
+	    this.grafos = grafos;
 	}
 
 	/**
-	 * @return Nombre del tema en edición/creación.
+	 * Obtiene el nombre del tema actualmente seleccionado o en edición.
+	 *
+	 * @return Nombre del tema.
 	 */
 	public String getTema() {
-		return tema;
+	    return tema;
 	}
 
 	/**
-	 * @param tema Nombre del tema.
+	 * Establece el nombre del tema.
+	 *
+	 * @param tema Nombre del tema a asignar.
 	 */
 	public void setTema(String tema) {
-		this.tema = tema;
+	    this.tema = tema;
 	}
 
 	/**
-	 * @return Tipo/categoría del tema.
+	 * Obtiene la categoría o tipo del tema actualmente seleccionado o en edición.
+	 *
+	 * @return Categoría del tema.
 	 */
 	public String getTipo() {
-		return tipo;
+	    return tipo;
 	}
 
 	/**
-	 * @param tipo Categoría del tema.
+	 * Establece la categoría o tipo del tema.
+	 *
+	 * @param tipo Categoría del tema a asignar.
 	 */
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	    this.tipo = tipo;
 	}
 
 	/**
-	 * @return Contenido descriptivo del tema.
+	 * Obtiene el contenido descriptivo del tema actualmente seleccionado o en edición.
+	 *
+	 * @return Contenido del tema.
 	 */
 	public String getContenido() {
-		return contenido;
+	    return contenido;
 	}
 
 	/**
-	 * @param contenido Contenido del tema.
+	 * Establece el contenido descriptivo del tema.
+	 *
+	 * @param contenido Contenido del tema a asignar.
 	 */
 	public void setContenido(String contenido) {
-		this.contenido = contenido;
+	    this.contenido = contenido;
 	}
+
 	/**
 	 * Indica si el usuario autenticado posee rol de administrador o profesor.
 	 * 
