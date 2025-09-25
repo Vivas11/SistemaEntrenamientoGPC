@@ -29,81 +29,89 @@
 				src="https://candybargratis.com/wp-content/uploads/2023/09/bonobon-candy-bar-PAW-PATROL-PERSONAJES-RUBBLE-kit-imprimible.png"
 				width="75" height="75" alt="Eventos" />
 		</h:link> <p class="btn-text">🏗️ Actividades con Rubble</p> </div> </div>
+
 		<div class="main"
 			style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
 
-		<div class="card"> <p:messages id="messages" showDetail="true"
-			showIcon="false">
-			<p:autoUpdate />
-		</p:messages> <p:growl id="growl-sticky" for="sticky-key" showDetail="true"
-			sticky="true" /> <h:form id="formEventosEliminar">
-			<p:schedule id="schedule" value="#{eventbean.eventModel}"
-				widgetVar="myschedule" timeZone="UTC" draggable="false"
-				resizable="false" selectable="false" allDaySlot="true"
-				aspectRatio="1.5">
+		<p:panel header="🗓️🐾 ¡Vamos a ver qué tenemos construido en el calendario! 🗓️🐾">
 
-				<p:ajax event="eventSelect" listener="#{eventbean.onEventSelect}"
-					update=":formEventosEliminar:dialogDetalle"
-					oncomplete="PF('dlgDetalle').show()" />
-			</p:schedule>
+			<div class="card card-custom"> <p:messages id="messages" showDetail="true"
+				showIcon="false">
+				<p:autoUpdate />
+			</p:messages> <p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+				sticky="true" /> <h:form id="formEventosEliminar">
+				<p:schedule id="schedule" value="#{eventbean.eventModel}"
+					widgetVar="myschedule" timeZone="UTC" draggable="false"
+					resizable="false" selectable="false" allDaySlot="true"
+					aspectRatio="1.5" styleClass="bold-comic">
 
-			<p:dialog id="dialogDetalle" header="Detalles del Evento"
-				widgetVar="dlgDetalle" modal="true" resizable="false"
-				closable="true" width="400">
+					<p:ajax event="eventSelect" listener="#{eventbean.onEventSelect}"
+						update=":formEventosEliminar:dialogDetalle"
+						oncomplete="PF('dlgDetalle').show()" />
+				</p:schedule>
 
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputText value="Título:" />
-					<h:outputText value="#{eventbean.event.title}" />
+				<p:dialog id="dialogDetalle" header="Detalles del Evento"
+					widgetVar="dlgDetalle" modal="true" resizable="false"
+					closable="true" width="400">
 
-					<h:outputText value="Descripción:" />
-					<h:outputText value="#{eventbean.event.description}" />
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputText value="Título:" styleClass="bold-comic" />
+						<h:outputText value="#{eventbean.event.title}"
+							styleClass="bold-comic" />
 
-					<h:outputText value="Inicio:" />
-					<h:outputText value="#{eventbean.event.startDate}" />
+						<h:outputText value="Descripción:" styleClass="bold-comic" />
+						<h:outputText value="#{eventbean.event.description}"
+							styleClass="bold-comic" />
 
-					<h:outputText value="Fin:" />
-					<h:outputText value="#{eventbean.event.endDate}" />
+						<h:outputText value="Inicio:" styleClass="bold-comic" />
+						<h:outputText value="#{eventbean.event.startDate}"
+							styleClass="bold-comic" />
 
-					<p:commandButton value="Eliminar"
-						rendered="#{eventbean.adminIniciada}"
-						action="#{eventbean.eliminarEvento(eventbean.event)}"
-						process="@this" update=":formEventosEliminar:schedule formEventos"
-						oncomplete="PF('dlgDetalle').hide()" icon="pi pi-trash"
-						styleClass="ui-button-danger" />
+						<h:outputText value="Fin:" styleClass="bold-comic" />
+						<h:outputText value="#{eventbean.event.endDate}"
+							styleClass="bold-comic" />
 
+						<p:commandButton value="Eliminar"
+							rendered="#{eventbean.adminIniciada}"
+							action="#{eventbean.eliminarEvento(eventbean.event)}"
+							process="@this"
+							update=":formEventosEliminar:schedule formEventos"
+							oncomplete="PF('dlgDetalle').hide()" icon="pi pi-trash"
+							styleClass="delete-button bold-comic" />
 
-				</h:panelGrid>
-			</p:dialog>
-		</h:form> <h:form id="formEventos" rendered="#{eventbean.adminIniciada}">
-			<p:panel header="Registrar Evento">
-				<h:panelGrid columns="1" columnClasses="label,value"
-					style="width:100%">
+					</h:panelGrid>
+				</p:dialog>
+			</h:form> </div>
+			<h:form id="formEventos" rendered="#{eventbean.adminIniciada}">
+				<p:panel header="🚧🐾 ¡Hora de construir un nuevo evento! 🚧🐾" > 
+					<h:panelGrid columns="1" columnClasses="label,value"
+						style="width:100%">
 
-					<!-- Nombre del evento -->
-					<h:outputLabel for="nombre" value="Nombre:" />
-					<p:inputText id="nombre" value="#{eventbean.nombre}"
-						required="true" placeholder="Ej: Reunión de equipo" />
+						<h:outputLabel for="nombreEvento" value="Nombre:" />
+						<p:inputText id="nombreEvento" value="#{eventbean.nombre}"
+							required="true" placeholder="Competencia de programación"
+							styleClass="form-input" />
 
-					<!-- Fecha del evento -->
-					<p:outputLabel for="fecha" value="Fecha" />
-					<p:datePicker id="fecha" value="#{eventbean.fecha}" showIcon="true"
-						showOnFocus="false" />
+						<h:outputLabel for="fechaEvento" value="Fecha:" />
+						<p:datePicker id="fechaEvento" value="#{eventbean.fecha}"
+							showIcon="true" showOnFocus="true" styleClass="form-input"
+							placeholder="02/11/25" />
 
-					<!-- Descripción -->
-					<h:outputLabel for="descripcion" value="Descripción:" />
-					<p:inputTextarea id="descripcion" value="#{eventbean.descripcion}"
-						rows="3" autoResize="true" placeholder="Detalles del evento..." />
-				</h:panelGrid>
+						<h:outputLabel for="descripcionEvento" value="Descripción:" />
+						<p:inputTextarea id="descripcionEvento"
+							value="#{eventbean.descripcion}" required="true"
+							placeholder="Detalles del evento..." styleClass="form-input"
+							rows="3" autoResize="true" />
+					</h:panelGrid>
 
-				<p:separator />
+					<p:separator />
 
-				<!-- Botón Guardar -->
-				<p:commandButton value="Guardar" action="#{eventbean.agregarEvento}"
-					process="formEventos"
-					update=":formEventosEliminar:schedule formEventos"
-					icon="pi pi-save" styleClass="ui-button-success" />
-
-			</p:panel>
-		</h:form></div> </div>
+					<p:commandButton value="Guardar"
+						action="#{eventbean.agregarEvento}" process="@form"
+						update=":formEventosEliminar:schedule formEventos"
+						icon="pi pi-save" styleClass="ui-button-success save-button" />
+				</p:panel>
+			</h:form>
+		</p:panel></div>
 	</ui:define>
 </ui:composition> </html>

@@ -66,6 +66,15 @@ body {
 	border-radius: 10px;
 }
 
+.dropdown-menu {
+	min-width: 250px;
+}
+
+.btn-outline-primary {
+	--bs-btn-border-color: #6c757d;
+	--bs-btn-hover-bg: #e9ecef;
+}
+
 .form-container {
 	display: flex;
 	justify-content: center;
@@ -429,6 +438,63 @@ body .ui-button {
 	width: 200px;
 }
 
+body .fc .fc-toolbar .fc-button {
+	background: linear-gradient(173deg, #A7C7E7, #FFEB3B) !important;
+	border: none !important;
+	border-radius: 25px !important;
+	padding: 5px 15px !important;
+	color: white !important;
+	font-size: 16px !important;
+	box-shadow: 6px 10px 8px rgba(0, 0, 0, 0.2) !important;
+	transition: all 0.3s ease !important;
+}
+
+body .fc .fc-toolbar .fc-button:not(.ui-state-disabled):hover {
+	transform: translateY(-2px) !important;
+	box-shadow: 6px 12px 10px rgba(0, 0, 0, 0.25) !important;
+	background: linear-gradient(173deg, #FFEB3B, #A7C7E7) !important;
+}
+
+.card-custom {
+    background-color: #ffe8002e; 
+    border-radius: 15px;       
+    padding: 15px;            
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    transition: background-color 0.3s ease;
+}
+
+.card-custom:hover {
+    background-color: #ffe8005c; 
+}
+
+
+body .ui-panel .ui-panel-content {
+	border: 1px solid #dee2e6;
+	background: #fff;
+	color: #495057;
+	padding: 1rem;
+}
+
+.bg-custom {
+	background-color: #6FA8DC !important;
+}
+
+.filter-white {
+	filter: brightness(0) invert(1);
+}
+
+.text-white {
+	color: white !important;
+}
+
+.dropdown-menu {
+	min-width: 250px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
+}
+
 .container-links {
 	display: flex;
 	justify-content: center;
@@ -754,23 +820,22 @@ footer .nav-link i {
 }
 
 .login-box {
-    background: linear-gradient(173deg, #A7C7E7, #2b1377) !important; 
-    color: #fff;
-    border-radius: 20px;
-    padding: 30px 25px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease; 
+	background: linear-gradient(173deg, #A7C7E7, #2b1377) !important;
+	color: #fff;
+	border-radius: 20px;
+	padding: 30px 25px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
 }
 
 .login-box:hover {
-    background: linear-gradient(173deg, #2b1377, #A7C7E7) !important;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+	background: linear-gradient(173deg, #2b1377, #A7C7E7) !important;
+	box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
-
 
 .login-box input[type="email"], .login-box input[type="password"] {
 	border-radius: 8px;
@@ -1090,6 +1155,15 @@ footer .nav-link i {
 	font-weight: bold;
 	font-family: 'Comic Neue', 'Nunito', cursive;
 	color: #000000;
+	text-align: center;
+}
+
+.btn-textblanco {
+	margin-top: 8px;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: 'Comic Neue', 'Nunito', cursive;
+	color: #ffff;
 	text-align: center;
 }
 

@@ -58,7 +58,7 @@ public class LogInBean implements Serializable{
 			String usuarioN = AESUtil.decrypt(usuario.getNombre());
 			String contrasenaN = AESUtil.decrypt(usuario.getContrasena());
 			if (usuarioN.equals(user) && contrasenaN.equals(password)) {
-				showStickyLogin("200", "Sesion inicaiada exitosamente");
+				showStickyLogin("200", "Sesion iniciada exitosamente");
 				UsuarioActual.setUsuarioActual(usuario);
 				password = "";
 				return;

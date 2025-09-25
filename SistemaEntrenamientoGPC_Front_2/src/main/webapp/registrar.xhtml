@@ -12,31 +12,30 @@
 			class="signin-box"> <h:form id="registerForm"
 			styleClass="signin-form">
 
-
 			<div class="signin-section"> <h3 class="btn-text bold-comic">¡Vamos
 			a comenzar! 🎉</h3> <div class="form-grid"> <div
 				class="signin-input"> <div class="ui-inputgroup"> <div
-				class="ui-inputgroup-addon"> <i class="pi pi-user"></i> </div> <p:inputText
+				class="ui-inputgroup-addon"> <i class="pi pi-user"></i></div> <p:inputText
 				id="username" value="#{registerbean.fullName}" required="true"
 				placeholder="Escribe tu nombre completo ✨"
 				styleClass="btn-text bold-comic form-input" /> </div> </div> <div
 				class="signin-input"> <div class="ui-inputgroup"> <div
-				class="ui-inputgroup-addon"> <i class="pi pi-envelope"></i> </div> <p:inputText
+				class="ui-inputgroup-addon"> <i class="pi pi-envelope"></i></div> <p:inputText
 				id="email" value="#{registerbean.email}" required="true"
 				placeholder="Tu correo mágico 📧"
 				styleClass="btn-text bold-comic form-input" /> </div> </div> <div
 				class="signin-input"> <div class="ui-inputgroup"> <div
-				class="ui-inputgroup-addon"> <i class="pi pi-calendar"></i> </div> <p:inputNumber
+				class="ui-inputgroup-addon"> <i class="pi pi-calendar"></i></div> <p:inputNumber
 				id="age" value="#{registerbean.age}" required="true" minValue="1"
 				maxValue="120" placeholder="¿Cuántos años tienes? 🎂"
-				styleClass=" bold-comic" /> </div> </div> <div class="signin-input"> <div
+				styleClass="bold-comic" /> </div> </div> <div class="signin-input"> <div
 				class="ui-inputgroup"> <div class="ui-inputgroup-addon">
-			<i class="pi pi-lock"></i> </div> <p:password id="password"
+			<i class="pi pi-lock"></i></div> <p:password id="password"
 				value="#{registerbean.password}" feedback="true" required="true"
 				placeholder="Crea tu clave secreta 🔑"
 				styleClass="btn-text bold-comic form-input" /> </div> </div> <div
 				class="signin-input"> <div class="ui-inputgroup"> <div
-				class="ui-inputgroup-addon"> <i class="pi pi-check"></i> </div> <p:password
+				class="ui-inputgroup-addon"> <i class="pi pi-check"></i></div> <p:password
 				id="confirmPassword" value="#{registerbean.confirmPassword}"
 				required="true" placeholder="Repite tu clave secreta 🌀"
 				styleClass="btn-text bold-comic form-input" /> </div> </div> </div> <div
@@ -48,12 +47,12 @@
 				<f:selectItem itemLabel="👩‍🏫 Profesor" itemValue="Profesor" />
 				<f:selectItem itemLabel="🛡️ Administrador"
 					itemValue="Administrador" />
-				<p:ajax update="registerForm" />
+				<p:ajax update="estudiantePanel profesorPanel" />
 			</p:selectOneRadio> </div> </div>
 
-
-			<h:panelGroup rendered="#{registerbean.type eq 'Estudiante'}">
-				<div class="signin-section"> <h3 class="btn-text bold-comic ">Datos
+			<h:panelGroup id="estudiantePanel" layout="block"
+				style="display: #{registerbean.type eq 'Estudiante' ? 'block' : 'none'};">
+				<div class="signin-section"> <h3 class="btn-text bold-comic">Datos
 				del Estudiante 🎒</h3> <div class="signin-input"> <p:selectOneMenu
 					id="nivelCompetitiva" value="#{registerbean.nivelCompetitiva}"
 					styleClass="custom-select btn-text form-input">
@@ -63,15 +62,20 @@
 					<f:selectItem itemLabel="📘 Básica" itemValue="Básica" />
 					<f:selectItem itemLabel="🚀 Intermedia" itemValue="Intermedia" />
 					<f:selectItem itemLabel="🌟 Avanzada" itemValue="Avanzada" />
-				</p:selectOneMenu> </div> </div>
+				</p:selectOneMenu> </div> <div class="signin-input"> <h:outputLabel for="semestre"
+					value="¿En qué semestre estás? 🎓" styleClass="btn-text bold-comic" />
+				<p:inputNumber id="semestre" value="#{registerbean.semestre}"
+					minValue="1" maxValue="12" placeholder="¿En qué semestre estás? 🎓"
+					emptyValue="null" styleClass="btn-text bold-comic" /> </div> </div>
 			</h:panelGroup>
 
 
-			<h:panelGroup rendered="#{registerbean.type eq 'Profesor'}">
+			<h:panelGroup id="profesorPanel" layout="block"
+				style="display: #{registerbean.type eq 'Profesor' ? 'block' : 'none'};">
 				<div class="signin-section"> <h3 class="btn-text bold-comic">Datos
 				del Profesor 👩‍🏫</h3> <div class="signin-input"> <div
 					class="ui-inputgroup"> <div class="ui-inputgroup-addon">
-				<i class="pi pi-briefcase"></i> </div> <p:inputText id="cargo"
+				<i class="pi pi-briefcase"></i></div> <p:inputText id="cargo"
 					value="#{registerbean.cargo}" styleClass="btn-text form-input"
 					placeholder="Escribe tu cargo aquí ✍️" /> </div> </div> <div
 					class="signin-input checkbox-inline"> <h:outputLabel
@@ -80,15 +84,13 @@
 					value="#{registerbean.esEntrenador}" styleClass="btn-text" /> </div> </div>
 			</h:panelGroup>
 
-
 			<p:commandButton value="¡Registrarme ahora! 🚀"
 				action="#{registerbean.crearUsuario}" process="@form"
-				update="@form, messages" styleClass="signin-btn btn-text" />
-
+				update="@form, :registerForm:messages"
+				styleClass="signin-btn btn-text" />
 
 			<p:messages id="messages" showDetail="true" showIcon="false"
 				autoUpdate="true" styleClass="btn-text" />
-
 		</h:form> </div> </div> </div>
 
 		<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
