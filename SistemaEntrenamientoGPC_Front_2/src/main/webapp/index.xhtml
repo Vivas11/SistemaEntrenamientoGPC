@@ -1,220 +1,176 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"> <ui:composition
+	template="template/template.xhtml">
 
-<ui:composition template="template/template.xhtml">
+	<ui:define name="content">
 
-    <ui:define name="content">
-    
-      <!-- Menú de botones -->
-            <div class="botones-contenedor">
-                <div class="boton-item">
-                    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
-                        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
-                    </h:link>
-                    <p class="btn-text">📖 Aprendamos Juntos</p>
-                </div>
+		<div class="botones-contenedor"> <div class="boton-item">
+		<h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
+			<img src="assets/temario.gif" width="75" height="75" alt="Temario" />
+		</h:link> <p class="btn-text">📖 Aprendamos Juntos</p> </div> <div class="boton-item">
+		<h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
+			<img src="assets/problemas.gif" width="75" height="75"
+				alt="Problemas" />
+		</h:link> <p class="btn-text">🧩 Retos divertidos</p> </div> <div class="boton-item">
+		<h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
+			<img src="assets/book.gif" width="75" height="75" alt="Libros" />
+		</h:link> <p class="btn-text">📚 Cuentos y Libros</p> </div> <div class="boton-item">
+		<h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
+			<img src="assets/link.gif" width="75" height="75" alt="Links" />
+		</h:link> <p class="btn-text">🌍 Aventuras en la web</p> </div> <div
+			class="boton-item"> <h:link outcome="eventos.xhtml"
+			styleClass="btn-img btn-rubble">
+			<img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
+		</h:link> <p class="btn-text">🎉 Actividades y Juegos</p> </div> </div>
 
-                <div class="boton-item">
-                    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
-                        <img src="assets/problemas.gif" width="75" height="75" alt="Problemas" />
-                    </h:link>
-                    <p class="btn-text">🧩 Retos divertidos</p>
-                </div>
-
-                <div class="boton-item">
-                    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
-                        <img src="assets/book.gif" width="75" height="75" alt="Libros" />
-                    </h:link>
-                    <p class="btn-text">📚 Cuentos y Libros</p>
-                </div>
-
-                <div class="boton-item">
-                    <h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
-                        <img src="assets/link.gif" width="75" height="75" alt="Links" />
-                    </h:link>
-                    <p class="btn-text">🌍 Aventuras en la web</p>
-                </div>
-
-                <div class="boton-item">
-                    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
-                        <img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
-                    </h:link>
-                    <p class="btn-text">🎉 Actividades y Juegos</p>
-                </div>
-            </div>
-
-        <div class="main" style="display: flex; justify-content: center; align-items: center;"    >
-
-          
-
-	<p:panel header="🚨🐾 ¡Bienvenido a la Patrulla más aventurera de la web! 🐾🚨">
-            <div class="ui-panelinicio content-flex">
-
-<div class="d-inline-block" >
-    <a class="btn  mt-5 validate-button bold-comic" data-bs-toggle="collapse"
-       href="#collapseExample" role="button" aria-expanded="false"
-       aria-controls="collapseExample">
-        🚀 ¡Vamos a jugar! 🎮
-    </a>
-
-    <div class="collapse mt-2" id="collapseExample">
-        <div class="card card-body border-0 shadow-none p-4 card-benefit same-height">
-
-            <h:form styleClass="login-box" rendered="#{loginbean.sesionIniciada}">
-                <h2 class="login-title btn-text">✅ Sesión Iniciada</h2>
-
-                <h:panelGroup rendered="#{loginbean.sesionIniciada}" styleClass="welcome-box">
-                    <h2 class="btn-text">👋 Bienvenido, #{loginbean.user}</h2>
-                    <p class="btn-text">Nos alegra verte de nuevo. Explora los temas y juegos 🚀.</p>
-                </h:panelGroup>
-
-                <div class="mt-3">
-                    <h:commandButton value="🔓 Cerrar Sesión" 
-                                     action="#{loginbean.cerrarSesion}" 
-                                     styleClass="btn btn-danger w-100"/>
-                </div>
-            </h:form>
-
-            <h:form styleClass="login-box" rendered="#{!loginbean.sesionIniciada}">
-                <h2 class="login-title btn-text">✨ Inicia tu aventura ✨</h2>
-
-                <span class="input-span">
-                    <label for="email" class="span btn-text">📧 Correo divertido</label>
-                    <p:inputText id="email" 
-                                 value="#{loginbean.user}" 
-                                 required="true"
-                                 autocomplete="off" 
-                                 styleClass="form-control form-input"/>
-                </span>
-
-                <span class="input-span">
-                    <label for="password" class="span btn-text">🔒 Contraseña secreta</label>
-                    <p:password id="password" 
-                                value="#{loginbean.password}" 
-                                feedback="false" 
-                                toggleMask="true"
-                                required="true" 
-                                autocomplete="off" 
-                                styleClass="form-control form-input"/>
-                </span>
-
-                <div class="signin-actions mt-3">
-                    <p:commandButton value="🚀 Entrar" 
-                                     action="#{loginbean.iniciarSesion}" 
-                                     process="@form" 
-                                     update="@all"
-                                     styleClass="btn w-100 validate-button bold-comic"
-                                     style="background-color: #6FA8DC !important; border: none;"/>
-                </div>
-
-                <span class="span btn-text mt-2 d-block">
-                    ❓ ¿Aún no tienes tu pase mágico?
-                    <h:link outcome="registrar.xhtml">✨ Créalo aquí ✨</h:link>
-                </span>
-
-                <p:messages id="login-msg" globalOnly="true" autoUpdate="true" showDetail="true" closable="true"/>
-            </h:form>
-
-        </div>
-    </div>
-</div>
+		<div class="main"
+			style="display: flex; justify-content: center; align-items: center;">
 
 
+		<p:panel
+			header="🚨🐾 ¡Bienvenido a la Patrulla más aventurera de la web! 🐾🚨">
+			<div class="ui-panelinicio content-flex"> <div
+				class="d-inline-block"> <a
+				class="btn  mt-5 validate-button bold-comic"
+				data-bs-toggle="collapse" href="#collapseExample" role="button"
+				aria-expanded="false" aria-controls="collapseExample"> 🚀 ¡Vamos
+			a jugar! 🎮 </a> <div class="collapse mt-2" id="collapseExample"> <div
+				class="card card-body border-0 shadow-none p-4 card-benefit same-height">
 
-                <div class="right-column">
-                    <div class="cards-container d-flex justify-content-center mt-4">
-                        <h:form id="formJuego">
-                            <p:growl id="msgs" showDetail="true" life="3000" />
+			<h:form styleClass="login-box" rendered="#{loginbean.sesionIniciada}">
+				<h2 class="login-title btn-text">🐾 ¡Bienvenido a la Patrulla!</h2>
 
-                            <!-- Juego 1 -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarJuego1}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete aprendiendo y jugando con la Patrulla! 🐾</h5>
-                                <p class="card-text btn-text bold-comic">👩‍💻 ¿Con qué número comienzan a contar los programadores?</p>
-                                <p:inputText value="#{juegoBean.respuesta}" 
-                                             placeholder="Número..." 
-                                             styleClass="form-control btn-text form-input" />
-                                <p:commandButton value="Validar"
-                                                 actionListener="#{juegoBean.validarJuego1}"
-                                                 update="formJuego msgs"
-                                                 styleClass="btn btn-text validate-button bold-comic" />
-                            </p:outputPanel>
+				<h:panelGroup rendered="#{loginbean.sesionIniciada}"
+					styleClass="welcome-box">
+					<h2 class="btn-text bold-comic">¡Hola #{loginbean.user}! 🐾</h2>
+					<p class="btn-text bold-comic">La Patrulla está lista para la
+					aventura. Vamos a aprender y divertirnos juntos 🚀!”</p>
+				</h:panelGroup>
 
-                            <!-- Juego 2 -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarJuego2}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete aprendiendo y jugando con la Patrulla! 🐾</h5>
-                                <p class="card-text btn-text bold-comic">☕ ¿Qué lenguaje de programación tiene como logo una taza de café?</p>
-                                <p:inputText value="#{juegoBean.respuesta}" 
-                                             placeholder="Nombre del lenguaje..." 
-                                             styleClass="form-control btn-text form-input" />
-                                <p:commandButton value="Validar"
-                                                 actionListener="#{juegoBean.validarJuego2}"
-                                                 update="formJuego msgs"
-                                                 styleClass="btn btn-text" />
-                            </p:outputPanel>
+				<div class="mt-3"> <h:commandButton value="🔓 Cerrar Sesión"
+					action="#{loginbean.cerrarSesion}"
+					styleClass="btn btn-danger w-100 delete-button" /> </div>
+			</h:form> <h:form styleClass="login-box"
+				rendered="#{!loginbean.sesionIniciada}">
+				<h2 class="login-title btn-text bold-comic">✨ Inicia tu
+				aventura ✨</h2>
 
-                            <!-- Juego 3 -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarJuego3}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic" >🌟 ¡Diviértete aprendiendo y jugando con la Patrulla! 🐾</h5>
-                                <p class="card-text btn-text bold-comic">➕ Si 2 + 2 = 4, ¿cuánto es 3 + 3?</p>
-                                <p:inputText value="#{juegoBean.respuesta}" 
-                                             placeholder="Número..." 
-                                             styleClass="form-control btn-text form-input" />
-                                <p:commandButton value="Validar"
-                                                 actionListener="#{juegoBean.validarJuego3}"
-                                                 update="formJuego msgs"
-                                                 styleClass="btn btn-text" />
-                            </p:outputPanel>
+				<span class="input-span"> <label for="email"
+					class="span btn-text bold-comic">📧 Correo divertido</label> <p:inputText
+					id="email" value="#{loginbean.user}" required="true"
+					autocomplete="off" styleClass="form-control form-input" /> </span>
 
-                            <!-- Juego 4 -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarJuego4}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic" >🌟 ¡Diviértete aprendiendo y jugando con la Patrulla! 🐾</h5>
-                                <p class="card-text btn-text bold-comic">🔁 ¿Qué palabra usamos para repetir instrucciones en programación?</p>
-                                <p:inputText value="#{juegoBean.respuesta}" 
-                                             placeholder="Escribe 'bucle' o 'loop'" 
-                                             styleClass="form-control btn-text form-input" />
-                                <p:commandButton value="Validar"
-                                                 actionListener="#{juegoBean.validarJuego4}"
-                                                 update="formJuego msgs"
-                                                 styleClass="btn btn-text" />
-                            </p:outputPanel>
+				<span class="input-span"> <label for="password"
+					class="span btn-text bold-comic">🔒 Contraseña secreta</label> <p:password
+					id="password" value="#{loginbean.password}" feedback="false"
+					toggleMask="true" required="true" autocomplete="off"
+					styleClass="form-control form-input" /> </span>
 
-                            <!-- Juego 5 -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarJuego5}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete aprendiendo y jugando con la Patrulla! 🐾</h5>
-                                <p class="card-text btn-text bold-comic">🐱 ¿Cómo se llama el programa de bloques con un gato naranja?</p>
-                                <p:inputText value="#{juegoBean.respuesta}" 
-                                             placeholder="Nombre del programa..." 
-                                             styleClass="form-control btn-text" />
-                                <p:commandButton value="Validar"
-                                                 actionListener="#{juegoBean.validarJuego5}"
-                                                 update="formJuego msgs"
-                                                 styleClass="btn btn-text form-input" />
-                            </p:outputPanel>
+				<div class="signin-actions mt-3"> <p:commandButton
+					value="🚀 Entrar" action="#{loginbean.iniciarSesion}"
+					process="@form" update="@all"
+					styleClass="btn w-100 validate-button bold-comic"
+					style="background-color: #6FA8DC !important; border: none;" /> </div>
 
-                            <!-- Final -->
-                            <p:outputPanel rendered="#{juegoBean.mostrarFinal}" styleClass="card-juego">
-                                <h5 class="card-title btn-text bold-comic">🎉 ¡Felicidades!</h5>
-                                <p class="card-text btn-text bold-comic">Has completado todos los juegos de la patrulla. 🚀</p>
-                            </p:outputPanel>
+				<span class="span btn-text bold-comic mt-2 d-block"> ❓ ¿Aún
+				no tienes tu pase mágico? <h:link outcome="registrar.xhtml"
+					styleClass=" btn-text">✨ Créalo aquí ✨</h:link> </span>
 
-                        </h:form>
-                    </div>
-                </div>
-            </div>
-            </p:panel>
-            
-        </div>
-        
+				<p:messages id="login-msg" globalOnly="true" autoUpdate="true"
+					showDetail="true" closable="true" />
+			</h:form> </div> </div> </div> <div class="right-column"> <div
+				class="cards-container d-flex justify-content-center mt-4"> <h:form
+				id="formJuego">
+				<p:growl id="msgs" showDetail="true" life="3000" />
 
-    </ui:define>
+				<p:outputPanel rendered="#{juegoBean.mostrarJuego1}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete
+					aprendiendo y jugando con la Patrulla! 🐾</h5>
+					<p class="card-text btn-text bold-comic">👩‍💻 ¿Con qué número
+					comienzan a contar los programadores?</p>
+					<p:inputText value="#{juegoBean.respuesta}" placeholder="Número..."
+						styleClass="form-control btn-text form-input" />
+					<p:commandButton value="Validar"
+						actionListener="#{juegoBean.validarJuego1}"
+						update="formJuego msgs"
+						styleClass="btn btn-text validate-button bold-comic" />
+				</p:outputPanel>
 
-</ui:composition>
-</html>
+				<p:outputPanel rendered="#{juegoBean.mostrarJuego2}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete
+					aprendiendo y jugando con la Patrulla! 🐾</h5>
+					<p class="card-text btn-text bold-comic">☕ ¿Qué lenguaje de
+					programación tiene como logo una taza de café?</p>
+					<p:inputText value="#{juegoBean.respuesta}"
+						placeholder="Nombre del lenguaje..."
+						styleClass="form-control btn-text form-input" />
+					<p:commandButton value="Validar"
+						actionListener="#{juegoBean.validarJuego2}"
+						update="formJuego msgs" styleClass="btn btn-text" />
+				</p:outputPanel>
+
+				<p:outputPanel rendered="#{juegoBean.mostrarJuego3}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete
+					aprendiendo y jugando con la Patrulla! 🐾</h5>
+					<p class="card-text btn-text bold-comic">➕ Si 2 + 2 = 4,
+					¿cuánto es 3 + 3?</p>
+					<p:inputText value="#{juegoBean.respuesta}" placeholder="Número..."
+						styleClass="form-control btn-text form-input" />
+					<p:commandButton value="Validar"
+						actionListener="#{juegoBean.validarJuego3}"
+						update="formJuego msgs" styleClass="btn btn-text" />
+				</p:outputPanel>
+
+				<p:outputPanel rendered="#{juegoBean.mostrarJuego4}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete
+					aprendiendo y jugando con la Patrulla! 🐾</h5>
+					<p class="card-text btn-text bold-comic">🔁 ¿Qué palabra usamos
+					para repetir instrucciones en programación?</p>
+					<p:inputText value="#{juegoBean.respuesta}"
+						placeholder="Escribe 'bucle' o 'loop'"
+						styleClass="form-control btn-text form-input" />
+					<p:commandButton value="Validar"
+						actionListener="#{juegoBean.validarJuego4}"
+						update="formJuego msgs" styleClass="btn btn-text" />
+				</p:outputPanel>
+
+				<p:outputPanel rendered="#{juegoBean.mostrarJuego5}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🌟 ¡Diviértete
+					aprendiendo y jugando con la Patrulla! 🐾</h5>
+					<p class="card-text btn-text bold-comic">🐱 ¿Cómo se llama el
+					programa de bloques con un gato naranja?</p>
+					<p:inputText value="#{juegoBean.respuesta}"
+						placeholder="Nombre del programa..."
+						styleClass="form-control btn-text" />
+					<p:commandButton value="Validar"
+						actionListener="#{juegoBean.validarJuego5}"
+						update="formJuego msgs" styleClass="btn btn-text form-input" />
+				</p:outputPanel>
+
+				<p:outputPanel rendered="#{juegoBean.mostrarFinal}"
+					styleClass="card-juego">
+					<h5 class="card-title btn-text bold-comic">🎉 ¡Felicidades!</h5>
+					<p class="card-text btn-text bold-comic">Has completado todos
+					los juegos de la patrulla. 🚀</p>
+				</p:outputPanel>
+
+			</h:form> </div> </div> </div>
+		</p:panel> </div>
+
+
+	</ui:define>
+
+</ui:composition> </html>
 
 
 

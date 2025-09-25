@@ -5,52 +5,105 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui"> <ui:composition
+	template="template/template.xhtml">
 	<ui:define name="content">
-		<div class="main">
-		
-		         <div class="botones-contenedor">
 
-                <div class="boton-item">
-                    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
-                        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
-                    </h:link>
-                    <p class="btn-text">📖 Aprendamos Juntos</p>
-                </div>
+		<div class="botones-contenedor"> <div class="boton-item">
+		<h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
+			<img src="assets/temario.gif" width="75" height="75" alt="Temario" />
+		</h:link> <p class="btn-text">📖 Aprendamos Juntos</p> </div> <div class="boton-item">
+		<h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
+			<img src="assets/problemas.gif" width="75" height="75"
+				alt="Problemas" />
+		</h:link> <p class="btn-text">🧩 Retos divertidos</p> </div> <div class="boton-item">
+		<h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
+			<img src="assets/book.gif" width="75" height="75" alt="Libros" />
+		</h:link> <p class="btn-text">📚 Cuentos y Libros</p> </div> <div class="boton-item">
+		<h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
+			<img src="assets/link.gif" width="75" height="75" alt="Links" />
+		</h:link> <p class="btn-text">🌍 Aventuras en la web</p> </div> <div
+			class="boton-item"> <h:link outcome="eventos.xhtml"
+			styleClass="btn-img btn-rubble">
+			<img
+				src="https://candybargratis.com/wp-content/uploads/2023/09/bonobon-candy-bar-PAW-PATROL-PERSONAJES-RUBBLE-kit-imprimible.png"
+				width="75" height="75" alt="Eventos" />
+		</h:link> <p class="btn-text">🏗️ Actividades con Rubble</p> </div> </div>
+		<div class="main"
+			style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
 
-                <div class="boton-item">
-                    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
-                        <img src="assets/problemas.gif" width="75" height="75" alt="Problemas" />
-                    </h:link>
-                    <p class="btn-text">🧩 Retos divertidos</p>
-                </div>
+		<div class="card"> <p:messages id="messages" showDetail="true"
+			showIcon="false">
+			<p:autoUpdate />
+		</p:messages> <p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+			sticky="true" /> <h:form id="formEventosEliminar">
+			<p:schedule id="schedule" value="#{eventbean.eventModel}"
+				widgetVar="myschedule" timeZone="UTC" draggable="false"
+				resizable="false" selectable="false" allDaySlot="true"
+				aspectRatio="1.5">
 
-                <div class="boton-item">
-                    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
-                        <img src="assets/book.gif" width="75" height="75" alt="Libros" />
-                    </h:link>
-                    <p class="btn-text">📚 Cuentos y Libros</p>
-                </div>
+				<p:ajax event="eventSelect" listener="#{eventbean.onEventSelect}"
+					update=":formEventosEliminar:dialogDetalle"
+					oncomplete="PF('dlgDetalle').show()" />
+			</p:schedule>
 
-                <div class="boton-item">
-                    <h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
-                        <img src="assets/link.gif" width="75" height="75" alt="Links" />
-                    </h:link>
-                    <p class="btn-text">🌍 Aventuras en la web</p>
-                </div>
+			<p:dialog id="dialogDetalle" header="Detalles del Evento"
+				widgetVar="dlgDetalle" modal="true" resizable="false"
+				closable="true" width="400">
 
-                <div class="boton-item">
-                    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
-                        <img src="https://candybargratis.com/wp-content/uploads/2023/09/bonobon-candy-bar-PAW-PATROL-PERSONAJES-RUBBLE-kit-imprimible.png" width="75" height="75" alt="Eventos" />
-                    </h:link>
-                    <p class="btn-text">🏗️ Actividades con Rubble</p>
-                </div>
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Título:" />
+					<h:outputText value="#{eventbean.event.title}" />
 
-            </div>
-		
-		</div>
+					<h:outputText value="Descripción:" />
+					<h:outputText value="#{eventbean.event.description}" />
+
+					<h:outputText value="Inicio:" />
+					<h:outputText value="#{eventbean.event.startDate}" />
+
+					<h:outputText value="Fin:" />
+					<h:outputText value="#{eventbean.event.endDate}" />
+
+					<p:commandButton value="Eliminar"
+						rendered="#{eventbean.adminIniciada}"
+						action="#{eventbean.eliminarEvento(eventbean.event)}"
+						process="@this" update=":formEventosEliminar:schedule formEventos"
+						oncomplete="PF('dlgDetalle').hide()" icon="pi pi-trash"
+						styleClass="ui-button-danger" />
+
+
+				</h:panelGrid>
+			</p:dialog>
+		</h:form> <h:form id="formEventos" rendered="#{eventbean.adminIniciada}">
+			<p:panel header="Registrar Evento">
+				<h:panelGrid columns="1" columnClasses="label,value"
+					style="width:100%">
+
+					<!-- Nombre del evento -->
+					<h:outputLabel for="nombre" value="Nombre:" />
+					<p:inputText id="nombre" value="#{eventbean.nombre}"
+						required="true" placeholder="Ej: Reunión de equipo" />
+
+					<!-- Fecha del evento -->
+					<p:outputLabel for="fecha" value="Fecha" />
+					<p:datePicker id="fecha" value="#{eventbean.fecha}" showIcon="true"
+						showOnFocus="false" />
+
+					<!-- Descripción -->
+					<h:outputLabel for="descripcion" value="Descripción:" />
+					<p:inputTextarea id="descripcion" value="#{eventbean.descripcion}"
+						rows="3" autoResize="true" placeholder="Detalles del evento..." />
+				</h:panelGrid>
+
+				<p:separator />
+
+				<!-- Botón Guardar -->
+				<p:commandButton value="Guardar" action="#{eventbean.agregarEvento}"
+					process="formEventos"
+					update=":formEventosEliminar:schedule formEventos"
+					icon="pi pi-save" styleClass="ui-button-success" />
+
+			</p:panel>
+		</h:form></div> </div>
 	</ui:define>
-</ui:composition>
-</html>
+</ui:composition> </html>

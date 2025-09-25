@@ -5,126 +5,98 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui"> <ui:composition
+	template="template/template.xhtml">
 	<ui:define name="content">
-		<div class="main">
-		
-		         <div class="botones-contenedor">
+		<div class="botones-contenedor"> <div class="boton-item">
+		<h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
+			<img src="assets/temario.gif" width="75" height="75" alt="Temario" />
+		</h:link> <p class="btn-text">📖 Aprendamos Juntos</p> </div> <div class="boton-item">
+		<h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
+			<img src="assets/problemas.gif" width="75" height="75"
+				alt="Problemas" />
+		</h:link> <p class="btn-text">🧩 Retos divertidos</p> </div> <div class="boton-item">
+		<h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
+			<img
+				src="https://static.posters.cz/image/1300/stampa-su-tela-paw-patrol-marshall-ready-to-rescue-i111136.jpg"
+				width="75" height="75" alt="Libros" />
+		</h:link> <p class="btn-text">🚒 Aventuras con Marshall</p> </div> <div
+			class="boton-item"> <h:link outcome="links.xhtml"
+			styleClass="btn-img btn-chase">
+			<img src="assets/link.gif" width="75" height="75" alt="Links" />
+		</h:link> <p class="btn-text">🌍 Aventuras en la web</p> </div> <div
+			class="boton-item"> <h:link outcome="eventos.xhtml"
+			styleClass="btn-img btn-rubble">
+			<img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
+		</h:link> <p class="btn-text">🎉 Actividades y Juegos</p> </div> </div>
 
-                <div class="boton-item">
-                    <h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
-                        <img src="assets/temario.gif" width="75" height="75" alt="Temario" />
-                    </h:link>
-                    <p class="btn-text">📖 Aprendamos Juntos</p>
-                </div>
+		<div class="main"
+			style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
 
-                <div class="boton-item">
-                    <h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
-                        <img src="assets/problemas.gif" width="75" height="75" alt="Problemas" />
-                    </h:link>
-                    <p class="btn-text">🧩 Retos divertidos</p>
-                </div>
+		<p:panel header="📚 ¡Hora de explorar la biblioteca, equipo!"
+			styleClass="ui-panelinicio custom-panel"
+			style="width: 100%; max-width: 1000px; margin: 20px auto;">
+			<h:form id="formListadoLibros">
+				<p:dataGrid value="#{librobean.listaLibros}" var="libro" columns="3"
+					layout="grid" paginator="true" rows="9" styleClass="libro-grid">
 
-                <div class="boton-item">
-                    <h:link outcome="libros.xhtml" styleClass="btn-img btn-marshall">
-                        <img src="https://static.posters.cz/image/1300/stampa-su-tela-paw-patrol-marshall-ready-to-rescue-i111136.jpg" width="75" height="75" alt="Libros" />
-                    </h:link>
-                    <p class="btn-text">🚒 Aventuras con Marshall</p>
-                </div>
+					<p:panel styleClass="libro-card bold-comic">
+						<h3>#{libro.nombre}</h3>
+						<p> <b>Descripción:</b> #{libro.descripcion}</p>
+						<div class="acciones d-flex justify-content-center gap-2"> <p:commandButton
+							value="Descargar PDF" ajax="false" icon="pi pi-download"
+							actionListener="#{librobean.seleccionar(libro)}"
+							styleClass="btn btn-primary link-button bold-comic">
+							<p:fileDownload value="#{librobean.pdfDownload}" />
+						</p:commandButton> <p:commandButton
+							styleClass="btn btn-danger delete-buttonpdf bold-comic"
+							actionListener="#{librobean.eliminar(libro)}" ajax="true"
+							value="Eliminar" rendered="#{librobean.adminIniciada}"
+							process="@this" update="formListadoLibros">
+						</p:commandButton> </div>
+					</p:panel>
+				</p:dataGrid>
+			</h:form>
+		</p:panel> <p:panel
+			header="🐾 ¡Añadir un nuevo libro a la patrulla de conocimientos!"
+			styleClass="ui-panelinicio custom-panel bold-comic"
+			style="width: 100%; max-width: 600px; margin: 20px auto; "
+			rendered="#{librobean.adminIniciada}">
+			<h:form id="formSubidaLibro" enctype="multipart/form-data">
+				<h:panelGrid columns="2" columnClasses="label,value"
+					style="width:100%">
+					<h:outputLabel for="nombre" value="Nombre:" />
+					<p:inputText styleClass=" form-input bold-comic " id="nombre"
+						value="#{librobean.nombre}" required="true" />
 
-                <div class="boton-item">
-                    <h:link outcome="links.xhtml" styleClass="btn-img btn-chase">
-                        <img src="assets/link.gif" width="75" height="75" alt="Links" />
-                    </h:link>
-                    <p class="btn-text">🌍 Aventuras en la web</p>
-                </div>
+					<h:outputLabel for="descripcion" value="Descripción:" />
+					<p:inputText styleClass=" form-input bold-comic " id="descripcion"
+						value="#{librobean.descripcion}" required="true" />
 
-                <div class="boton-item">
-                    <h:link outcome="eventos.xhtml" styleClass="btn-img btn-rubble">
-                        <img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
-                    </h:link>
-                    <p class="btn-text">🎉 Actividades y Juegos</p>
-                </div>
-            </div>
-            
-             <!-- FORMULARIO LISTADO/DESCARGA -->
-            <h:form id="formListadoLibros">
-                <p:dataGrid value="#{librobean.listaLibros}" var="libro"
-                            columns="3" layout="grid" paginator="true" rows="9"
-                            styleClass="libro-grid">
+					<h:outputLabel for="pdf" value="Archivo PDF:" />
+					<p:fileUpload id="pdf" value="#{librobean.pdf}" mode="simple"
+						allowTypes="/(\.|\/)(pdf)$/" label="Subir PDF"
+						styleClass=" form-input bold-comic " />
 
-                    <p:panel styleClass="libro-card">
-                        <h3>#{libro.nombre}</h3>
-                        <p><b>Descripción:</b> #{libro.descripcion}</p>
+					<h:outputLabel for="img" value="Imagen:" />
+					<p:fileUpload id="img" value="#{librobean.img}" mode="simple"
+						allowTypes="/(\.|\/)(jpg|jpeg|png)$/" label="Subir Imagen"
+						styleClass=" form-input bold-comic " />
+				</h:panelGrid>
 
-                        <div class="acciones">
-                            <!-- Descargar PDF -->
-                            <p:commandButton value="Descargar PDF" ajax="false"
-                                             icon="pi pi-download"
-                                             actionListener="#{librobean.seleccionar(libro)}">
-                                <p:fileDownload value="#{librobean.pdfDownload}" />
-                            </p:commandButton>
+				<p:separator style="margin: 15px 0;" />
 
-                            <!-- Botón Eliminar -->
-                            <p:commandButton styleClass="delete-button"
-                                             actionListener="#{librobean.eliminar(libro)}"
-                                             ajax="true"
-                                             value="Eliminar"
-                                             rendered="#{librobean.adminIniciada}"
-                                             process="@this"
-                                             update="formListadoLibros">
-                                <f:facet name="output">
-                                    <span class="text">Delete</span>
-                                    <span class="icon">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
-                                             alt="delete" />
-                                    </span>
-                                </f:facet>
-                            </p:commandButton>
-                        </div>
-                    </p:panel>
+				<div class="main" style="text-align: center;"> <p:commandButton
+					value="Guardar" action="#{librobean.guardarNuevoLibro}"
+					process="@form" update=":formListadoLibros" icon="pi pi-save"
+					styleClass="save-button ui-button-success bold-comic" /> </div>
 
-                </p:dataGrid>
-            </h:form>
+			</h:form>
+		</p:panel> </div>
 
-            <!-- FORMULARIO SUBIDA -->
-            <h:form id="formSubidaLibro" enctype="multipart/form-data" rendered="#{librobean.adminIniciada}">
-                <p:panel header="Añadir Nuevo Libro" style="margin-top:20px;">
 
-                    <h:panelGrid columns="2" columnClasses="label,value" style="width:100%">
-                        <h:outputLabel for="nombre" value="Nombre:" />
-                        <p:inputText id="nombre" value="#{librobean.nombre}" required="true" />
 
-                        <h:outputLabel for="descripcion" value="Descripción:" />
-                        <p:inputText id="descripcion" value="#{librobean.descripcion}" required="true" />
 
-                        <h:outputLabel for="pdf" value="Archivo PDF:" />
-                        <p:fileUpload id="pdf" value="#{librobean.pdf}" mode="simple"
-                                      allowTypes="/(\.|\/)(pdf)$/" label="Subir PDF" />
 
-                        <h:outputLabel for="img" value="Imagen:" />
-                        <p:fileUpload id="img" value="#{librobean.img}" mode="simple"
-                                      allowTypes="/(\.|\/)(jpg|jpeg|png)$/" label="Subir Imagen" />
-                    </h:panelGrid>
-
-                    <p:separator />
-
-                    <p:commandButton value="Guardar"
-                                     action="#{librobean.guardarNuevoLibro}"
-                                     process="@form"
-                                     update=":formListadoLibros"
-                                     icon="pi pi-save"
-                                     styleClass="ui-button-success" />
-                </p:panel>
-            </h:form>
-            
-            
-            
-            
-            
-		</div>
 	</ui:define>
-</ui:composition>
-</html>
+</ui:composition> </html>

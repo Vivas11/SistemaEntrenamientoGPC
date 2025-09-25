@@ -7,9 +7,8 @@
 	xmlns:p="http://primefaces.org/ui"> <ui:composition
 	template="template/template.xhtml">
 	<ui:define name="content">
-		<div class="main"> <div class="botones-contenedor"> <div
-			class="boton-item"> <h:link outcome="temario.xhtml"
-			styleClass="btn-img btn-rocky">
+		<div class="botones-contenedor"> <div class="boton-item">
+		<h:link outcome="temario.xhtml" styleClass="btn-img btn-rocky">
 			<img src="assets/temario.gif" width="75" height="75" alt="Temario" />
 		</h:link> <p class="btn-text">📖 Aprendamos Juntos</p> </div> <div class="boton-item">
 		<h:link outcome="problemas.xhtml" styleClass="btn-img btn-skye">
@@ -27,16 +26,24 @@
 			class="boton-item"> <h:link outcome="eventos.xhtml"
 			styleClass="btn-img btn-rubble">
 			<img src="assets/calendario.gif" width="75" height="75" alt="Eventos" />
-		</h:link> <p class="btn-text">🎉 Actividades y Juegos</p> </div> </div> <p:messages
-			id="messages" showDetail="true" showIcon="true">
-			<p:autoUpdate />
-		</p:messages> <p:growl id="growl-sticky" for="sticky-key" showDetail="true"
-			sticky="true" /> 
-			
-			<h:form id="formProblemas" Class="custom-panel">
+		</h:link> <p class="btn-text">🎉 Actividades y Juegos</p> </div> </div>
 
-			<p:panel header="🎮 Listado de Problemas Divertidos"
-				styleClass="ui-panel custom-panel">
+
+		<div class="main"
+			style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
+
+
+		<p:panel
+			header="🌸 ¡Los retos son aventuras en el aire, vamos a disfrutarlos!"
+			styleClass="ui-panel custom-panel"
+			style="width: 100%; max-width: 1000px; margin: 20px auto;">
+			<h:form id="formProblemas">
+				<p:messages id="messages" showDetail="true" showIcon="true">
+					<p:autoUpdate />
+				</p:messages>
+				<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+					sticky="true" />
+
 				<p:dataTable value="#{problemabean.problemas}" var="prob"
 					paginator="true" rows="10" responsiveLayout="scroll"
 					class="compact" rowIndexVar="i">
@@ -53,36 +60,38 @@
 						<h:outputText value="#{prob.tema}" />
 					</p:column>
 					<p:column headerText="🌐 Juez">
-						<p:button value="Ver en Juez" icon="pi pi-external-link"
-							href="#{prob.juez}" target="_blank" styleClass="ui-button-info" />
+						<p:button value="Jugar" icon="pi pi-external-link"
+							href="#{prob.juez}" target="_blank"
+							styleClass="validate-button bold-comic" />
 					</p:column>
 					<p:column headerText="⚙️ Acciones"
 						rendered="#{problemabean.adminIniciada}">
 						<p:commandButton value="Eliminar" update="formProblemas"
 							process="@this" action="#{problemabean.eliminarProblema(prob)}"
-							styleClass="delete-button" icon="pi pi-trash" style="font-family: 'Comic Sans MS', cursive; font-weight: bold;"  />
+							styleClass="delete-button bold-comic" icon="pi pi-trash" />
 					</p:column>
 				</p:dataTable>
-			</p:panel>
-
-			<p:panel header="✨ ¡Crea un Nuevo Reto! ✨"
-				Class="ui-panel ui-panel-titlebar"
-				style="margin-top:20px; border-radius: 15px !important;"
-				rendered="#{problemabean.adminIniciada}">
+			</h:form>
+		</p:panel> <p:panel
+			header="🐶 ¡Sí! Crear retos nos hace más fuertes como equipo, ¡al rescate!"
+			styleClass="ui-panel custom-panel"
+			style="width: 100%; max-width: 600px; margin: 20px auto;"
+			rendered="#{problemabean.adminIniciada}">
+			<h:form id="formNuevoReto">
 				<h:panelGrid columns="1" columnClasses="form-field"
 					style="width:100%; max-width: 500px; margin: 0 auto;">
-					
 					<h:outputLabel for="nombre" value="Nombre:" />
 					<p:inputText id="nombre" value="#{problemabean.nombre}"
-						required="true" placeholder="Ejemplo: Laberinto" styleClass="form-input"/>
+						required="true" placeholder="Ejemplo: Laberinto"
+						styleClass="form-input" />
 
-					<h:outputLabel for="dificultad" value="Dificultad:"/>
+					<h:outputLabel for="dificultad" value="Dificultad:" />
 					<p:inputText id="dificultad" value="#{problemabean.dificultad}"
-						required="true" placeholder="Ejemplo: 5" styleClass="form-input"/>
+						required="true" placeholder="Ejemplo: 5" styleClass="form-input" />
 
 					<h:outputLabel for="tema" value="Tema" />
 					<p:inputText id="tema" value="#{problemabean.tema}" required="true"
-						placeholder="Analisis de grafos" styleClass="form-input"/>
+						placeholder="Análisis de grafos" styleClass="form-input" />
 
 					<h:outputLabel for="enlace" value="Enlace" />
 					<p:inputText id="enlace" value="#{problemabean.juez}"
@@ -94,13 +103,13 @@
 					<div style="text-align: center;"> <p:commandButton
 						value="¡Guardar mi reto! 🎉"
 						action="#{problemabean.crearProblema}" process="@form"
-						update="@all" icon="pi pi-save" styleClass="save-button"
-						style="font-family: 'Comic Sans MS', cursive; font-weight: bold;" />
-					</div>
+						update="@all" icon="pi pi-save"
+						styleClass="save-button validate-button bold-comic" /> </div>
 				</h:panelGrid>
-			</p:panel>
+			</h:form>
+		</p:panel> </div>
 
-		</h:form> </div>
+
 	</ui:define>
 </ui:composition> </html>
 
